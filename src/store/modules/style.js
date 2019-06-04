@@ -9,6 +9,7 @@ export default {
 		},
 		vars: {
 			backgroundColor: '#fff',
+			transitionDuring: 0.3,
 			sidebar: {
 				openWidth: 200,
 				hideWidth: 50,
@@ -16,16 +17,26 @@ export default {
 			},
 			toolbar: {
 				height: 50,
+			},
+			tipbar: {
+				width: 300,
+				bgc: '#f1f1f2',
 			}
 		}
 	},
 	getters: {
 		STYLE_VARIABLES: (state, getters, rootState, rootGetters) => {
 			return {
+				'--background-color': state.vars.backgroundColor,
+				'--transition-during': state.vars.transitionDuring + 's',
+
 				'--sidebar-width': (rootGetters.sidebarOpen ? state.vars.sidebar.openWidth : state.vars.sidebar.hideWidth) + 'px',
+
 				'--sidebar-bgc': state.vars.sidebar.bgc,
 				'--toolbar-height': state.vars.toolbar.height + 'px',
-				'--background-color': state.vars.backgroundColor,
+
+				'--tipbar-width': state.vars.tipbar.width + 'px',
+				'--tipbar-bgc': state.vars.tipbar.bgc,
 			}
 		}
 	}

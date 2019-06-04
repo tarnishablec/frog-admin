@@ -8,6 +8,7 @@
 <script>
 	import Sidebar from "@/layout/sidebar/index";
 	import Outside from "@/layout/outside/index";
+
 	export default {
 		name: "layout",
 		components: {Outside, Sidebar}
@@ -15,7 +16,7 @@
 </script>
 
 <style scoped>
-	#layout{
+	#layout {
 		display: flex;
 		height: 100vh;
 		width: 100vw;

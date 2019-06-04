@@ -1,14 +1,12 @@
 <template>
-	<div id="playground">
-		<h1>
-			Playground
-		</h1>
+	<div>
+		playground tip
 	</div>
 </template>
 
 <script>
 	export default {
-		name: "Playground",
+		name: "tip"
 	}
 </script>
 

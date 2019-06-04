@@ -2,15 +2,17 @@
 	<div id="outside">
 		<toolbar/>
 		<app-main/>
+		<tipbar/>
 	</div>
 </template>
 
 <script>
 	import Toolbar from "@/layout/outside/toolbar/index";
 	import AppMain from "@/layout/outside/appMain/index";
+	import tipbar from "@/layout/outside/tipbar/index";
 	export default {
 		name: "outside",
-		components: {AppMain, Toolbar}
+		components: {tipbar, AppMain, Toolbar}
 	}
 </script>
 

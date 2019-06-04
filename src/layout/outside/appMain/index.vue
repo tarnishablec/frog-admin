@@ -1,6 +1,8 @@
 <template>
 	<v-scroll id="app-main">
-		<router-view/>
+		<transition name="fade-transform" mode="out-in">
+			<router-view/>
+		</transition>
 	</v-scroll>
 </template>
 

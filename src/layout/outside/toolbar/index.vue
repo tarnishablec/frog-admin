@@ -1,12 +1,14 @@
 <template>
 	<div id="toolbar">
-
+		<sidebar-activator/>
 	</div>
 </template>
 
 <script>
+	import SidebarActivator from "@/layout/outside/toolbar/sidebarActivator";
 	export default {
-		name: "toolbar"
+		name: "toolbar",
+		components: {SidebarActivator}
 	}
 </script>
 

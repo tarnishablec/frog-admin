@@ -1,12 +1,14 @@
 <template>
 	<div id="sidebar">
-
+		<sidebar-logo/>
 	</div>
 </template>
 
 <script>
+	import SidebarLogo from "@/layout/sidebar/sidebarLogo/index";
 	export default {
-		name: "sidebar"
+		name: "sidebar",
+		components: {SidebarLogo}
 	}
 </script>
 

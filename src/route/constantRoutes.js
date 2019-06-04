@@ -2,7 +2,10 @@ const constantRoutes = [
 	{
 		path: '/',
 		name: 'home',
-		component: () => import('@/views/common/Home')
+		components: {
+			default: () => import('@/views/common/Home/index'),
+			tip: () => import('@/views/common/Home/tip')
+		}
 	},
 	{
 		path: '/about',
@@ -12,7 +15,10 @@ const constantRoutes = [
 	{
 		path: '/playground',
 		name: 'playground',
-		component: () => import('@/views/common/Playground')
+		components: {
+			default: () => import('@/views/common/Playground/index'),
+			tip: () => import('@/views/common/Playground/tip')
+		}
 	}
 ];
 
