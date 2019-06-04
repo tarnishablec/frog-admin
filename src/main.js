@@ -3,6 +3,7 @@ import App from './App.vue'
 import router from './route'
 import store from './store'
 import VuePerfectScrollbar from 'vue-perfect-scrollbar'
+import './plugins/element.js'
 
 
 Vue.config.productionTip = false;
