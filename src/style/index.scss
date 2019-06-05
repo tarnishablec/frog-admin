@@ -30,7 +30,7 @@ a {
 
 .el-menu {
   .el-menu-item, .el-submenu__title, .el-tooltip {
-    transition: all 1s ease-in 1s;
+    transition: padding-left 1s ease-in 1s;
   }
   &.el-menu--collapse {
     .el-menu-item, .el-submenu__title, .el-tooltip {
