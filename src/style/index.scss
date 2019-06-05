@@ -19,26 +19,19 @@ a {
 
 
 .nest-menu-item {
-  .el-submenu__title {
+  .el-submenu__title, .el-menu-item {
     background-color: #17212f !important;
-    &:hover{
-      background-color: #131b27!important;
-    }
-  }
 
-  .el-menu-item {
-    background-color: #17212f !important;
-    &:hover{
-      background-color: #131b27!important;
+    &:hover {
+      background-color: #131b27 !important;
     }
   }
 }
 
-.el-menu {
-  &.el-menu--collapse {
-   .el-submenu__title, .el-tooltip {
-      padding-left: 12px!important;
-    }
+.el-menu{
+  svg{
+    position: relative;
+    right: 2px;
   }
 }
 

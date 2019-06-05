@@ -12,11 +12,11 @@ export default {
 			transitionDuring: 0.3,
 			sidebar: {
 				openWidth: 200,
-				hideWidth: 50,
+				hideWidth: 64,
 				bgc: '#1d2936',
 			},
 			toolbar: {
-				height: 50,
+				height: 60,
 			},
 			tipbar: {
 				width: 300,
