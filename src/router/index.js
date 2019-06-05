@@ -52,10 +52,10 @@ export const fullRouter = constantRoutes.concat(dynamicRoutes);
 const _router = initRoutes(fullRouter);
 
 _router.beforeEach(((to, from, next) => {
-	console.log(_router);
-	if (!routeEureka(pathToArray(to.path), fullRouter)) {
+	let pathArray = pathToArray(to.path);
+	if (!routeEureka(pathArray, fullRouter)) {
 		return next('/error/404')
-	} else if (!routeEureka(pathToArray(to.path), store.state.permission.permittedRoutes)) {
+	} else if (!routeEureka(pathArray, store.state.permission.permittedRoutes)) {
 		return next('/error/403')
 	}
 	next();
