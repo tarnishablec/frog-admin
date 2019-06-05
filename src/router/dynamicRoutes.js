@@ -1,7 +1,7 @@
 const dynamicRoutes = [
 	{
 		path: '/test',
-		name: 'test',
+		name: 'Test',
 		components: {
 			default: () => import('@/views/common/Test'),
 		},

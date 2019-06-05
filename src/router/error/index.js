@@ -8,6 +8,11 @@ const error = {
 			path: '404',
 			name: 'NotFound',
 			component: () => import('../../views/error/404')
+		},
+		{
+			path: '403',
+			name: 'Forbidden',
+			component: () => import('../../views/error/403')
 		}
 	]
 };

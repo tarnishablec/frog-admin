@@ -17,6 +17,9 @@
 			...mapGetters({
 				STYLE_VARIABLES: 'STYLE_VARIABLES',
 			})
+		},
+		created() {
+			this.$store.dispatch('UPDATE_ROUTES').then();
 		}
 	}
 </script>

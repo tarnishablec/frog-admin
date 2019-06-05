@@ -21,13 +21,11 @@
 			})
 		},
 		watch: {
-			role: function () {
+			role() {
 				this.$store.dispatch('UPDATE_ROUTES').then();
 			}
 		},
-		mounted() {
-			this.$store.dispatch('UPDATE_ROUTES').then();
-		}
+
 	}
 </script>
 

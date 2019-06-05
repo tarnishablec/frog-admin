@@ -1,15 +1,17 @@
 <template>
 	<div id="error">
 		<router-link to="/">
-			<button>BACK</button>
+			<fr-button>BACK</fr-button>
 		</router-link>
 		<router-view/>
 	</div>
 </template>
 
 <script>
+	import FrButton from "@/components/frog-ui/frButton/index";
 	export default {
-		name: "error"
+		name: "error",
+		components: {FrButton}
 	}
 </script>
 

@@ -19,7 +19,7 @@
 				this.$store.commit('switchRole', 'root');
 			},
 			logout() {
-				this.$store.commit('switchRole', 'worker');
+				this.$store.commit('switchRole', 'user');
 			},
 		}
 	}
