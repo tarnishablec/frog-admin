@@ -36,7 +36,7 @@
 		flex-shrink: 0;
 		display: flex;
 		flex-direction: column;
-		transition: width 0.3s;
+		transition: width var(--transition-during);
 		background-color: var(--sidebar-bgc);
 		width: var(--sidebar-width);
 

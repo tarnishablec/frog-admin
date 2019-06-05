@@ -17,6 +17,8 @@
 				<br/>
 				width: <input v-model="$vars.tipbar.width"/>
 				color: <input v-model="$vars.tipbar.bgc"/>
+				<br/>
+				during: <input v-model="$vars.transitionDuring">
 			</label>
 		</div>
 	</div>

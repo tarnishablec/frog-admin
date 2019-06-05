@@ -20,21 +20,24 @@ a {
 
 .nest-menu-item {
   .el-submenu__title {
-    background-color: #0f161f !important;
+    background-color: #17212f !important;
+    &:hover{
+      background-color: #131b27!important;
+    }
   }
 
   .el-menu-item {
-    background-color: #0f161f !important;
+    background-color: #17212f !important;
+    &:hover{
+      background-color: #131b27!important;
+    }
   }
 }
 
 .el-menu {
-  .el-menu-item, .el-submenu__title, .el-tooltip {
-    transition: padding-left 1s ease-in 1s;
-  }
   &.el-menu--collapse {
-    .el-menu-item, .el-submenu__title, .el-tooltip {
-      padding-left: 12px !important;
+   .el-submenu__title, .el-tooltip {
+      padding-left: 12px!important;
     }
   }
 }
