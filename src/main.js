@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import App from './App.vue'
-import router from './route'
+import router from './router'
 import store from './store'
 import VuePerfectScrollbar from 'vue-perfect-scrollbar'
 import './plugins/element-ui.js'
@@ -12,6 +12,7 @@ Vue.config.productionTip = false;
 Vue.component('vScroll', VuePerfectScrollbar);
 
 Vue.prototype.$vars = store.state.style.vars;
+Vue.prototype.$themes = store.state.style.themes;
 
 new Vue({
 	router,

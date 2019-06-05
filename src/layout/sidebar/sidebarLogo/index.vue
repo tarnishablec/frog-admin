@@ -24,7 +24,8 @@
 			...mapGetters({
 				sidebarOpen: 'sidebarOpen'
 			})
-		}
+		},
+
 	}
 </script>
 
@@ -47,7 +48,6 @@
 			margin-left: 12px;
 			white-space: nowrap;
 			line-height: var(--toolbar-height);
-			font-size: 0.9em;
 		}
 	}
 </style>

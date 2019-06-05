@@ -34,7 +34,7 @@
 		width: var(--tipbar-width);
 		background-color: var(--tipbar-bgc);
 		position: fixed;
-		height: 100%;
+		height: 100vh;
 		right: 0;
 		transition: all var(--transition-during);
 
