@@ -56,8 +56,8 @@
 
 	.sidebar-menu-item {
 		transition: border 0.3s;
-		span {
-			margin-left: 25px;
+		.side-menu-icon {
+			margin-right: 25px;
 		}
 
 		&:hover:not(.nest-menu-item) {
