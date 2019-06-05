@@ -18,7 +18,7 @@ export function cleanRouter(route) {
 
 export function routeEureka(paths, routes) {
 	let tempPaths = [...paths];
-	let index = searchPathInRoutes(tempPaths.shift(), routes);
+	let index = indexOfPath(tempPaths.shift(), routes);
 	if (index < 0) {
 		return false
 	} else if (tempPaths.length !== 0) {
@@ -28,7 +28,7 @@ export function routeEureka(paths, routes) {
 	}
 }
 
-export function searchPathInRoutes(path, routes) {
+export function indexOfPath(path, routes) {
 	let routeArr = [];
 	for (let route of routes) {
 		routeArr.push(route.path);
