@@ -1,7 +1,5 @@
-import router, {cleanRouter, initRoutes} from '@/router'
+import router, {cleanRouter, fullRouter} from '@/router'
 import constantRoutes from '@/router/constantRoutes'
-import dynamicRoutes from '@/router/dynamicRoutes'
-import Vue from 'vue'
 
 const roleMap = {
 	root: -1,
@@ -16,8 +14,7 @@ const permission = {
 	},
 	mutations: {
 		prepareRoutes: state => {
-			console.log(constantRoutes.concat([...dynamicRoutes]));
-			state.permittedRoutes = filterAsyncRoutes(constantRoutes.concat([...dynamicRoutes]), state.role);
+			state.permittedRoutes = filterAsyncRoutes(fullRouter, state.role);
 		},
 
 		switchRole: (state, r) => {
@@ -29,7 +26,6 @@ const permission = {
 			cleanRouter(router);
 			commit('prepareRoutes');
 			router.addRoutes(state.permittedRoutes);
-			console.log(state.permittedRoutes);
 			return router;
 		},
 	}

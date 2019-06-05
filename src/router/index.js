@@ -16,21 +16,46 @@ export function cleanRouter(route) {
 	route.matcher = new Router([]).matcher; // reset router
 }
 
-export function isAllowed(path, routes) {
-	let arr = path.split('/');
-	arr[0] = '/' + arr[0];
-	for (let i = 0; i < arr.length; i++) {
-
+export function routeEureka(paths, routes) {
+	let tempPaths = [...paths];
+	let index = searchPathInRoutes(tempPaths.shift(), routes);
+	if (index < 0) {
+		return false
+	} else if (tempPaths.length !== 0) {
+		return routeEureka(tempPaths, routes[index].children)
+	} else {
+		return true;
 	}
 }
 
-const _router = initRoutes(constantRoutes.concat([...dynamicRoutes]));
+export function searchPathInRoutes(path, routes) {
+	let routeArr = [];
+	for (let route of routes) {
+		routeArr.push(route.path);
+	}
+	return routeArr.indexOf(path);
+}
+
+export function pathToArray(path) {
+	let arr = path.split('/');
+	arr.splice(0, 1);
+	if (arr[0] === '') {
+		return ['/']
+	} else {
+		arr[0] = '/' + arr[0];
+	}
+	return arr;
+}
+
+export const fullRouter = constantRoutes.concat(dynamicRoutes);
+
+const _router = initRoutes(fullRouter);
 
 _router.beforeEach(((to, from, next) => {
-	if (to.matched.length === 0) {
-		console.log('404 not found!');
+	console.log(_router);
+	if (!routeEureka(pathToArray(to.path), fullRouter)) {
 		return next('/error/404')
-	} else if (store.getters.routes) {
+	} else if (!routeEureka(pathToArray(to.path), store.state.permission.permittedRoutes)) {
 		return next('/error/403')
 	}
 	next();

@@ -3,15 +3,15 @@
 		<template v-if="!hasChildren(route)">
 			<router-link :to="fullPath">
 				<el-menu-item :index="fullPath">
-					<fr-icon class="side-menu-icon" v-if="hasIcon" :icon="route.meta.icon"/>
-					<span slot="title">{{hasSideName?route.meta.sideName:route.name}}</span>
+					<fr-icon class="side-menu-icon" v-if="hasIcon(route)" :icon="route.meta.icon"/>
+					<span slot="title">{{hasSideName(route)?route.meta.sideName:route.name}}</span>
 				</el-menu-item>
 			</router-link>
 		</template>
 		<el-submenu v-else :index="fullPath">
 			<template slot="title">
-				<fr-icon class="side-menu-icon" v-if="hasIcon" :icon="route.meta.icon"/>
-				<span>{{hasSideName?route.meta.sideName:route.name}}</span>
+				<fr-icon class="side-menu-icon" v-if="hasIcon(route)" :icon="route.meta.icon"/>
+				<span>{{hasSideName(route)?route.meta.sideName:route.name}}</span>
 			</template>
 			<sidebar-menu-item v-for="child in route.children" :key="fullPath" :route="child" :base-path="fullPath"
 												 class="nest-menu-item"/>
@@ -42,9 +42,9 @@
 			},
 		},
 		methods: {
-			hasSideName,
+			hasChildren,
 			hasIcon,
-			hasChildren
+			hasSideName
 		}
 	}
 </script>
