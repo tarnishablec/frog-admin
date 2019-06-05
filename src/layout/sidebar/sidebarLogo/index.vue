@@ -48,6 +48,7 @@
 			margin-left: 12px;
 			white-space: nowrap;
 			line-height: var(--toolbar-height);
+			font-size: 14px;
 		}
 	}
 </style>

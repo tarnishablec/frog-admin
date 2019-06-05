@@ -1,10 +1,10 @@
 <template>
 	<el-menu id="sidebar-menu"
-					 :background-color="$vars.sidebar.bgc"
-					 text-color="grey"
-					 :default-active="$route.path"
-					 :collapse="!sidebarOpen"
-					 :collapse-transition="false">
+	         :background-color="$vars.sidebar.bgc"
+	         text-color="grey"
+	         :default-active="$route.path"
+	         :collapse="!sidebarOpen"
+	         :collapse-transition="false">
 		<sidebar-menu-item v-for="route in routes" :key="route.fullPath" :route="route"/>
 	</el-menu>
 </template>

@@ -4,7 +4,7 @@ export default {
 			open: true,
 		},
 		tipbar: {
-			open: true,
+			open: false,
 		}
 	},
 	mutations: {

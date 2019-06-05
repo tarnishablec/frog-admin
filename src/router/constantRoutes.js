@@ -15,11 +15,25 @@ const constantRoutes = [
 	{
 		path: '/about',
 		name: 'about',
-		component: () => import('@/views/common/About'),
+		component: () => import('@/views/common/About/index'),
 		meta: {
 			icon: 'info-circle',
 			role: 'root',
-		}
+		},
+		children:[
+			{
+				path:'a',
+				name:'a',
+				component:()=>import('@/views/common/About/a'),
+				children:[
+					{
+						path:'b',
+						name:'b',
+						component:()=>import('@/views/common/About/b')
+					}
+				]
+			}
+		]
 	},
 	{
 		path: '/playground',
