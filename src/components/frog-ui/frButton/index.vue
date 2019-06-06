@@ -38,7 +38,7 @@
 							t = this.$themes.primary;
 							break;
 						case 'secondary':
-							t = this.$themes.primary;
+							t = this.$themes.secondary;
 							break;
 						case 'success':
 							t = this.$themes.success;
