@@ -8,7 +8,9 @@ import {
 	Loading,
 	MessageBox,
 	Message,
-	Notification
+	Notification,
+	Table,
+	TableColumn,
 } from 'element-ui'
 
 Vue.use(Button);
@@ -17,6 +19,8 @@ Vue.use(Submenu);
 Vue.use(MenuItem);
 Vue.use(Tooltip);
 Vue.use(Loading.directive);
+Vue.use(Table);
+Vue.use(TableColumn);
 
 Vue.prototype.$loading = Loading.service;
 Vue.prototype.$msgbox = MessageBox;
