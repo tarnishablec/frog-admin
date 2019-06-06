@@ -6,7 +6,7 @@ const dynamicRoutes = [
 			default: () => import('@/views/common/Test'),
 		},
 		meta: {
-			icon: 'formatpainter-fill',
+			icon: 'ant-formatpainter-fill',
 			role: 'root',
 		}
 	},

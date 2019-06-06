@@ -1,6 +1,6 @@
 <template>
 	<div id="sidebar-activator" @click="toggleSidebar">
-		<fr-icon icon="indent" id="activator-icon" :class="{'activator-turn':!sidebarOpen}"/>
+		<fr-icon icon="ant-indent" id="activator-icon" :class="{'activator-turn':!sidebarOpen}"/>
 	</div>
 </template>
 

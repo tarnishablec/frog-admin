@@ -9,7 +9,7 @@ const constantRoutes = [
 			tip: () => import('@/views/common/Home/tip')
 		},
 		meta: {
-			icon: 'home'
+			icon: 'ant-home'
 		}
 	},
 	{
@@ -17,7 +17,7 @@ const constantRoutes = [
 		name: 'about',
 		component: () => import('@/views/common/About/index'),
 		meta: {
-			icon: 'info-circle',
+			icon: 'ant-info-circle',
 			role: 'root',
 		},
 		children:[
@@ -43,7 +43,7 @@ const constantRoutes = [
 			tip: () => import('@/views/common/Playground/tip')
 		},
 		meta: {
-			icon: 'earth',
+			icon: 'ant-earth',
 			sideName: 'play'
 		}
 	},
