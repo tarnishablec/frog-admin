@@ -16,6 +16,7 @@
 		computed: {
 			...mapGetters({
 				STYLE_VARIABLES: 'STYLE_VARIABLES',
+				role: 'role',
 			})
 		},
 		created() {
