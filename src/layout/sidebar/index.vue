@@ -10,22 +10,10 @@
 <script>
 	import SidebarLogo from "@/layout/sidebar/sidebarLogo/index";
 	import SidebarMenu from "@/layout/sidebar/sidebarMenu/index";
-	import {mapGetters} from 'vuex'
 
 	export default {
 		name: "sidebar",
 		components: {SidebarMenu, SidebarLogo},
-		computed: {
-			...mapGetters({
-				role: 'role'
-			})
-		},
-		watch: {
-			role() {
-				this.$store.dispatch('UPDATE_ROUTES').then();
-			}
-		},
-
 	}
 </script>
 

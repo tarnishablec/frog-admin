@@ -20,7 +20,12 @@
 		},
 		created() {
 			this.$store.dispatch('UPDATE_ROUTES').then();
-		}
+		},
+		watch: {
+			role() {
+				this.$store.dispatch('UPDATE_ROUTES').then();
+			}
+		},
 	}
 </script>
 
