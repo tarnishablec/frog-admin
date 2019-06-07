@@ -1,7 +1,7 @@
 <template>
 	<div id="sidebar">
 		<sidebar-logo/>
-		<v-scroll id="sidebar-scroll">
+		<v-scroll id="sidebar-scroll" :settings="settings">
 			<sidebar-menu/>
 		</v-scroll>
 	</div>
@@ -14,6 +14,13 @@
 	export default {
 		name: "sidebar",
 		components: {SidebarMenu, SidebarLogo},
+		data() {
+			return {
+				settings: {
+					suppressScrollX: true,
+				}
+			}
+		}
 	}
 </script>
 
@@ -25,6 +32,8 @@
 		transition: width var(--transition-during);
 		background-color: var(--sidebar-bgc);
 		width: var(--sidebar-width);
+		z-index: 999;
+		overflow-x: hidden;
 
 		#sidebar-scroll {
 			flex: 1;
