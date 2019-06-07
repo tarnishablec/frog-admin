@@ -1,6 +1,6 @@
 <template>
 	<div class="home">
-		<img alt="Vue logo" src="../../../assets/logo.png">
+		<img alt="Vue logo" src="../../../assets/logo.svg" width="200" height="200">
 		<HelloWorld msg="Welcome to Your Vue.js App"/>
 		<div v-for="i in 30" :key="i">
 			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, inventore, numquam. Accusamus accusantium

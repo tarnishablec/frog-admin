@@ -2,7 +2,7 @@
 	<router-link id="sidebar-logo" to="/">
 		<transition name="fade" mode="out-in">
 			<span v-if="sidebarOpen" id="sidebar-logo-text">{{appTitle}}</span>
-			<img v-else src="../../../assets/logo.png" alt="">
+			<img v-else src="../../../assets/logo.svg" alt="">
 		</transition>
 	</router-link>
 </template>
