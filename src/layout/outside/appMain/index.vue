@@ -23,6 +23,7 @@
 					sc.$el.scrollTop = 0;
 					sc.$el.scrollLeft = 0;
 					sc.update();
+					sc.$forceUpdate();
 				},this.$vars.transitionDuring * 1000);
 			}
 		}
