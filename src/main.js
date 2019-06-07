@@ -13,6 +13,7 @@ Vue.component('vScroll', VuePerfectScrollbar);
 
 Vue.prototype.$vars = store.state.style.vars;
 Vue.prototype.$themes = store.state.style.themes;
+Vue.prototype.$apps = store.state.apps;
 
 new Vue({
 	router,

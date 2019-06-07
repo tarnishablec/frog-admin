@@ -1,5 +1,6 @@
 export default {
 	state: {
+		title: 'Frog Admin',
 		sidebar: {
 			open: true,
 		},

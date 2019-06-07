@@ -4,6 +4,11 @@
 			Playground
 		</h1>
 		<div>
+			<label>
+				<input v-model="$apps.title"></input>
+			</label>
+		</div>
+		<div>
 			<fr-button type="warning" outline>Hello</fr-button>
 		</div>
 		<div>
