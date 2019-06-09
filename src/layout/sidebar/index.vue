@@ -32,7 +32,7 @@
 		transition: width var(--transition-during);
 		background-color: var(--sidebar-bgc);
 		width: var(--sidebar-width);
-		z-index: 999;
+		z-index: 800;
 		overflow-x: hidden;
 
 		#sidebar-scroll {

@@ -37,6 +37,7 @@
 		height: 100vh;
 		right: 0;
 		transition: all var(--transition-during);
+		z-index: 900;
 
 		&.tipbar-hide {
 			right: calc(0px - var(--tipbar-width));
