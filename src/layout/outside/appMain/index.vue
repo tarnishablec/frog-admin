@@ -2,7 +2,7 @@
 	<div id="app-main">
 		<v-scroll id="app-main-scroll" ref="scroll">
 			<transition name="fade-transform" mode="out-in">
-				<router-view id="main-router"/>
+				<router-view/>
 			</transition>
 		</v-scroll>
 	</div>
