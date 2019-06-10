@@ -10,6 +10,8 @@
 		</div>
 		<div>
 			<fr-button type="warning" outline>Hello</fr-button>
+			<fr-button type="warning" disabled>Hello</fr-button>
+
 		</div>
 		<div>
 			<label>

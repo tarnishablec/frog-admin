@@ -1,6 +1,6 @@
 <template>
-	<button class="fr-button" @click="!disabled? $emit('click'):''" @mouseover="!disabled?$emit('mouseover'):''" :style="sty"
-	        :class="[{outline:outline},{disabled:disabled}]">
+	<button class="fr-button" @click="$emit('click')" @mouseover="$emit('mouseover')" :style="sty"
+	        :class="[{outline:outline},{disabled:disabled}]" :disabled="disabled">
 		<slot/>
 	</button>
 </template>
