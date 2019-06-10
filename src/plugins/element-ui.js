@@ -11,6 +11,8 @@ import {
 	Notification,
 	Table,
 	TableColumn,
+	RadioGroup,
+	Radio,
 } from 'element-ui'
 
 Vue.use(Button);
@@ -21,6 +23,8 @@ Vue.use(Tooltip);
 Vue.use(Loading.directive);
 Vue.use(Table);
 Vue.use(TableColumn);
+Vue.use(Radio);
+Vue.use(RadioGroup);
 
 Vue.prototype.$loading = Loading.service;
 Vue.prototype.$msgbox = MessageBox;

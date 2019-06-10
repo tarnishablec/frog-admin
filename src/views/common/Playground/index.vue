@@ -3,6 +3,7 @@
 		<h1>
 			Playground
 		</h1>
+		<excel-export-panel/>
 		<div>
 			<label>
 				<input v-model="$apps.title"></input>
@@ -33,13 +34,16 @@
 
 <script>
 	import FrButton from "@/components/frog-ui/button/index";
+	import ExcelExportPanel from "@/components/excel/export";
 
 	export default {
 		name: "Playground",
-		components: {FrButton},
+		components: {ExcelExportPanel, FrButton},
 	}
 </script>
 
 <style scoped>
-
+	div {
+		padding-bottom: 20px;
+	}
 </style>
