@@ -19,10 +19,10 @@ a {
 
 .nest-menu-item {
   .el-submenu__title, .el-menu-item {
-    background-color: #17212f !important;
+    filter: brightness(85%);
 
     &:hover {
-      background-color: #131b27 !important;
+      filter: brightness(60%);
     }
   }
 }
