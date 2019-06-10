@@ -8,7 +8,7 @@
 </template>
 
 <script>
-	import FrButton from "@/components/frog-ui/frButton/index";
+	import FrButton from "@/components/frog-ui/button/index";
 	export default {
 		name: "error",
 		components: {FrButton}

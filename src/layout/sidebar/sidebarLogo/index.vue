@@ -8,7 +8,7 @@
 </template>
 
 <script>
-	import FrIcon from "@/components/frog-ui/frIcon/index";
+	import FrIcon from "@/components/frog-ui/icon/index";
 	import {mapGetters} from 'vuex'
 
 	export default {

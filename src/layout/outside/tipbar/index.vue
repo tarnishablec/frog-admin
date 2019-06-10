@@ -11,7 +11,7 @@
 
 <script>
 	import {mapGetters} from 'vuex'
-	import FrIcon from "@/components/frog-ui/frIcon/index";
+	import FrIcon from "@/components/frog-ui/icon/index";
 
 	export default {
 		name: "tipbar",

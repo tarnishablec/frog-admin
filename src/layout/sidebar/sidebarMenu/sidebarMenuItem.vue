@@ -20,7 +20,7 @@
 </template>
 
 <script>
-	import FrIcon from "@/components/frog-ui/frIcon/index";
+	import FrIcon from "@/components/frog-ui/icon/index";
 	import {hasChildren, hasIcon, hasSideName} from '@/utils/routerUtils'
 
 	export default {
