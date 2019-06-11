@@ -13,7 +13,7 @@ export default {
 			sidebar: {
 				openWidth: 200,
 				hideWidth: 64,
-				bgc: '#1d2936',
+				bgc: '#2a3642',
 			},
 			toolbar: {
 				height: 60,
