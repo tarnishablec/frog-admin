@@ -1,25 +1,13 @@
 <template>
-	<div id="test">
-		<fr-table full-load index border :data="data"/>
-	</div>
+	<router-view style="padding: 1rem"/>
 </template>
 
 <script>
-	import FrTable from "@/components/frog-ui/table/index";
-
 	export default {
-		name: "Test",
-		components: {FrTable},
-		asyncComputed: {
-			async data() {
-				return (await this.$axios.get('https://jsonplaceholder.typicode.com/photos')).data;
-			},
-		}
+		name: "Test"
 	}
 </script>
 
-<style lang="scss" scoped>
-	#test {
-		padding: 1rem;
-	}
+<style scoped>
+
 </style>

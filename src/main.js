@@ -8,12 +8,14 @@ import './style/index.scss'
 import './assets/ant-icon'
 import axios from '@/plugins/axios'
 import AsyncComputed from 'vue-async-computed'
+import Viser from 'viser-vue'
 
 Vue.config.productionTip = false;
 
 Vue.component('vScroll', VuePerfectScrollbar);
 
 Vue.use(AsyncComputed);
+Vue.use(Viser);
 
 Vue.prototype.$vars = store.state.style.vars;
 Vue.prototype.$themes = store.state.style.themes;

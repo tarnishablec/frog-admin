@@ -13,8 +13,8 @@
 				<fr-icon class="side-menu-icon" v-if="hasIcon(route)" :icon="route.meta.icon"/>
 				<span>{{hasSideName(route)?route.meta.sideName:route.name}}</span>
 			</template>
-			<sidebar-menu-item v-for="child in route.children" :key="fullPath" :route="child" :base-path="fullPath"
-												 class="nest-menu-item"/>
+			<sidebar-menu-item v-for="child in route.children" :key="child.path" :route="child" :base-path="fullPath"
+			                   class="nest-menu-item"/>
 		</el-submenu>
 	</div>
 </template>
