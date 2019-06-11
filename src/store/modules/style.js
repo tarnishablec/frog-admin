@@ -8,19 +8,21 @@ export default {
 			danger: '#f85555',
 		},
 		vars: {
-			backgroundColor: '#fff',
+			backgroundColor: '#f0f0f1',
 			transitionDuring: 0.3,
 			sidebar: {
 				openWidth: 200,
 				hideWidth: 64,
-				bgc: '#2a3642',
+				bgc: '#393942',
+				activeTextColor: '#ffb286',
+				beforeColor: '#ff5533'
 			},
 			toolbar: {
 				height: 55,
 			},
 			tipbar: {
 				width: 300,
-				bgc: '#f1f1f2',
+				bgc: '#a2a2a3',
 			}
 		}
 	},
@@ -37,6 +39,7 @@ export default {
 
 				'--tipbar-width': state.vars.tipbar.width + 'px',
 				'--tipbar-bgc': state.vars.tipbar.bgc,
+				'--sidebar-before-color': state.vars.sidebar.beforeColor,
 			}
 		}
 	}

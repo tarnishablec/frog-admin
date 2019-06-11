@@ -1,17 +1,19 @@
 <template>
-	<div class="fr-table" v-loading="!data">
+	<div class="fr-table" :class="{'ellipsis-row':ellipsis}" v-loading="!data">
 		<el-table class="fr-table-body" :border="border" v-if="data"
-		          :data="data.slice((this.currentPage - 1) * this.pageSize, this.currentPage * this.pageSize)"
-		          :stripe="stripe" :fit="fit" :show-header="showHeader"
-		          :highlight-current-row="highlightCurrentRow" :max-height="maxHeight">
+							:data="data.slice((this.currentPage - 1) * this.pageSize, this.currentPage * this.pageSize)"
+							:stripe="stripe" :fit="fit" :show-header="showHeader"
+							:highlight-current-row="highlightCurrentRow" :max-height="maxHeight">
+			<el-table-column v-if="selection" type="selection"/>
 			<el-table-column v-if="index" type="index"/>
 			<el-table-column v-if="fullLoad" v-for="(value,name) in data[0]" :key="name" :prop="name" :label="name"/>
 			<slot v-if="!fullLoad"/>
 		</el-table>
 		<el-pagination v-if="data" :total="data.length"
-		               :page-size.sync="pageSize"
-		               style="text-align: right"
-		               @current-change="current_change"/>
+									 :page-size.sync="pageSize"
+									 background
+									 style="float: right;"
+									 @current-change="current_change"/>
 	</div>
 </template>
 
@@ -41,7 +43,13 @@
 			highlightCurrentRow: Boolean,
 			maxHeight: {
 				type: Number,
-			}
+			},
+			selection: Boolean,
+			backgroundColor: {
+				type: String,
+				default: 'white',
+			},
+			ellipsis: Boolean,
 		},
 		data() {
 			return {
@@ -57,6 +65,6 @@
 	}
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 
 </style>

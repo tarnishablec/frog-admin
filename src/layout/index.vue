@@ -15,7 +15,7 @@
 	}
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 	#layout {
 		display: flex;
 		height: 100vh;

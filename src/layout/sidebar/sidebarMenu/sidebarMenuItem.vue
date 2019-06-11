@@ -59,13 +59,13 @@
 		}
 
 		&:hover:not(.nest-menu-item) {
-			border-left: red;
+			border-left: var(--sidebar-before-color);
 			border-width: 0 0 0 2px;
 			border-style: solid;
 		}
 	}
 
-	#sidebar-menu:not(.el-menu--collapse) .nest-menu-item{
+	#sidebar-menu:not(.el-menu--collapse){
 		.el-submenu__title {
 			span {
 				&::after {

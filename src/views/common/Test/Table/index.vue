@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<fr-table full-load index border :data="data"/>
+		<fr-table ellipsis full-load index border selection :data="data"/>
 	</div>
 </template>
 
