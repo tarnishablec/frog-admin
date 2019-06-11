@@ -54,11 +54,5 @@
 </script>
 
 <style scoped>
-	.fr-table {
-		min-height: 300px;
-	}
 
-	.fr-table-body {
-		margin-bottom: 1rem;
-	}
 </style>
