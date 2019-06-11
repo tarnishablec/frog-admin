@@ -11,6 +11,7 @@
     "core-js": "^2.6.5",
     "element-ui": "^2.4.5",
     "file-saver": "^2.0.2",
+    "viser-vue": "^2.4.6",
     "vue": "^2.6.10",
     "vue-async-computed": "^3.7.0",
     "vue-perfect-scrollbar": "^0.1.0",
