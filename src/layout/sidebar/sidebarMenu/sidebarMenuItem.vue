@@ -14,7 +14,7 @@
 				<span>{{hasSideName(route)?route.meta.sideName:route.name}}</span>
 			</template>
 			<sidebar-menu-item v-for="child in route.children" :key="child.path" :route="child" :base-path="fullPath"
-			                   class="nest-menu-item"/>
+												 class="nest-menu-item"/>
 		</el-submenu>
 	</div>
 </template>
@@ -63,12 +63,25 @@
 			border-width: 0 0 0 2px;
 			border-style: solid;
 		}
+	}
 
+	#sidebar-menu:not(.el-menu--collapse) .nest-menu-item{
 		.el-submenu__title {
 			span {
 				&::after {
 					content: '+';
 					float: right;
+				}
+			}
+		}
+	}
+
+	.nest-menu-item {
+		.el-submenu__title {
+			span {
+				&::after {
+					content: '+' !important;
+					float: right !important;
 				}
 			}
 		}

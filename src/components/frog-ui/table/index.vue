@@ -4,7 +4,7 @@
 		          :data="data.slice((this.currentPage - 1) * this.pageSize, this.currentPage * this.pageSize)"
 		          :stripe="stripe" :fit="fit" :show-header="showHeader"
 		          :highlight-current-row="highlightCurrentRow" :max-height="maxHeight">
-			<el-table-column v-if="index" type="index" style="text-align: center"/>
+			<el-table-column v-if="index" type="index"/>
 			<el-table-column v-if="fullLoad" v-for="(value,name) in data[0]" :key="name" :prop="name" :label="name"/>
 			<slot v-if="!fullLoad"/>
 		</el-table>
