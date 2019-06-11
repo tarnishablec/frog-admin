@@ -1,12 +1,12 @@
 <template>
 	<div id="test">
-		<fr-table full-load index border :data="dummyEmployee">
-		</fr-table>
+		<fr-table full-load index border :data="dummyEmployee"/>
 	</div>
 </template>
 
 <script>
 	import FrTable from "@/components/frog-ui/table/index";
+
 	export default {
 		name: "Test",
 		components: {FrTable},
