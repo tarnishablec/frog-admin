@@ -6,7 +6,8 @@
 							:highlight-current-row="highlightCurrentRow" :max-height="maxHeight">
 			<el-table-column v-if="selection" type="selection"/>
 			<el-table-column v-if="index" type="index"/>
-			<el-table-column v-if="fullLoad" v-for="(value,name) in data[0]" :key="name" :prop="name" :label="name"/>
+			<el-table-column v-if="fullLoad" v-for="(value,name) in data[0]" :key="name" :prop="name" :label="name"
+											 :width="isPureNumber(value)?'100':''"/>
 			<slot v-if="!fullLoad"/>
 		</el-table>
 		<el-pagination v-if="data" :total="data.length"
@@ -18,6 +19,8 @@
 </template>
 
 <script>
+	import {isPureNumber} from '@/utils/regexUtils'
+
 	export default {
 		name: "frTable",
 		props: {
@@ -60,8 +63,8 @@
 			current_change(currentPage) {
 				this.currentPage = currentPage;
 			},
+			isPureNumber,
 		},
-
 	}
 </script>
 
