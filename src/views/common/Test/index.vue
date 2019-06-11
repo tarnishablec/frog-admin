@@ -1,6 +1,6 @@
 <template>
 	<div id="test">
-		<fr-table full-load index border :data="dummyEmployee"/>
+		<fr-table full-load index border :data="data"/>
 	</div>
 </template>
 
@@ -11,8 +11,8 @@
 		name: "Test",
 		components: {FrTable},
 		asyncComputed: {
-			async dummyEmployee() {
-				return (await this.$axios.get('http://dummy.restapiexample.com/api/v1/employees')).data;
+			async data() {
+				return (await this.$axios.get('https://jsonplaceholder.typicode.com/photos')).data;
 			},
 		}
 	}
