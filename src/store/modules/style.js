@@ -16,7 +16,7 @@ export default {
 				bgc: '#2a3642',
 			},
 			toolbar: {
-				height: 60,
+				height: 55,
 			},
 			tipbar: {
 				width: 300,

@@ -1,5 +1,5 @@
 <template>
-	<div class="home">
+	<div id="home">
 		<img alt="Vue logo" src="../../../assets/logo.svg" width="200" height="200">
 		<HelloWorld msg="Welcome to Your Vue.js App"/>
 		<div v-for="i in 30" :key="i">
@@ -21,3 +21,9 @@
 		}
 	}
 </script>
+
+<style scoped>
+	#home{
+		text-align: center;
+	}
+</style>
