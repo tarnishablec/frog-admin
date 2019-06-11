@@ -1,10 +1,12 @@
 <template>
-	<input class="fr-input"
-	       :type="type"
-	       :readonly="readonly"
-	       :placeholder="placeholder"
-	       :value="value"
-	       @input="$emit('input',$event.target.value)"/>
+	<label>
+		<input class="fr-input"
+		       :type="type"
+		       :readonly="readonly"
+		       :placeholder="placeholder"
+		       :value="value"
+		       @input="$emit('input',$event.target.value)"/>
+	</label>
 </template>
 
 <script>

@@ -6,19 +6,16 @@
 		</div>
 		<div>
 			<span>Type:</span>
-			<fr-select :data="options"/>
 		</div>
 	</div>
-
 </template>
 
 <script>
 	import FrInput from "@/components/frog-ui/input/index";
-	import FrSelect from "@/components/frog-ui/select/index";
 
 	export default {
 		name: "excelExportPanel",
-		components: {FrSelect, FrInput},
+		components: {FrInput},
 		props: {
 			filename: {
 				type: String,

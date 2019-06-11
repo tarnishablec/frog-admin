@@ -42,8 +42,12 @@
 	}
 </script>
 
-<style scoped>
-	div {
-		padding-bottom: 20px;
+<style lang="scss" scoped>
+	#playground {
+		background-color: darkgrey;
+
+		div {
+			padding-bottom: 20px;
+		}
 	}
 </style>

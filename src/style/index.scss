@@ -1,6 +1,17 @@
 @import "frog/index";
 @import "transition";
 
+
+@font-face {
+  font-family: 'iconfont';  /* project id 1211000 */
+  src: url('//at.alicdn.com/t/font_1211000_opald5hgjjd.eot');
+  src: url('//at.alicdn.com/t/font_1211000_opald5hgjjd.eot?#iefix') format('embedded-opentype'),
+  url('//at.alicdn.com/t/font_1211000_opald5hgjjd.woff2') format('woff2'),
+  url('//at.alicdn.com/t/font_1211000_opald5hgjjd.woff') format('woff'),
+  url('//at.alicdn.com/t/font_1211000_opald5hgjjd.ttf') format('truetype'),
+  url('//at.alicdn.com/t/font_1211000_opald5hgjjd.svg#iconfont') format('svg');
+}
+
 .router-link-exact-active, .router-link-active {
   text-decoration: none;
 }
