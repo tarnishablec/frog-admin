@@ -2,18 +2,17 @@
 	<div id="toolbar">
 		<sidebar-activator/>
 		<div class="spacer"></div>
-		<fr-button type="success" @click="login">login</fr-button>
-		<fr-button type="danger" @click="logout">logout</fr-button>
+		<el-button type="success" @click="login">login</el-button>
+		<el-button type="danger" @click="logout">logout</el-button>
 	</div>
 </template>
 
 <script>
 	import SidebarActivator from "@/layout/outside/toolbar/sidebarActivator";
-	import FrButton from "@/components/frog-ui/button/index";
 
 	export default {
 		name: "toolbar",
-		components: {FrButton, SidebarActivator},
+		components: {SidebarActivator},
 		methods: {
 			login() {
 				this.$store.commit('switchRole', 'root');
