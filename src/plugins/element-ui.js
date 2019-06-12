@@ -1,4 +1,9 @@
 import Vue from 'vue'
+import en from 'element-ui/lib/locale/lang/en'
+import locale from 'element-ui/lib/locale'
+
+locale.use(en);
+
 import {
 	Button,
 	Menu,
