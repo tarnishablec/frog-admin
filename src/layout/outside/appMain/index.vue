@@ -2,7 +2,7 @@
 	<div id="app-main">
 		<el-scrollbar id="app-main-scroll" :noresize="false">
 			<transition name="fade-transform" mode="out-in">
-				<router-view style="padding-right: 15px"/>
+				<router-view style="padding-right: 15px;width: calc(100% - var(--sidebar-width))"/>
 			</transition>
 		</el-scrollbar>
 	</div>
@@ -26,8 +26,8 @@
 
 		#app-main-scroll {
 			transition: width var(--transition-during);
-			width: calc(100vw - var(--sidebar-width));
-			height: calc(100vh - var(--toolbar-height));
+			width: 100%;
+			height: 100%;
 		}
 	}
 </style>

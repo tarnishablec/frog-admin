@@ -8,7 +8,7 @@
 			<el-table-column v-if="selection" type="selection"/>
 			<el-table-column v-if="index" type="index"/>
 			<el-table-column v-if="fullLoad" v-for="(value,name) in data[0]" :key="name" :prop="name" :label="name"
-											 :width="isPureNumber(value)?'100':''"
+											 :width="isPureNumber(value)?'80':''"
 											 :show-overflow-tooltip="ellipsis"
 											 :align="align"/>
 			<slot/>
