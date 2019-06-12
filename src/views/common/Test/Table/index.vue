@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<fr-table ellipsis full-load index border selection :data="data" ref="table1">
+		<fr-table ellipsis full-load stripe index border selection :data="data" ref="table1">
 			<el-table-column label="Operations" align="center" width="200">
 				<template slot-scope="scope">
 					<div>

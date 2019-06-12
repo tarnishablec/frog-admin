@@ -6,6 +6,8 @@
 				<fr-icon :icon="i"/>
 				<span>{{i}}</span>
 			</div>
+			<div v-for="i in 15" class="placeholder">
+			</div>
 		</div>
 	</div>
 </template>
@@ -51,9 +53,15 @@
 			flex-wrap: wrap;
 			border: 1px solid grey;
 			border-radius: 4px;
+			justify-content: space-around;
+
+			.placeholder {
+				width: 120px;
+				height: 0;
+			}
 
 			& > div {
-				width: 100px;
+				width: 120px;
 				display: flex;
 				flex-direction: column;
 				text-align: center;
