@@ -8,14 +8,6 @@
   .el-table {
     border-radius: 10px;
   }
-
-  &.ellipsis-row {
-    .cell {
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-  }
 }
 
 .fr-table-body {
