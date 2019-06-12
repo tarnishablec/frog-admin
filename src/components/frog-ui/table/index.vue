@@ -11,7 +11,7 @@
 			                 :width="isPureNumber(value)?'100':''"
 			                 :show-overflow-tooltip="ellipsis"
 			                 :align="align"/>
-			<slot v-if="!fullLoad"/>
+			<slot/>
 		</el-table>
 		<el-pagination v-if="data" :total="data.length"
 		               :page-size.sync="pageSize"
