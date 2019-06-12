@@ -1,12 +1,10 @@
 <template>
 	<div id="home">
 		<img alt="Vue logo" src="../../../assets/logo.svg" width="200" height="200">
-		<HelloWorld msg="Welcome to Your Vue.js App"/>
-		<div v-for="i in 30" :key="i">
-			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, inventore, numquam. Accusamus accusantium
-			blanditiis deleniti ducimus facilis, iure maxime, odio officiis omnis optio provident quo ratione reprehenderit
-			soluta sunt temporibus?
+		<div>
+			<el-button type="success" @click="goRepo">GITHUB REPO</el-button>
 		</div>
+		<HelloWorld msg="Welcome to Your Vue.js App"/>
 	</div>
 </template>
 
@@ -18,12 +16,20 @@
 		name: 'home',
 		components: {
 			HelloWorld
+		},
+		methods: {
+			goRepo() {
+				window.open('https://github.com/tarnishablec/frog-admin');
+			}
 		}
 	}
 </script>
 
-<style scoped>
-	#home{
+<style lang="scss" scoped>
+	#home {
 		text-align: center;
+	}
+
+	#github-link {
 	}
 </style>
