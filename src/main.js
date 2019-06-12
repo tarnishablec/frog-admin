@@ -2,7 +2,6 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-import VuePerfectScrollbar from 'vue-perfect-scrollbar'
 import './plugins/element-ui.js'
 import './style/index.scss'
 import './assets/ant-icon'
@@ -13,8 +12,6 @@ import '@/plugins/frog-ui'
 import VueClipboard from 'vue-clipboard2'
 
 Vue.config.productionTip = false;
-
-Vue.component('vScroll', VuePerfectScrollbar);
 
 Vue.use(AsyncComputed);
 Vue.use(Viser);
