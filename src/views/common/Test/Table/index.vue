@@ -1,6 +1,7 @@
 <template>
 	<div>
-		<fr-table ellipsis full-load index border selection :data="data"/>
+		<fr-table ellipsis full-load index border selection :data="data" ref="table1"/>
+		<el-button @click="print">Print Selected</el-button>
 	</div>
 </template>
 
@@ -14,6 +15,11 @@
 			async data() {
 				return (await this.$axios.get('https://jsonplaceholder.typicode.com/comments')).data;
 			},
+		},
+		methods:{
+			print(){
+				console.log(this.$refs.table1.selectedRows)
+			}
 		}
 	}
 </script>
