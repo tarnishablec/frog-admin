@@ -26,7 +26,6 @@
 
 	export default {
 		name: "testTable",
-		components: {FrTable},
 		asyncComputed: {
 			async data() {
 				return (await this.$axios.get('https://jsonplaceholder.typicode.com/posts')).data;

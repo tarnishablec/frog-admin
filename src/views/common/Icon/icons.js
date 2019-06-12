@@ -583,7 +583,7 @@ export default [
 	"Field-time",
 	"GIF",
 	"Partition",
-	"index",
+	"line.vue",
 	"Stored procedure",
 	"Field-Binary",
 	"Console-SQL",

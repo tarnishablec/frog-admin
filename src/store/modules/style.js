@@ -9,6 +9,7 @@ export default {
 		},
 		vars: {
 			sidebar: {
+				openWidth: 200,
 			},
 			toolbar: {
 				height: 55,
@@ -20,9 +21,9 @@ export default {
 		}
 	},
 	getters: {
-		STYLE_VARIABLES: (state) => {
+		STYLE_VARIABLES: (state, getters, rootState, rootGetters) => {
 			return {
-
+				'--sidebar-width': (rootGetters.sidebarOpen ? state.vars.sidebar.openWidth : 64) + 'px',
 				'--toolbar-height': state.vars.toolbar.height + 'px',
 
 				'--tipbar-width': state.vars.tipbar.width + 'px',

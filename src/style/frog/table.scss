@@ -5,6 +5,10 @@
 .fr-table {
   min-height: 300px;
 
+  &.fr-table-loading {
+    margin-bottom: 1rem;
+  }
+
   .el-table {
     border-radius: 10px;
   }

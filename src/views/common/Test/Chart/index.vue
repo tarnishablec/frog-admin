@@ -16,7 +16,4 @@
 </script>
 
 <style scoped>
-	div > div {
-		display: inline-block;
-	}
 </style>
