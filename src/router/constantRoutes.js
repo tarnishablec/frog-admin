@@ -9,27 +9,30 @@ const constantRoutes = [
 			tip: () => import('@/views/common/Home/tip')
 		},
 		meta: {
-			icon: 'ant-home'
+			icon: 'home'
 		}
 	},
 	{
 		path: '/about',
 		name: 'about',
-		component: () => import('@/views/common/About/index'),
+		components: {
+			default: () => import('@/views/common/About/index'),
+			tip: () => import('@/views/common/About/tip')
+		},
 		meta: {
-			icon: 'ant-info-circle',
+			icon: 'info-circle',
 			role: 'root',
 		},
-		children:[
+		children: [
 			{
-				path:'a',
-				name:'a',
-				component:()=>import('@/views/common/About/a'),
-				children:[
+				path: 'a',
+				name: 'a',
+				component: () => import('@/views/common/About/a'),
+				children: [
 					{
-						path:'b',
-						name:'b',
-						component:()=>import('@/views/common/About/b')
+						path: 'b',
+						name: 'b',
+						component: () => import('@/views/common/About/b')
 					}
 				]
 			}
@@ -43,8 +46,19 @@ const constantRoutes = [
 			tip: () => import('@/views/common/Playground/tip')
 		},
 		meta: {
-			icon: 'ant-earth',
+			icon: 'earth',
 			sideName: 'play'
+		}
+	},
+	{
+		path: '/icons',
+		name: 'icons',
+		components: {
+			default: () => import('@/views/common/Icon/index'),
+			tip: () => import('@/views/common/Icon/tip')
+		},
+		meta: {
+			icon: 'crown',
 		}
 	},
 	error,

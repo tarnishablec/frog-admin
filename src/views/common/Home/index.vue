@@ -28,6 +28,10 @@
 <style lang="scss" scoped>
 	#home {
 		text-align: center;
+
+		& > div {
+			margin: 50px 0;
+		}
 	}
 
 	#github-link {

@@ -9,6 +9,7 @@ import './assets/ant-icon'
 import axios from '@/plugins/axios'
 import AsyncComputed from 'vue-async-computed'
 import Viser from 'viser-vue'
+import VueClipboard from 'vue-clipboard2'
 
 Vue.config.productionTip = false;
 
@@ -16,6 +17,7 @@ Vue.component('vScroll', VuePerfectScrollbar);
 
 Vue.use(AsyncComputed);
 Vue.use(Viser);
+Vue.use(VueClipboard);
 
 Vue.prototype.$vars = store.state.style.vars;
 Vue.prototype.$themes = store.state.style.themes;

@@ -15,6 +15,7 @@
     "viser-vue": "^2.4.6",
     "vue": "^2.6.10",
     "vue-async-computed": "^3.7.0",
+    "vue-clipboard2": "^0.3.0",
     "vue-perfect-scrollbar": "^0.1.0",
     "vue-router": "^3.0.3",
     "vuex": "^3.0.1",
