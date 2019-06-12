@@ -37,7 +37,15 @@
 				console.log(this.$refs.table1.selectedRows)
 			},
 			handleEdit(index, row) {
-				console.log(index, row);
+				this.$alert(row, 'edit   ' + row.id, {
+					confirmButtonText: '确定',
+					callback: action => {
+						this.$message({
+							type: 'info',
+							message: `action: ${action}`
+						});
+					}
+				})
 			},
 			handleDelete(index, row) {
 				console.log(index, row);
