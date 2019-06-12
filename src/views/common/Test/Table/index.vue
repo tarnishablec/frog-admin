@@ -17,7 +17,8 @@
 				</template>
 			</el-table-column>
 		</fr-table>
-		<el-button @click="print">Print Selected</el-button>
+		<el-button @click="print" style="margin-right: 20px">Print Selected</el-button>
+		<span>=> check in console</span>
 	</div>
 </template>
 
@@ -48,7 +49,21 @@
 				})
 			},
 			handleDelete(index, row) {
-				console.log(index, row);
+				this.$confirm('This will permanently delete the file. Continue?', 'Warning', {
+					confirmButtonText: 'OK',
+					cancelButtonText: 'Cancel',
+					type: 'warning'
+				}).then(() => {
+					this.$message({
+						type: 'success',
+						message: 'Delete completed'
+					});
+				}).catch(() => {
+					this.$message({
+						type: 'info',
+						message: 'Delete canceled'
+					});
+				});
 			}
 		}
 	}
