@@ -1,7 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import constantRoutes from './constantRoutes'
-import dynamicRoutes from './dynamicRoutes'
+import fullRoutes from './fullRoutes'
 import store from '@/store'
 
 Vue.use(Router);
@@ -47,7 +46,8 @@ export function pathToArray(path) {
 	return arr;
 }
 
-export const fullRouter = constantRoutes.concat(dynamicRoutes);
+// export const fullRouter = fullRoutes.concat(dynamicRoutes);
+export const fullRouter = fullRoutes;
 
 const _router = initRoutes(fullRouter);
 

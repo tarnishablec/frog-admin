@@ -1,5 +1,5 @@
 import router, {cleanRouter, fullRouter} from '@/router'
-import constantRoutes from '@/router/constantRoutes'
+import fullRoutes from '@/router/fullRoutes'
 
 const roleMap = {
 	root: -1,
@@ -10,7 +10,7 @@ const roleMap = {
 const permission = {
 	state: {
 		role: "root",
-		permittedRoutes: constantRoutes,
+		permittedRoutes: fullRoutes,
 	},
 	mutations: {
 		prepareRoutes: state => {

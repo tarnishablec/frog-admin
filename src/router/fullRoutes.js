@@ -1,6 +1,7 @@
 import error from './error'
+import dynamicRoutes from './dynamicRoutes'
 
-const constantRoutes = [
+const fullRoutes = [
 	{
 		path: '/',
 		name: 'home',
@@ -50,6 +51,7 @@ const constantRoutes = [
 			sideName: 'play'
 		}
 	},
+	...dynamicRoutes,
 	{
 		path: '/icons',
 		name: 'icons',
@@ -64,4 +66,4 @@ const constantRoutes = [
 	error,
 ];
 
-export default constantRoutes;
+export default fullRoutes;

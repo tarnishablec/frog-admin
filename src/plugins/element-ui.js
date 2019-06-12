@@ -18,7 +18,8 @@ import {
 	TableColumn,
 	RadioGroup,
 	Radio,
-	Pagination
+	Pagination,
+	Scrollbar
 } from 'element-ui'
 
 Vue.use(Button);
@@ -32,6 +33,7 @@ Vue.use(TableColumn);
 Vue.use(Radio);
 Vue.use(RadioGroup);
 Vue.use(Pagination);
+Vue.use(Scrollbar);
 
 Vue.prototype.$loading = Loading.service;
 Vue.prototype.$msgbox = MessageBox;

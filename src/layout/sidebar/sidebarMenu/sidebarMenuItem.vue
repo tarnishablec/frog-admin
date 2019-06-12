@@ -59,7 +59,7 @@
 		}
 
 		&:hover:not(.nest-menu-item) {
-			border-left: var(--sidebar-before-color);
+			border-left: #ff5533;
 			border-width: 0 0 0 2px;
 			border-style: solid;
 		}

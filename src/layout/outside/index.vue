@@ -21,6 +21,6 @@
 		flex: 1;
 		display: flex;
 		flex-direction: column;
-		background-color: var(--background-color);
+		background-color: #f0f0f1;
 	}
 </style>

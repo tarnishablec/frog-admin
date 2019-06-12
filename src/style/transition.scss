@@ -1,6 +1,6 @@
 .fade-transform-leave-active,
 .fade-transform-enter-active {
-  transition: all var(--transition-during);
+  transition: all 0.3s;
 }
 
 .fade-transform-enter {
@@ -17,7 +17,7 @@
 
 .fade-leave-active,
 .fade-enter-active {
-  transition: opacity var(--transition-during);
+  transition: opacity 0.3s;
 }
 
 .fade-enter {

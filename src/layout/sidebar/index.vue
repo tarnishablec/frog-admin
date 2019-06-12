@@ -1,25 +1,24 @@
 <template>
-	<div id="sidebar">
+	<div id="sidebar" :class="{'sidebar-hide':!sidebarOpen}">
 		<sidebar-logo/>
-		<v-scroll id="sidebar-scroll" :settings="settings">
+		<el-scrollbar id="sidebar-scroll">
 			<sidebar-menu/>
-		</v-scroll>
+		</el-scrollbar>
 	</div>
 </template>
 
 <script>
 	import SidebarLogo from "@/layout/sidebar/sidebarLogo/index";
 	import SidebarMenu from "@/layout/sidebar/sidebarMenu/index";
+	import {mapGetters} from 'vuex'
 
 	export default {
 		name: "sidebar",
 		components: {SidebarMenu, SidebarLogo},
-		data() {
-			return {
-				settings: {
-					suppressScrollX: true,
-				}
-			}
+		computed: {
+			...mapGetters({
+				sidebarOpen: 'sidebarOpen',
+			})
 		}
 	}
 </script>
@@ -29,11 +28,17 @@
 		flex-shrink: 0;
 		display: flex;
 		flex-direction: column;
-		transition: width var(--transition-during);
-		background-color: var(--sidebar-bgc);
-		width: var(--sidebar-width);
+		transition: width 0.3s;
+		background-color: #393942;
+		width: 200px;
+		height: 100vh;
 		z-index: 800;
 		overflow-x: hidden;
+
+		&.sidebar-hide {
+			width: 64px !important;
+			overflow-x: hidden;
+		}
 
 		#sidebar-scroll {
 			flex: 1;

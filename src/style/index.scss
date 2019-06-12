@@ -1,5 +1,6 @@
 @import "frog/index";
 @import "transition";
+@import "variables";
 
 
 @font-face {
@@ -30,18 +31,28 @@ a {
 
 .nest-menu-item {
   .el-submenu__title, .el-menu-item {
-    filter: brightness(85%);
+    background-color: #2a2a32 !important;
 
     &:hover {
-      filter: brightness(60%);
+      background-color: #22222a !important;
     }
   }
+}
+
+.el-scrollbar__wrap {
+  overflow-x: hidden;
 }
 
 .el-menu--popup {
   padding: 0 !important;
 }
 
-.el-loading-mask{
+.el-loading-mask {
   z-index: 500;
+}
+
+#sidebar{
+  .el-scrollbar__bar.is-horizontal{
+    display: none;
+  }
 }

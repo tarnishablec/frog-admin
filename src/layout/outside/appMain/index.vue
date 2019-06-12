@@ -1,10 +1,10 @@
 <template>
 	<div id="app-main">
-		<v-scroll id="app-main-scroll" ref="scroll">
+		<el-scrollbar id="app-main-scroll" :noresize="false">
 			<transition name="fade-transform" mode="out-in">
 				<router-view style="padding-right: 15px"/>
 			</transition>
-		</v-scroll>
+		</el-scrollbar>
 	</div>
 </template>
 
@@ -16,17 +16,6 @@
 				return this.$route.path;
 			}
 		},
-		watch: {
-			route() {
-				setTimeout(()=>{
-					let sc = this.$refs.scroll;
-					sc.$el.scrollTop = 0;
-					sc.$el.scrollLeft = 0;
-					sc.update();
-					sc.$forceUpdate();
-				},this.$vars.transitionDuring * 1000);
-			}
-		}
 	}
 </script>
 
