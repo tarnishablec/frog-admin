@@ -9,6 +9,7 @@ import './assets/ant-icon'
 import axios from '@/plugins/axios'
 import AsyncComputed from 'vue-async-computed'
 import Viser from 'viser-vue'
+import '@/plugins/frog-ui'
 import VueClipboard from 'vue-clipboard2'
 
 Vue.config.productionTip = false;

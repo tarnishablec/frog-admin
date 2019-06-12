@@ -23,7 +23,6 @@
 </template>
 
 <script>
-	import FrTable from "@/components/frog-ui/table/index";
 
 	export default {
 		name: "testTable",

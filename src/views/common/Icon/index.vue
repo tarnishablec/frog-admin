@@ -14,11 +14,9 @@
 
 <script>
 	import icons from './icons.js'
-	import FrIcon from "@/components/frog-ui/icon/index";
 
 	export default {
 		name: "index",
-		components: {FrIcon},
 		computed: {
 			iconList() {
 				return icons.map((a) => {
@@ -28,9 +26,10 @@
 		},
 		methods: {
 			doCopy(text) {
-				this.$copyText(text).then(() => {
+				let res = `<fr-icon icon="${text}"/>`;
+				this.$copyText(res).then(() => {
 					this.$message({
-						message: `icon ${text} has been copied!`,
+						message: `'${res}' has been copied!`,
 						type: 'success',
 					})
 				})

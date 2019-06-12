@@ -11,11 +11,9 @@
 
 <script>
 	import {mapGetters} from 'vuex'
-	import FrIcon from "@/components/frog-ui/icon/index";
 
 	export default {
 		name: "tipbar",
-		components: {FrIcon},
 		methods: {
 			toggleTipbar() {
 				this.$store.commit('TOGGLE_TIPBAR');
@@ -36,7 +34,7 @@
 		position: fixed;
 		height: 100vh;
 		right: 0;
-		transition: all var(--transition-during);
+		transition: all 0.3s;
 		z-index: 900;
 
 		&.tipbar-hide {

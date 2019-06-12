@@ -20,12 +20,10 @@
 </template>
 
 <script>
-	import FrIcon from "@/components/frog-ui/icon/index";
 	import {hasChildren, hasIcon, hasSideName} from '@/utils/routerUtils'
 
 	export default {
 		name: "sidebarMenuItem",
-		components: {FrIcon},
 		props: {
 			route: {
 				type: Object,

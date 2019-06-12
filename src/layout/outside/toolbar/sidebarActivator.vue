@@ -5,13 +5,11 @@
 </template>
 
 <script>
-	import FrIcon from "@/components/frog-ui/icon/index";
 	import {mapGetters} from 'vuex'
 
 
 	export default {
 		name: "sidebarActivator",
-		components: {FrIcon},
 		methods: {
 			toggleSidebar() {
 				this.$store.commit('TOGGLE_SIDEBAR');
