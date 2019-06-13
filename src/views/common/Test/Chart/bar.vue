@@ -1,5 +1,5 @@
 <template>
-	<div style="width: 50%">
+	<div>
 		<v-chart :forceFit="true" :height="height" :data="data" :padding="padding">
 			<v-coord type="rect" direction="LT"/>
 			<v-tooltip/>

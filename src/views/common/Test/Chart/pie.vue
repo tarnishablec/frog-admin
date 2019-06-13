@@ -1,5 +1,5 @@
 <template>
-	<div style="width: 50%;text-align: center">
+	<div style="text-align: center">
 		<v-chart :height="height" :data="data" :scale="scale" :padding="padding">
 			<v-tooltip :showTitle="false" dataKey="item*percent"/>
 			<v-axis/>
