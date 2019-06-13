@@ -10,6 +10,7 @@ export default {
 		vars: {
 			sidebar: {
 				openWidth: 200,
+				bgc: '#393942',
 			},
 			toolbar: {
 				height: 55,
@@ -23,6 +24,7 @@ export default {
 	getters: {
 		STYLE_VARIABLES: (state, getters, rootState, rootGetters) => {
 			return {
+				'--sidebar-bgc': state.vars.sidebar.bgc,
 				'--sidebar-width': (rootGetters.sidebarOpen ? state.vars.sidebar.openWidth : 64) + 'px',
 				'--toolbar-height': state.vars.toolbar.height + 'px',
 

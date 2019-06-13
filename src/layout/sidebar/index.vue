@@ -23,7 +23,7 @@
 		display: flex;
 		flex-direction: column;
 		transition: width 0.3s;
-		background-color: #393942;
+		background-color: var(--sidebar-bgc);
 		width: var(--sidebar-width);
 		height: 100vh;
 		z-index: 800;

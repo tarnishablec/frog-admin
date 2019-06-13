@@ -1,10 +1,14 @@
 <template>
 	<div id="icon-page">
-		<h1>click to copy!</h1>
+		<h1>click icon to copy code!</h1>
 		<div id="icon-container">
-			<div v-for="i in iconList" @click="doCopy(i)">
-				<fr-icon :icon="i"/>
-				<span>{{i}}</span>
+			<div v-for="i in iconList" @click="doCopyCode(i)">
+				<div>
+					<fr-icon :icon="i"/>
+				</div>
+				<div @click.stop="doCopyName(i)">
+					<span>{{i}}</span>
+				</div>
 			</div>
 			<div v-for="i in 15" class="placeholder">
 			</div>
@@ -25,11 +29,19 @@
 			}
 		},
 		methods: {
-			doCopy(text) {
+			doCopyCode(text) {
 				let res = `<fr-icon icon="${text}"/>`;
 				this.$copyText(res).then(() => {
 					this.$message({
 						message: `'${res}' has been copied!`,
+						type: 'success',
+					})
+				})
+			},
+			doCopyName(text) {
+				this.$copyText(text).then(() => {
+					this.$message({
+						message: `${text} has been copied!`,
 						type: 'success',
 					})
 				})
@@ -68,6 +80,14 @@
 				align-items: center;
 				border-radius: 4px;
 				margin: 10px;
+
+				& > div {
+					width: 100%;
+					&:hover {
+						box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+						cursor: pointer;
+					}
+				}
 
 				&:hover {
 					box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
