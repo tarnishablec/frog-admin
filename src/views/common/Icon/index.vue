@@ -6,7 +6,7 @@
 				<div>
 					<fr-icon :icon="i"/>
 				</div>
-				<div @click.stop="doCopyName(i)">
+				<div @click.stop="doCopyName(i)" id="icon-name">
 					<span>{{i}}</span>
 				</div>
 			</div>
@@ -81,9 +81,18 @@
 				border-radius: 4px;
 				margin: 10px;
 
+				#icon-name {
+					padding-top: 5px;
+					padding-bottom: 5px;
+					vertical-align: middle;
+					span{
+					}
+				}
+
 				& > div {
 					flex: 1;
 					width: 100%;
+
 					&:hover {
 						box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
 						cursor: pointer;
@@ -94,9 +103,6 @@
 					box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
 				}
 
-				span {
-					margin: 0 5px 10px 5px;
-				}
 
 				.fr-icon {
 					width: 50px;
