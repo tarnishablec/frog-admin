@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<fr-table ellipsis full-load stripe index border selection :data="data" ref="table1">
+		<fr-table ellipsis full-load stripe index border selection removable editable :data="data" ref="table1">
 			<el-table-column slot="expand" type="expand">
 				<template slot-scope="scope">
 					{{scope.row.title}}
