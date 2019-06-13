@@ -85,7 +85,8 @@
 					padding-top: 5px;
 					padding-bottom: 5px;
 					vertical-align: middle;
-					span{
+
+					span {
 					}
 				}
 
@@ -94,6 +95,7 @@
 					width: 100%;
 
 					&:hover {
+						border-radius: 4px;
 						box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
 						cursor: pointer;
 					}

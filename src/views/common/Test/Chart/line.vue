@@ -1,5 +1,5 @@
 <template>
-	<div v-if="data.length">
+	<div style="width: 50%">
 		<v-chart
 				:forceFit="true"
 				height="400"
@@ -289,7 +289,7 @@
 					tickCount: 10,
 					type: 'timeCat'
 				}],
-				padding: [20, 110, 70, 35],
+				padding: [50, 50, 70, 50],
 			};
 		}
 	};

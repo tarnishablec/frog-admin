@@ -1,24 +1,24 @@
 <template>
 	<div class="fr-table" v-loading="!data" :class="{'fr-table-loading':!data}">
 		<el-table class="fr-table-body" :border="border" v-if="data" ref="elTable"
-		          :data="showData"
-		          :stripe="stripe" :fit="fit" :show-header="showHeader"
-		          :highlight-current-row="highlightCurrentRow" :max-height="maxHeight"
-		          @selection-change="handleSelectionChange">
+							:data="showData"
+							:stripe="stripe" :fit="fit" :show-header="showHeader"
+							:highlight-current-row="highlightCurrentRow" :max-height="maxHeight"
+							@selection-change="handleSelectionChange">
 			<slot name="expand"/>
 			<el-table-column v-if="selection" type="selection"/>
 			<el-table-column v-if="index" type="index" :index="indexStart"/>
 			<el-table-column v-if="fullLoad" v-for="(value,name) in data[0]" :key="name" :prop="name" :label="name"
-			                 :show-overflow-tooltip="ellipsis"
-			                 :align="align">
+											 :show-overflow-tooltip="ellipsis"
+											 :align="align">
 				<template slot-scope="scope">
 					<span @click="enableEdit(scope.$index)" v-if="editingRow !== scope.$index">{{scope.row[name]}}</span>
 					<el-input v-if="editingRow === scope.$index" v-model="scope.row[name]"/>
 				</template>
 			</el-table-column>
 			<el-table-column v-for="column in columns" :key="column" :prop="column" :label="column"
-			                 :show-overflow-tooltip="ellipsis"
-			                 :align="align">
+											 :show-overflow-tooltip="ellipsis"
+											 :align="align">
 				<template slot-scope="scope">
 					<span @click="enableEdit(scope.$index)" v-if="editingRow !== scope.$index">{{scope.row[column]}}</span>
 					<el-input v-if="editingRow === scope.$index" v-model="scope.row[column]"/>
@@ -58,10 +58,10 @@
 			<slot/>
 		</el-table>
 		<el-pagination v-if="pagination && data" :total="data.length"
-		               :page-size.sync="pageSize"
-		               background
-		               style="float: right;"
-		               @current-change="current_change"/>
+									 :page-size.sync="pageSize"
+									 background
+									 style="float: right;"
+									 @current-change="current_change"/>
 	</div>
 </template>
 
@@ -143,6 +143,7 @@
 				selectedRows: [],
 				editingRow: null,
 				isAddingRow: false,
+				k: 0,
 			}
 		},
 		methods: {
@@ -162,7 +163,11 @@
 			cancelAdd() {
 				this.editingRow = null;
 				this.isAddingRow = false;
-			}
+			},
+			// refresh() {
+			// 	console.log(this.k);
+			// 	this.k++;
+			// }
 		},
 	}
 </script>
