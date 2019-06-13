@@ -56,3 +56,9 @@ a {
     display: none;
   }
 }
+
+.el-table__header-wrapper{
+  .cell{
+    white-space: nowrap;
+  }
+}
