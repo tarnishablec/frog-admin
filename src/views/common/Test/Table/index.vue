@@ -53,7 +53,7 @@
 				}).then(() => {
 					this.$message({
 						type: 'success',
-						message: `call some remove api, ${row.name} is added`
+						message: `call some remove api, ${row.name} is removed`
 					});
 				}).catch(() => {
 					this.$message({
