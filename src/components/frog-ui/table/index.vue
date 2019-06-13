@@ -8,6 +8,7 @@
 			<slot name="expand"/>
 			<el-table-column v-if="selection" type="selection"/>
 			<el-table-column v-if="index" type="index" :index="indexStart"/>
+			<el-table-column v-if="data.length===0"/>
 			<el-table-column v-if="fullLoad" v-for="(value,name) in data[0]" :key="name" :prop="name" :label="name"
 											 :show-overflow-tooltip="ellipsis"
 											 :align="align">

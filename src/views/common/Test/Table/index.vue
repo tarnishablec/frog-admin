@@ -1,6 +1,6 @@
 <template>
 	<div>
-		<fr-table full-load :data="data" ref="table1"
+		<fr-table full-load :data="commentData" ref="table1"
 							ellipsis stripe index border selection
 							removable editable addable
 							@rowChange="changeRow"
@@ -20,24 +20,17 @@
 <script>
 	export default {
 		name: "testTable",
-		// asyncComputed: {
-		// 	async data() {
-		// 		return (await this.$axios.get('https://jsonplaceholder.typicode.com/comments')).data;
-		// 	},
-		// },
-		mounted() {
-			this.loadComments();
+		asyncComputed: {
+			async commentData() {
+				return (await this.$axios.get('https://jsonplaceholder.typicode.com/comments')).data;
+			},
 		},
 		data() {
 			return {
-				data: [],
-				columns: ['userId', 'id', 'title']
+				// columns: ['userId', 'id', 'title'],    //can use :columns="columns" in fr-table
 			}
 		},
 		methods: {
-			async loadComments() {
-				this.data = (await this.$axios.get('https://jsonplaceholder.typicode.com/comments')).data;
-			},
 			printSelected() {
 				this.$notify({
 					type: 'success',
@@ -49,8 +42,8 @@
 					message: `call some update api, ${row.name} is updated`,
 					type: 'warning'
 				});
-				this.loadComments();
-				// this.$refs.table1.refresh();
+				// this.loadComments();
+				this.$asyncComputed.commentData.update();
 			},
 			removedRow(index, row) {
 				this.$confirm('This will permanently delete the file. Continue?', 'Warning', {
