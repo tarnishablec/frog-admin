@@ -5,7 +5,7 @@
 		          :stripe="stripe" :fit="fit" :show-header="showHeader"
 		          :highlight-current-row="highlightCurrentRow" :max-height="maxHeight"
 		          @selection-change="handleSelectionChange">
-			<el-table-column v-if="expand" type="expand"/>
+			<slot name="expand"/>
 			<el-table-column v-if="selection" type="selection"/>
 			<el-table-column v-if="index" type="index"/>
 			<el-table-column v-if="fullLoad" v-for="(value,name) in data[0]" :key="name" :prop="name" :label="name"
@@ -76,7 +76,6 @@
 				type: String,
 				default: 'left',
 			},
-			expand: Boolean,
 			pagination: {
 				type: Boolean,
 				default: true,
