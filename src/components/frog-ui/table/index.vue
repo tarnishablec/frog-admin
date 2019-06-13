@@ -32,7 +32,7 @@
 					<div v-if="scope.$index===0&&isAddingRow">
 						<el-button
 								size="mini"
-								@click="$emit('rowAdd',scope.$index, scope.row)">confirm
+								@click="$emit('rowAdd',trueIndex(scope), scope.row)">confirm
 						</el-button>
 						<el-button
 								size="mini"
@@ -44,13 +44,13 @@
 						<el-button
 								v-if="editable"
 								size="mini"
-								@click="$emit('rowChange',scope.$index, scope.row)">update
+								@click="$emit('rowChange',trueIndex(scope), scope.row)">update
 						</el-button>
 						<el-button
 								v-if="removable"
 								size="mini"
 								type="danger"
-								@click="$emit('rowRemove',scope.$index, scope.row)">remove
+								@click="$emit('rowRemove',trueIndex(scope), scope.row)">remove
 						</el-button>
 					</div>
 				</template>
@@ -130,6 +130,11 @@
 			indexStart() {
 				return this.isAddingRow ? 0 : 1;
 			},
+			trueIndex() {
+				return scope => {
+					return this.isAddingRow ? scope.$index : scope.$index + 1;
+				}
+			}
 		},
 		data() {
 			return {
