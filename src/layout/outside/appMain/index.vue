@@ -2,7 +2,7 @@
 	<div id="app-main">
 		<el-scrollbar id="app-main-scroll" :noresize="false">
 			<transition name="fade-transform" mode="out-in">
-				<router-view style="padding-right: 15px;"/>
+				<router-view style="padding: 1rem;"/>
 			</transition>
 		</el-scrollbar>
 	</div>
