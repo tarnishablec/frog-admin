@@ -2,7 +2,7 @@
 	<div id="home">
 		<img alt="Vue logo" src="../../../assets/logo.svg" width="200" height="200">
 		<div>
-			<el-button type="info" @click="goRepo">GITHUB REPO</el-button>
+			<el-button type="info" @click="goRepo">Github Repo</el-button>
 			<el-button type="success" @click="goViser">Viser Chart</el-button>
 			<el-button type="primary" @click="goEle">Element Ui</el-button>
 		</div>
