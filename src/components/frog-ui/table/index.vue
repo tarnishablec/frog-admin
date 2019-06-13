@@ -10,22 +10,18 @@
 			<el-table-column v-if="index" type="index"/>
 			<el-table-column v-if="fullLoad" v-for="(value,name) in data[0]" :key="name" :prop="name" :label="name"
 			                 :show-overflow-tooltip="ellipsis"
-			                 :align="align"/>
-			<el-table-column label="Operations" align="center" width="200" v-if="editable&&removable">
+			                 :align="align">
 				<template slot-scope="scope">
-					<div>
-						<el-button
-								v-if="editable"
-								size="mini"
-								@click="handleEdit(scope.$index, scope.row)">edit
-						</el-button>
-						<el-button
-								v-if="removable"
-								size="mini"
-								type="danger"
-								@click="handleDelete(scope.$index, scope.row)">remove
-						</el-button>
-					</div>
+					<span @click="enableEdit(scope.$index)" v-if="editingRow !== scope.$index">{{scope.row[name]}}</span>
+					<el-input v-if="editingRow === scope.$index" v-model="scope.row[name]"/>
+				</template>
+			</el-table-column>
+			<el-table-column v-for="column in columns" :key="column" :prop="column" :label="column"
+			                 :show-overflow-tooltip="ellipsis"
+			                 :align="align">
+				<template slot-scope="scope">
+					<span @click="enableEdit(scope.$index)" v-if="editingRow !== scope.$index">{{scope.row[column]}}</span>
+					<el-input v-if="editingRow === scope.$index" v-model="scope.row[column]"/>
 				</template>
 			</el-table-column>
 			<slot/>
@@ -81,13 +77,16 @@
 				default: true,
 			},
 			editable: Boolean,
-			removable: Boolean,
+			columns: {
+				type: Array,
+			}
 		},
 
 		data() {
 			return {
 				currentPage: 1,
 				selectedRows: [],
+				editingRow: null,
 			}
 		},
 		methods: {
@@ -97,33 +96,8 @@
 			handleSelectionChange() {
 				this.selectedRows = this.$refs.elTable.store.states.selection
 			},
-			handleEdit(index, row) {
-				this.$alert(row, 'edit   ' + row.id, {
-					confirmButtonText: 'confirm',
-					callback: action => {
-						this.$message({
-							type: 'info',
-							message: `action: ${action}`
-						});
-					}
-				})
-			},
-			handleDelete(index, row) {
-				this.$confirm('This will permanently delete the file. Continue?', 'Warning', {
-					confirmButtonText: 'OK',
-					cancelButtonText: 'Cancel',
-					type: 'warning'
-				}).then(() => {
-					this.$message({
-						type: 'success',
-						message: 'Delete completed'
-					});
-				}).catch(() => {
-					this.$message({
-						type: 'info',
-						message: 'Delete canceled'
-					});
-				});
+			enableEdit(index) {
+				this.editingRow = index;
 			}
 		},
 	}

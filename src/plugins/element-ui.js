@@ -19,6 +19,7 @@ import {
 	RadioGroup,
 	Radio,
 	Pagination,
+	Input,
 	Scrollbar
 } from 'element-ui'
 
@@ -34,6 +35,7 @@ Vue.use(Radio);
 Vue.use(RadioGroup);
 Vue.use(Pagination);
 Vue.use(Scrollbar);
+Vue.use(Input);
 
 Vue.prototype.$loading = Loading.service;
 Vue.prototype.$msgbox = MessageBox;
