@@ -82,6 +82,7 @@
 				margin: 10px;
 
 				& > div {
+					flex: 1;
 					width: 100%;
 					&:hover {
 						box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
