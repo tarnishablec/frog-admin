@@ -58,10 +58,10 @@ a {
 }
 
 .el-table__header-wrapper {
-  border-radius: 8px 8px 0 0 ;
+  border-radius: 8px 8px 0 0;
 
   tr {
-    th{
+    th {
       background-color: #dddddd;
     }
   }
@@ -69,4 +69,8 @@ a {
   .cell {
     white-space: nowrap;
   }
+}
+
+.el-table__row {
+
 }
