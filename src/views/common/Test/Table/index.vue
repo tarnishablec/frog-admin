@@ -1,25 +1,30 @@
 <template>
 	<div>
 		<fr-table full-load :data="commentData" ref="table1"
-							ellipsis stripe index border selection
-							removable editable addable
-							@rowChange="changeRow"
-							@rowRemove="removedRow"
-							@rowAdd="addRow">
+		          ellipsis stripe index border selection
+		          removable editable addable
+		          @rowChange="changeRow"
+		          @rowRemove="removedRow"
+		          @rowAdd="addRow">
 			<el-table-column slot="expand" type="expand">
 				<template slot-scope="scope">
-					{{scope.row.title}}
+					{{scope.row.email}}
 				</template>
 			</el-table-column>
 		</fr-table>
-		<el-button @click="printSelected" style="margin-right: 20px">Print Selected</el-button>
-		<span>=> check in console</span>
+		<div>
+			<el-button @click="printSelected" style="margin-right: 20px">Print Selected</el-button>
+			<json-to-csv-button :data="commentData" filename="table1">Full Data Export</json-to-csv-button>
+		</div>
 	</div>
 </template>
 
 <script>
+	import jsonToCsvButton from "@/components/excel/jsonToCsvButton";
+
 	export default {
 		name: "testTable",
+		components: {jsonToCsvButton},
 		asyncComputed: {
 			async commentData() {
 				return (await this.$axios.get('https://jsonplaceholder.typicode.com/comments')).data;

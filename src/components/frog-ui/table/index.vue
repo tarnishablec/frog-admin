@@ -27,6 +27,7 @@
 			</el-table-column>
 			<el-table-column label="Operations" align="center" width="200" v-if="editable&&removable">
 				<template slot="header" v-if="addable">
+					<json-to-csv-button size="mini" type="info" :data="showData" filename="table1">export show</json-to-csv-button>
 					<el-button size="mini" type="primary" @click="startAddingRow">new</el-button>
 				</template>
 				<template slot-scope="scope">
@@ -68,9 +69,11 @@
 
 <script>
 	import {deepCopy} from '@/utils/commonUtils'
+	import JsonToCsvButton from "@/components/excel/jsonToCsvButton";
 
 	export default {
 		name: "frTable",
+		components: {JsonToCsvButton},
 		props: {
 			data: {
 				required: true,
@@ -165,10 +168,6 @@
 				this.editingRow = null;
 				this.isAddingRow = false;
 			},
-			// refresh() {
-			// 	console.log(this.k);
-			// 	this.k++;
-			// }
 		},
 	}
 </script>
