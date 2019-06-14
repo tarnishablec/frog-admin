@@ -31,6 +31,9 @@
 </script>
 
 <style lang="scss" scoped>
+	h1{
+		margin-top: 0;
+	}
 	#chart-page {
 		display: flex;
 		flex-wrap: wrap;
