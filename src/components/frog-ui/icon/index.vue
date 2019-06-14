@@ -20,7 +20,7 @@
 		computed: {
 			fs() {
 				if (this.size === 'large') {
-					return '1.9rem'
+					return '3rem'
 				}
 				if (this.size === 'default') {
 					return '1.7rem'

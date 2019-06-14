@@ -4,7 +4,7 @@
 		<div id="icon-container">
 			<div v-for="i in iconList" @click="doCopyCode(i)">
 				<div>
-					<fr-icon :icon="i"/>
+					<fr-icon size="large" :icon="i"/>
 				</div>
 				<div @click.stop="doCopyName(i)" id="icon-name">
 					<span>{{i}}</span>
@@ -106,11 +106,7 @@
 				}
 
 
-				.fr-icon {
-					width: 50px;
-					height: 50px;
-					padding: 10px;
-				}
+
 			}
 		}
 	}
