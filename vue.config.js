@@ -10,12 +10,13 @@ module.exports = {
 	},
 
 	devServer: {
+		port: 9999,
 		proxy: {
-			'/api1': {
-				target: 'http://172.16.10.37:8008/',
+			'**':{
+				target:'http://localhost:9999',
 				changeOrigin: true,
 			}
-		}
+		},
 	},
 	runtimeCompiler: true
 };
