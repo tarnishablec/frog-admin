@@ -25,7 +25,7 @@
 					<el-input v-if="editingRow === scope.$index" v-model="scope.row[column]"/>
 				</template>
 			</el-table-column>
-			<el-table-column label="Operations" align="center" width="200" v-if="editable&&removable">
+			<el-table-column label="Operations" align="center" width="200" v-if="editable||removable">
 				<template slot="header" v-if="addable">
 					<json-to-csv-button size="mini" type="info" :data="showData" filename="show-data" v-if="exportable">export</json-to-csv-button>
 					<el-button size="mini" type="primary" @click="startAddingRow">new</el-button>
