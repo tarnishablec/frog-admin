@@ -3,7 +3,14 @@ export function hasIcon(route) {
 }
 
 export function hasChildren(route) {
-	return route.children && route.children.length > 0;
+	if (route.children && route.children.length > 0) {
+		for (let r of route.children) {
+			if (!r.hidden) {
+				return true;
+			}
+		}
+		return false;
+	}
 }
 
 export function hasSideName(route) {
