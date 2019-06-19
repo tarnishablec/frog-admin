@@ -2,7 +2,7 @@ const resolve = dir => require('path').join(__dirname, dir);
 
 module.exports = {
 	publicPath: process.env.NODE_ENV === 'production'
-		? '/frog-admin/'
+		? '/vsky-admin/'
 		: '/',
 	chainWebpack: (config) => {
 		config.resolve.alias

@@ -1,6 +1,6 @@
 export default {
 	state: {
-		title: 'Frog Admin',
+		title: 'Vsky Admin',
 		sidebar: {
 			open: true,
 		},
