@@ -1,5 +1,15 @@
 <template>
 	<div class="fr-table" v-loading="!data" :class="{'fr-table-loading':!data}">
+		<div class="fr-table-toolbar" v-if="data">
+			<span>{{title}}</span>
+			<div>
+				<slot name="toolbar"/>
+				<json-to-csv-button v-if="exportable" :data="showData" filename="showData">
+					Export Show Data
+				</json-to-csv-button>
+				<el-button size="mini" type="primary" @click="startAddingRow">new</el-button>
+			</div>
+		</div>
 		<el-table class="fr-table-body" :border="border" v-if="data" ref="elTable"
 		          :data="showData"
 		          :stripe="stripe" :fit="fit" :show-header="showHeader"
@@ -27,8 +37,6 @@
 			</el-table-column>
 			<el-table-column label="Operations" align="center" width="200" v-if="editable||removable">
 				<template slot="header" v-if="addable">
-					<json-to-csv-button size="mini" type="info" :data="showData" filename="show-data" v-if="exportable">export</json-to-csv-button>
-					<el-button size="mini" type="primary" @click="startAddingRow">new</el-button>
 				</template>
 				<template slot-scope="scope">
 					<div v-if="scope.$index===0&&isAddingRow">
@@ -61,8 +69,8 @@
 		</el-table>
 		<el-pagination v-if="pagination && data" :total="data.length"
 		               :page-size.sync="pageSize"
+		               layout="prev,pager,next,jumper,total"
 		               background
-		               style="float: right;"
 		               @current-change="current_change"/>
 	</div>
 </template>
@@ -75,6 +83,7 @@
 		name: "frTable",
 		components: {JsonToCsvButton},
 		props: {
+			title: String,
 			data: {
 				required: true,
 			},
@@ -82,7 +91,6 @@
 				type: Number,
 				default: 15,
 			},
-			exportable: Boolean,
 			index: Boolean,
 			border: Boolean,
 			fullLoad: Boolean,
@@ -116,9 +124,10 @@
 			editable: Boolean,
 			removable: Boolean,
 			addable: Boolean,
+			exportable: Boolean,
 			columns: {
 				type: Array,
-			}
+			},
 		},
 		computed: {
 			showData() {
@@ -148,7 +157,6 @@
 				selectedRows: [],
 				editingRow: null,
 				isAddingRow: false,
-				k: 0,
 			}
 		},
 		methods: {

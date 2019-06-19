@@ -3,6 +3,8 @@
 		<fr-table full-load :data="commentData" ref="table1"
 		          ellipsis stripe index border selection
 		          removable editable addable exportable
+		          title="Comment"
+		          :page-size="10"
 		          @rowChange="changeRow"
 		          @rowRemove="removedRow"
 		          @rowAdd="addRow">
@@ -11,10 +13,13 @@
 					{{scope.row.email}}
 				</template>
 			</el-table-column>
+			<template slot="toolbar">
+				<el-button size="mini">Custom Button</el-button>
+				<el-button size="mini" @click="printSelected">Print Selected</el-button>
+				<json-to-csv-button :data="commentData" filename="fullData">Full Export</json-to-csv-button>
+			</template>
 		</fr-table>
 		<div>
-			<el-button @click="printSelected" style="margin-right: 20px">Print Selected</el-button>
-			<json-to-csv-button :data="commentData" filename="full-data">Full Data Export</json-to-csv-button>
 		</div>
 	</div>
 </template>

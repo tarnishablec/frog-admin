@@ -1,6 +1,3 @@
-.el-pagination__jump {
-  margin-right: 30px;
-}
 
 .fr-table {
   min-height: 300px;
@@ -12,16 +9,41 @@
   .el-table {
     border-radius: 10px;
   }
-}
 
-.fr-table-body {
-  margin-bottom: 1rem;
-}
-
-.el-pagination {
-  button {
-    background-color: transparent;
+  .el-pagination {
+    margin-top: 0.5rem;
+    button {
+      background-color: transparent;
+    }
   }
+
+  .el-pagination__jump {
+    margin: 0 1rem;
+  }
+
+  .fr-table-toolbar {
+    border-radius: 4px;
+    width: 100%;
+    margin-bottom: 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    height: 2rem;
+
+    & > span {
+      line-height: 2rem;
+      padding-left: 1rem;
+      vertical-align: middle;
+      flex-basis: auto;
+      font-weight: bold;
+    }
+  }
+
+  .el-pagination {
+    display: flex;
+    justify-content: flex-end;
+  }
+
 }
+
 
 

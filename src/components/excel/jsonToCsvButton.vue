@@ -11,7 +11,10 @@
 		props: {
 			filename: String,
 			data: Array,
-			size: String,
+			size: {
+				type: String,
+				default: 'mini'
+			},
 			type: String,
 		},
 		methods: {
