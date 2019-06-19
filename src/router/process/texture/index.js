@@ -1,6 +1,7 @@
 const texture = {
 	path: 'texture',
 	name: 'texture',
+	redirect: '/process/texture/dashboard',
 	component: () => import('@/views/process/texture'),
 	children: [
 		{
