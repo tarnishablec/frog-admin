@@ -43,6 +43,7 @@
 			border: 1px dashed #2a2a32;
 			margin: 10px 5px;
 			width: 40%;
+			min-width: 250px;
 			flex-shrink: 0;
 			flex-grow: 0;
 		}
