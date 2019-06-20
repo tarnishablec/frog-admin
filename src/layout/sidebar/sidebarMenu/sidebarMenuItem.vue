@@ -1,8 +1,8 @@
 <template>
 	<div v-if="!route.hidden" class="sidebar-menu-item">
-		<template v-if="!hasChildren(route)">
+		<template v-if="!hasActiveChildren(route)">
 			<router-link :to="fullPath">
-				<el-menu-item :index="fullPath">
+				<el-menu-item :index="fullPath + (hasChildren(route) ?('/'+ route.children[0].path ): '')">
 					<fr-icon class="side-menu-icon" v-if="hasIcon(route)" :icon="route.meta.icon"/>
 					<span slot="title">{{hasSideName(route)?route.meta.sideName:route.name}}</span>
 				</el-menu-item>
@@ -14,13 +14,13 @@
 				<span>{{hasSideName(route)?route.meta.sideName:route.name}}</span>
 			</template>
 			<sidebar-menu-item v-for="child in route.children" :key="child.path" :route="child" :base-path="fullPath"
-												 class="nest-menu-item"/>
+			                   class="nest-menu-item"/>
 		</el-submenu>
 	</div>
 </template>
 
 <script>
-	import {hasChildren, hasIcon, hasSideName} from '@/utils/routerUtils'
+	import {hasActiveChildren, hasIcon, hasSideName, hasChildren} from '@/utils/routerUtils'
 
 	export default {
 		name: "sidebarMenuItem",
@@ -36,13 +36,15 @@
 		},
 		computed: {
 			fullPath() {
-				return (this.basePath + '/' + this.route.path).replace(/^\/\//, '\/');
+				console.log(this.route);
+				return (this.basePath + '/' + this.route.path).replace(/^\/\//, '\/') ;
 			},
 		},
 		methods: {
-			hasChildren,
+			hasActiveChildren,
 			hasIcon,
-			hasSideName
+			hasSideName,
+			hasChildren
 		}
 	}
 </script>
@@ -63,7 +65,7 @@
 		}
 	}
 
-	#sidebar-menu:not(.el-menu--collapse){
+	#sidebar-menu:not(.el-menu--collapse) {
 		.el-submenu__title {
 			span {
 				&::after {
