@@ -1,6 +1,6 @@
 <template>
 	<div id="texture-dashboard">
-		<fr-table :data="textureMachineList" full-load/>
+		<fr-table :data="textureMachineList" full-load index/>
 	</div>
 </template>
 
