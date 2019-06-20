@@ -36,7 +36,6 @@
 		},
 		computed: {
 			fullPath() {
-				console.log(this.route);
 				return (this.basePath + '/' + this.route.path).replace(/^\/\//, '\/') ;
 			},
 		},
@@ -51,39 +50,4 @@
 
 <style lang="scss" scoped>
 
-	.sidebar-menu-item {
-		transition: border 0.3s;
-
-		.side-menu-icon {
-			margin-right: 25px;
-		}
-
-		&:hover:not(.nest-menu-item) {
-			border-left: #ff5533;
-			border-width: 0 0 0 2px;
-			border-style: solid;
-		}
-	}
-
-	#sidebar-menu:not(.el-menu--collapse) {
-		.el-submenu__title {
-			span {
-				&::after {
-					content: '+';
-					float: right;
-				}
-			}
-		}
-	}
-
-	.nest-menu-item {
-		.el-submenu__title {
-			span {
-				&::after {
-					content: '+' !important;
-					float: right !important;
-				}
-			}
-		}
-	}
 </style>
