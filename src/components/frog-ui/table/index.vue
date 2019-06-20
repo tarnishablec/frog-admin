@@ -10,6 +10,7 @@
 		</div>
 		<el-table class="fr-table-body" :border="border" v-if="data" ref="elTable"
 		          :data="nowData"
+		          :row-class-name="rowClassName"
 		          :stripe="stripe" :fit="fit" :show-header="showHeader"
 		          :highlight-current-row="highlightCurrentRow" :max-height="maxHeight"
 		          @selection-change="handleSelectionChange">
@@ -121,6 +122,7 @@
 			maxHeight: {
 				type: Number,
 			},
+			rowClassName: String,
 			selection: Boolean,
 			backgroundColor: {
 				type: String,
