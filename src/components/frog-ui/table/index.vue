@@ -43,7 +43,7 @@
 					<div v-if="scope.$index===0&&isAddingRow">
 						<el-button
 								size="mini"
-								@click="$emit('rowAdd',trueIndex(scope), scope.row)">confirm
+								@click="addRow(scope)">insert
 						</el-button>
 						<el-button
 								size="mini"
@@ -195,6 +195,10 @@
 				this.editingRow = null;
 				this.isAddingRow = false;
 			},
+			addRow(scope) {
+				this.$emit('rowAdd', this.trueIndex(scope), scope.row);
+				this.cancelAdd();
+			}
 		},
 	}
 </script>
