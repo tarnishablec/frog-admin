@@ -1,12 +1,16 @@
 <template>
 	<div id="texture-dashboard">
-		<fr-table :data="textureMachineList" :columns="columns"  index ellipsis>
+		<el-table :data.sync="textureMachineList" :columns="columns">
+			<el-table-column type="index"/>
+			<el-table-column v-for="column in columns" :key="column" :prop="column" :label="column" show-overflow-tooltip/>
 			<el-table-column prop="status" label="status">
-				<template slot-scope="scope">
-					{{scope.row.status}}
+				<template v-slot="{row}">
+					<div>
+						<span>{{row.status}}</span>
+					</div>
 				</template>
 			</el-table-column>
-		</fr-table>
+		</el-table>
 	</div>
 </template>
 
@@ -15,9 +19,9 @@
 
 	export default {
 		name: "textureDashboard",
-		data(){
-			return{
-				columns:['MachineID','MachineName','MachineCode','WorkCellTypeID','WorkCellID','recipe']
+		data() {
+			return {
+				columns: ['MachineID', 'MachineName', 'MachineCode', 'WorkCellTypeID', 'WorkCellID', 'recipe']
 			}
 		},
 		asyncComputed: {
@@ -26,10 +30,10 @@
 					workCellCode: 'BT',
 				})).data;
 			}
-		}
+		},
 	}
 </script>
 
-<style scoped>
+<style lang="scss">
 
 </style>
