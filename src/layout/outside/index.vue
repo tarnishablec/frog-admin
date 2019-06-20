@@ -1,5 +1,5 @@
 <template>
-	<div id="outside">
+	<div class="outside">
 		<toolbar/>
 		<app-main/>
 		<tipbar/>
@@ -17,7 +17,7 @@
 </script>
 
 <style lang="scss" scoped>
-	#outside{
+	.outside{
 		flex: 1;
 		display: flex;
 		flex-direction: column;

@@ -34,6 +34,7 @@
 	#app {
 		font-family: 'Avenir', Helvetica, Arial, sans-serif;
 		-webkit-font-smoothing: antialiased;
+		-webkit-transform: translateZ(0);
 		color: #2c3e50;
 		overflow: hidden;
 	}
