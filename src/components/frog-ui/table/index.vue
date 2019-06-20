@@ -4,14 +4,12 @@
 			<span>{{title}}</span>
 			<div>
 				<slot name="toolbar"/>
-				<json-to-csv-button v-if="exportable" :data="showData" filename="showData">
-					Export Show Data
-				</json-to-csv-button>
+				<json-to-csv-button v-if="exportable" :data="showData" filename="showData">Export Show Data</json-to-csv-button>
 				<el-button size="mini" type="primary" @click="startAddingRow">new</el-button>
 			</div>
 		</div>
 		<el-table class="fr-table-body" :border="border" v-if="data" ref="elTable"
-		          :data="showData"
+		          :data="nowData"
 		          :stripe="stripe" :fit="fit" :show-header="showHeader"
 		          :highlight-current-row="highlightCurrentRow" :max-height="maxHeight"
 		          @selection-change="handleSelectionChange">
@@ -23,15 +21,18 @@
 			                 :show-overflow-tooltip="ellipsis"
 			                 :align="align">
 				<template slot-scope="scope">
-					<span @click="enableEdit(scope.$index)" v-if="editingRow !== scope.$index">{{scope.row[name]}}</span>
+					<!--					<editable-text :editable="editable" v-model="scope.row[name]"/>-->
+					<span @click="inlineEdit?enableEdit(scope.$index):''"
+					      v-if="editingRow !== scope.$index">{{scope.row[name]}}</span>
 					<el-input v-if="editingRow === scope.$index" v-model="scope.row[name]"/>
 				</template>
 			</el-table-column>
 			<el-table-column v-for="column in columns" :key="column" :prop="column" :label="column"
 			                 :show-overflow-tooltip="ellipsis"
 			                 :align="align">
-				<template slot-scope="scope" v-if="editable">
-					<span @click="enableEdit(scope.$index)" v-if="editingRow !== scope.$index">{{scope.row[column]}}</span>
+				<template slot-scope="scope">
+					<span @click="inlineEdit?enableEdit(scope.$index):''"
+					      v-if="editingRow !== scope.$index">{{scope.row[column]}}</span>
 					<el-input v-if="editingRow === scope.$index" v-model="scope.row[column]"/>
 				</template>
 			</el-table-column>
@@ -51,17 +52,30 @@
 						</el-button>
 					</div>
 					<div v-else>
-						<el-button
-								v-if="editable"
-								size="mini"
-								@click="$emit('rowChange',trueIndex(scope), scope.row)">update
-						</el-button>
-						<el-button
-								v-if="removable"
-								size="mini"
-								type="danger"
-								@click="$emit('rowRemove',trueIndex(scope), scope.row)">remove
-						</el-button>
+						<div v-if="editingRow === scope.$index">
+							<el-button
+									size="mini"
+									@click="$emit('rowUpdate',trueIndex(scope),scope.row)">update
+							</el-button>
+							<el-button
+									size="mini"
+									type="danger"
+									@click="editingRow=null">cancel
+							</el-button>
+						</div>
+						<div v-else>
+							<el-button
+									v-if="editable"
+									size="mini"
+									@click="enableEdit(scope.$index)">edit
+							</el-button>
+							<el-button
+									v-if="removable"
+									size="mini"
+									type="danger"
+									@click="$emit('rowRemove',trueIndex(scope), scope.row)">remove
+							</el-button>
+						</div>
 					</div>
 				</template>
 			</el-table-column>
@@ -125,12 +139,13 @@
 			removable: Boolean,
 			addable: Boolean,
 			exportable: Boolean,
+			inlineEdit: Boolean,
 			columns: {
 				type: Array,
 			},
 		},
 		computed: {
-			showData() {
+			nowData() {
 				let sd = this.data.slice((this.currentPage - 1) * this.pageSize, this.currentPage * this.pageSize);
 				let ss = deepCopy(sd[0]);
 				for (let s in ss) {
@@ -139,6 +154,7 @@
 				if (this.isAddingRow) {
 					sd.splice(0, 0, ss);
 				}
+				this.showData = sd;
 				return sd;
 			},
 			indexStart() {
@@ -153,6 +169,7 @@
 		data() {
 			return {
 				sourceData: this.data,
+				showData: null,
 				currentPage: 1,
 				selectedRows: [],
 				editingRow: null,
@@ -167,7 +184,8 @@
 				this.selectedRows = this.$refs.elTable.store.states.selection
 			},
 			enableEdit(index) {
-				this.editingRow = index;
+				if (this.editable)
+					this.editingRow = index;
 			},
 			startAddingRow() {
 				this.isAddingRow = true;
@@ -180,7 +198,3 @@
 		},
 	}
 </script>
-
-<style lang="scss" scoped>
-
-</style>
