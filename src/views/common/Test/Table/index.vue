@@ -74,10 +74,11 @@
 				});
 			},
 			addRow(index, row) {
-				this.$alert({
-					type: 'success',
-					message: `call some add api, ${row.name} is added`
-				}).then(()=>{
+				this.$alert(
+					`call some add api, ${row.name} is added`,{
+
+					}
+				).then(()=>{
 					this.$asyncComputed.commentData.update();
 				})
 			}
