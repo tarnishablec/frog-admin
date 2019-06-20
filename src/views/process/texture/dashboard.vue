@@ -1,15 +1,8 @@
 <template>
 	<div id="texture-dashboard">
-		<el-table :data.sync="textureMachineList" :columns="columns">
+		<el-table :data.sync="textureMachineList" :columns="columns" :cell-class-name="rowStyle">
 			<el-table-column type="index"/>
 			<el-table-column v-for="column in columns" :key="column" :prop="column" :label="column" show-overflow-tooltip/>
-			<el-table-column prop="status" label="status">
-				<template v-slot="{row}">
-					<div>
-						<span>{{row.status}}</span>
-					</div>
-				</template>
-			</el-table-column>
 		</el-table>
 	</div>
 </template>
@@ -21,7 +14,7 @@
 		name: "textureDashboard",
 		data() {
 			return {
-				columns: ['MachineID', 'MachineName', 'MachineCode', 'WorkCellTypeID', 'WorkCellID', 'recipe']
+				columns: ['MachineID', 'MachineName', 'MachineCode', 'WorkCellTypeID', 'WorkCellID', 'recipe', 'status']
 			}
 		},
 		asyncComputed: {
@@ -31,9 +24,27 @@
 				})).data;
 			}
 		},
+		methods: {
+			rowStyle({row, column}) {
+				if (column.label === 'status') {
+					if (row.status === 'Productive Time') {
+						return 'pt'
+					}
+					if (row.status === 'Standby Time') {
+						return 'st'
+					}
+				}
+			}
+		}
 	}
 </script>
 
 <style lang="scss">
+	.el-table .pt {
+		border-right: 4px solid green;
+	}
 
+	.el-table .st {
+		border-right: 4px solid red;
+	}
 </style>
