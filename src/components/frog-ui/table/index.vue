@@ -5,7 +5,7 @@
 			<div>
 				<slot name="toolbar"/>
 				<json-to-csv-button v-if="exportable" :data="showData" filename="showData">Export Show Data</json-to-csv-button>
-				<el-button size="mini" type="primary" @click="startAddingRow">new</el-button>
+				<el-button v-if="addable" size="mini" type="primary" @click="startAddingRow">new</el-button>
 			</div>
 		</div>
 		<el-table class="fr-table-body" :border="border" v-if="data" ref="elTable"
