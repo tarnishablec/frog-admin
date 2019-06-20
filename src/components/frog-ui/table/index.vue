@@ -1,6 +1,6 @@
 <template>
 	<div class="fr-table" v-loading="!data" :class="{'fr-table-loading':!data}">
-		<div class="fr-table-toolbar">
+		<div class="fr-table-toolbar" v-if="data">
 			<span v-if="title">{{title}}</span>
 			<div>
 				<slot name="toolbar"/>
