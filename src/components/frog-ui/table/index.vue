@@ -1,7 +1,7 @@
 <template>
 	<div class="fr-table" v-loading="!data" :class="{'fr-table-loading':!data}">
-		<div class="fr-table-toolbar" v-if="data">
-			<span>{{title}}</span>
+		<div class="fr-table-toolbar">
+			<span v-if="title">{{title}}</span>
 			<div>
 				<slot name="toolbar"/>
 				<json-to-csv-button v-if="exportable" :data="showData" filename="showData">Export Show Data</json-to-csv-button>
