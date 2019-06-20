@@ -30,7 +30,7 @@
 			<el-table-column v-for="column in columns" :key="column" :prop="column" :label="column"
 			                 :show-overflow-tooltip="ellipsis"
 			                 :align="align">
-				<template slot-scope="scope">
+				<template slot-scope="scope" v-if="editable">
 					<span @click="enableEdit(scope.$index)" v-if="editingRow !== scope.$index">{{scope.row[column]}}</span>
 					<el-input v-if="editingRow === scope.$index" v-model="scope.row[column]"/>
 				</template>
