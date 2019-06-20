@@ -1,6 +1,5 @@
 <template>
 	<div id="texture">
-		texture
 		<router-view/>
 	</div>
 </template>
