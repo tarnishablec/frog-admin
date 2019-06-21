@@ -1,6 +1,6 @@
 <template>
 	<div>
-		detail
+		{{$store.state.routeState.process.texture.detail}}
 	</div>
 </template>
 
