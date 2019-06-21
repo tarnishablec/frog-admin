@@ -6,9 +6,15 @@ const texture = {
 	children: [
 		{
 			path: 'dashboard',
-			name: 'dashboard',
+			name: 'textureDashboard',
 			hidden: true,
 			component: () => import('@/views/process/texture/dashboard')
+		},
+		{
+			path: 'detail',
+			name: 'textureDetail',
+			hidden: true,
+			component: () => import('@/views/process/texture/detail')
 		}
 	]
 };

@@ -1,3 +1,5 @@
+import router from '@/router'
+
 export function hasIcon(route) {
 	return route.meta && route.meta.icon;
 }
@@ -20,4 +22,10 @@ export function hasActiveChildren(route) {
 
 export function hasSideName(route) {
 	return route.meta && route.meta.sideName;
+}
+
+export function jumpTo(path) {
+	return router.push({
+		path: path,
+	});
 }
