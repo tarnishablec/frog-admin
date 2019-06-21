@@ -34,7 +34,12 @@ const fullRoutes = [
 						path: 'b',
 						name: 'b',
 						component: () => import('@/views/common/About/b')
-					}
+					},
+					{
+						path: 'c',
+						name: 'c',
+						component: () => import('@/views/common/About/c')
+					},
 				]
 			}
 		]
