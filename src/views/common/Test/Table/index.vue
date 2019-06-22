@@ -4,7 +4,7 @@
 		          ellipsis stripe index border selection
 		          removable editable addable exportable
 		          title="Comment"
-		          :page-size="10"
+		          :page-size="20"
 		          @rowChange="changeRow"
 		          @rowRemove="removedRow"
 		          @rowAdd="addRow">
