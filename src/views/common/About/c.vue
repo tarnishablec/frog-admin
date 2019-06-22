@@ -1,12 +1,15 @@
 <template>
 	<div>
-		<router-view/>
+		<div>
+			{{$routeState.about.a.c.param1}}
+			{{$routeState.about.a.c.param2}}
+		</div>
 	</div>
 </template>
 
 <script>
 	export default {
-		name: "aa"
+		name: "c"
 	}
 </script>
 

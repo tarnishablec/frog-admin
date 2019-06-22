@@ -2,10 +2,10 @@
 	<div>
 		<fr-table full-load :data="commentData" ref="table1"
 		          ellipsis stripe index border selection
-		          removable editable addable exportable
+		          removable editable addable exportable inline-edit
 		          title="Comment"
 		          :page-size="20"
-		          @rowChange="changeRow"
+		          @rowUpdate="updateRow"
 		          @rowRemove="removedRow"
 		          @rowAdd="addRow">
 			<el-table-column slot="expand" type="expand">
@@ -47,7 +47,7 @@
 					message: this.$refs.table1.selectedRows,
 				})
 			},
-			changeRow(index, row) {
+			updateRow(index, row) {
 				this.$message({
 					message: `call some update api, ${row.name} is updated`,
 					type: 'warning'
@@ -65,6 +65,7 @@
 						type: 'success',
 						message: `call some remove api, ${row.name} is removed`
 					});
+					this.$asyncComputed.commentData.update();
 				}).catch(() => {
 					this.$message({
 						type: 'info',
@@ -73,9 +74,12 @@
 				});
 			},
 			addRow(index, row) {
-				this.$alert({
-					type: 'success',
-					message: `call some add api, ${row.name} is added`
+				this.$alert(
+					`call some add api, ${row.name} is added`,{
+
+					}
+				).then(()=>{
+					this.$asyncComputed.commentData.update();
 				})
 			}
 		},

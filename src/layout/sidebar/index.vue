@@ -1,5 +1,5 @@
 <template>
-	<div id="sidebar">
+	<div class="sidebar">
 		<sidebar-logo/>
 		<el-scrollbar id="sidebar-scroll">
 			<sidebar-menu/>
@@ -18,19 +18,5 @@
 </script>
 
 <style lang="scss" scoped>
-	#sidebar {
-		flex-shrink: 0;
-		display: flex;
-		flex-direction: column;
-		transition: width 0.3s;
-		background-color: var(--sidebar-bgc);
-		width: var(--sidebar-width);
-		height: 100vh;
-		z-index: 800;
-		overflow-x: hidden;
 
-		#sidebar-scroll {
-			flex: 1;
-		}
-	}
 </style>
