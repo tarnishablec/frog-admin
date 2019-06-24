@@ -13,7 +13,7 @@ const dynamicRoutes = [
 			{
 				path:'table',
 				name:'table',
-				component:()=>import('@/views/common/Test/Table/')
+				component:()=>import('@/views/common/Test/Table/eTable')
 			},
 			{
 				path:'chart',

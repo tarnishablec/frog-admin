@@ -46,6 +46,8 @@ export function setPropRecur(obj, arr, data) {
 		}
 		return;
 	}
-	obj[shift] = {};
+	if (!obj[shift]){
+		obj[shift] = {};
+	}
 	setPropRecur(obj[shift], arr, data);
 }
