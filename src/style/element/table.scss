@@ -1,0 +1,17 @@
+.el-table {
+  overflow: hidden;
+  border-radius: 0.5rem;
+}
+
+.el-table__header-wrapper {
+  tr {
+    th {
+      background-color: #dddddd;
+    }
+  }
+
+  .cell {
+    white-space: nowrap;
+  }
+}
+

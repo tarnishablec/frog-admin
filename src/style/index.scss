@@ -1,4 +1,5 @@
 @import "frog/index";
+@import "element/index";
 @import "transition";
 @import "variables";
 @import "sidebar";
@@ -26,52 +27,9 @@ a {
   flex: 1;
 }
 
-.el-submenu__icon-arrow {
-  display: none;
-}
 
-.nest-menu-item {
-  .el-submenu__title, .el-menu-item {
-    background-color: #2a2a32 !important;
 
-    &:hover {
-      background-color: #22222a !important;
-    }
-  }
-}
 
-.el-scrollbar__wrap {
-  overflow-x: hidden;
-}
 
-.el-menu--popup {
-  padding: 0 !important;
-}
 
-.el-loading-mask {
-  z-index: 500;
-}
 
-.el-table__header-wrapper {
-  border-radius: 8px 8px 0 0;
-
-  tr {
-    th {
-      background-color: #dddddd;
-    }
-  }
-
-  .cell {
-    white-space: nowrap;
-  }
-}
-
-.el-table__row {
-
-}
-
-.el-button {
-  span {
-    vertical-align: middle;
-  }
-}
