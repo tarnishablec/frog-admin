@@ -1,5 +1,5 @@
 <template>
-	<div class="sidebar">
+	<div id="sidebar">
 		<sidebar-logo/>
 		<el-scrollbar id="sidebar-scroll">
 			<sidebar-menu/>
