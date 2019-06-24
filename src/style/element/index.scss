@@ -1,0 +1,23 @@
+@import "table";
+
+.el-submenu__icon-arrow {
+  display: none;
+}
+
+
+
+
+.el-scrollbar__wrap {
+  overflow-x: hidden;
+}
+
+
+.el-loading-mask {
+  z-index: 500;
+}
+
+.el-button {
+  span {
+    vertical-align: middle;
+  }
+}

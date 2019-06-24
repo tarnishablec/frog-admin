@@ -53,4 +53,17 @@
       }
     }
   }
+
+  .el-submenu__title, .el-menu-item {
+    background-color: #2a2a32 !important;
+
+    &:hover {
+      background-color: #22222a !important;
+    }
+  }
 }
+
+.el-menu--popup {
+  padding: 0 !important;
+}
+
