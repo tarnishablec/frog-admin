@@ -1,4 +1,4 @@
-.sidebar {
+#sidebar {
   flex-shrink: 0;
   display: flex;
   flex-direction: column;
@@ -11,6 +11,10 @@
 
   #sidebar-scroll {
     flex: 1;
+  }
+
+  .el-scrollbar__bar.is-horizontal {
+    display: none;
   }
 }
 

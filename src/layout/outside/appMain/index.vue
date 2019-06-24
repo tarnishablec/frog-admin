@@ -25,7 +25,7 @@
 		overflow: hidden;
 
 		#app-main-scroll {
-			transition: width 0.3s ease-in-out 0.4s;
+			transition: width 0.3s;
 			width: calc(100vw - var(--sidebar-width));
 			height: 100%;
 		}
