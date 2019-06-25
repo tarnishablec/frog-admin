@@ -23,14 +23,22 @@
 					</tr>
 					<tr>
 						<td class="detail-column-header"><span>Set Time</span></td>
-						<td v-for="i in 13"></td>
+						<td v-for="i in 13" :key="i"></td>
 					</tr>
 					<tr>
 						<td class="detail-column-header"><span>Used Time</span></td>
-						<td v-for="i in 13"></td>
+						<td v-for="i in 13" :key="i"></td>
 					</tr>
 				</table>
 			</v-scroll>
+		</el-card>
+		<el-card>
+			<div slot="header">
+				Data Comparison
+			</div>
+			<div>
+
+			</div>
 		</el-card>
 	</div>
 </template>
