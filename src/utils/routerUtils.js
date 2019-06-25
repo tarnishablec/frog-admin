@@ -25,9 +25,14 @@ export function hasSideName(route) {
 	return route.meta && route.meta.sideName;
 }
 
-export function jumpTo(path, data) {
+export function pathToArray(path) {
 	let arr = path.split('/');
 	arr.shift();
+	return arr;
+}
+
+export function jumpTo(path, data) {
+	let arr = pathToArray(path);
 	const rs = store.state.routeState;
 	setPropRecur(rs, arr, data);
 	store.commit('SYNC');
@@ -46,7 +51,7 @@ export function setPropRecur(obj, arr, data) {
 		}
 		return;
 	}
-	if (!obj[shift]){
+	if (!obj[shift]) {
 		obj[shift] = {};
 	}
 	setPropRecur(obj[shift], arr, data);
