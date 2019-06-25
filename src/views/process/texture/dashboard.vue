@@ -13,7 +13,7 @@
 				<template slot-scope="scope">
 					<div id="operator">
 						<el-tooltip content="alarm">
-							<fr-icon icon="bell"/>
+							<fr-icon icon="bell" @click.native="$jumpTo('/process/texture/alarm')"/>
 						</el-tooltip>
 						<el-tooltip content="point check">
 							<fr-icon icon="monitor"/>
@@ -89,7 +89,7 @@
 			}
 		}
 
-		#operator{
+		#operator {
 			display: flex;
 			flex-wrap: nowrap;
 			justify-content: space-evenly;

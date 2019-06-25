@@ -15,7 +15,13 @@ const texture = {
 			name: 'textureDetail',
 			hidden: true,
 			component: () => import('@/views/process/texture/detail')
-		}
+		},
+		{
+			path: 'alarm',
+			name: 'textureAlarm',
+			hidden: true,
+			component: () => import('@/views/process/texture/alarm')
+		},
 	]
 };
 

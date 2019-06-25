@@ -15,7 +15,7 @@
 					</tr>
 					<tr>
 						<td class="detail-column-header"><span>Actual</span></td>
-						<td v-for="i in 13"><span class="actual-temp" @click="">{{machineState['temperature_tank_'+(i+1)]}}</span>
+						<td v-for="i in 13"><span class="actual-temp" @click="showHistory">{{machineState['temperature_tank_'+(i+1)]}}</span>
 						</td>
 					</tr>
 					<tr>
@@ -63,6 +63,12 @@
 				</div>
 			</div>
 		</el-card>
+		<el-dialog :visible.sync="historyDialogVisible" width="80%"
+		           :modal-append-to-body='false'>
+			<div slot="title"><span>History Data</span>
+				<hr/>
+			</div>
+		</el-dialog>
 	</div>
 </template>
 
@@ -79,6 +85,7 @@
 				selectedMachine: [10001],
 				tankId: 'temperature_tank_2',
 				comparisonTime: [new Date(), new Date()],
+				historyDialogVisible: false,
 			}
 		},
 		asyncComputed: {
@@ -95,6 +102,11 @@
 			}).then(res => {
 				this.machineState = res.data.parameter;
 			})
+		},
+		methods: {
+			showHistory() {
+				this.historyDialogVisible = true;
+			}
 		}
 	}
 </script>
@@ -105,6 +117,7 @@
 
 		.detail-column-header {
 			background-color: #cacaca;
+			display: inline-flex;
 		}
 
 		tr:not(#texture-detail-header) {
@@ -157,7 +170,7 @@
 		}
 	}
 
-	.el-card{
+	.el-card {
 		margin-bottom: 1rem;
 	}
 </style>
