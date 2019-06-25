@@ -24,6 +24,7 @@ import {
 	DatePicker,
 	TimePicker,
 	Select,
+	Option,
 	Scrollbar
 } from 'element-ui'
 
@@ -44,6 +45,7 @@ Vue.use(Card);
 Vue.use(DatePicker);
 Vue.use(TimePicker);
 Vue.use(Select);
+Vue.use(Option);
 
 
 Vue.prototype.$loading = Loading.service;
