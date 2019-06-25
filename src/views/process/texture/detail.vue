@@ -38,9 +38,16 @@
 				Data Comparison
 			</div>
 			<div>
-				<div>
-					Time: <el-date-picker v-model="comparisonTime" type="datetimerange"/>
-					Machines: <el-select value=""/>
+				<div class="comparison-header">
+					<div>
+						Time:
+						<el-date-picker v-model="comparisonTime" type="datetimerange"/>
+					</div>
+					<div>
+						Machines:
+						<el-select v-model="selectedMachine" multiple collapse-tags>
+						</el-select>
+					</div>
 				</div>
 			</div>
 		</el-card>
@@ -56,7 +63,13 @@
 			return {
 				headerList: ['Start Position', 'SDR', 'PSC1', 'Rinse', 'Texture', 'Rinse', 'Texture', 'PSC1', 'Rinse', 'HT/HCL clean', 'HV-Dryer', 'WAD', 'WAD', 'End position'],
 				machineState: {},
+				selectedMachine: [],
 				comparisonTime: [new Date(), new Date()],
+			}
+		},
+		asyncComputed: {
+			async machineList() {
+				return (await common.getMachineListByCodeFromCommon('BT')).data;
 			}
 		},
 		mounted() {
@@ -112,6 +125,14 @@
 					line-height: 2rem;
 				}
 			}
+		}
+	}
+
+	.comparison-header {
+		display: flex;
+
+		* {
+			margin-right: 2rem;
 		}
 	}
 
