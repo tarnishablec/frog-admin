@@ -15,7 +15,8 @@
 					</tr>
 					<tr>
 						<td class="detail-column-header"><span>Actual</span></td>
-						<td v-for="i in 13"><span class="actual-temp" @click="">{{machineState['temperature_tank_'+(i+1)]}}</span></td>
+						<td v-for="i in 13"><span class="actual-temp" @click="">{{machineState['temperature_tank_'+(i+1)]}}</span>
+						</td>
 					</tr>
 					<tr>
 						<td class="detail-column-header"><span>Set</span></td>
@@ -37,7 +38,10 @@
 				Data Comparison
 			</div>
 			<div>
-
+				<div>
+					Time: <el-date-picker v-model="comparisonTime" type="datetimerange"/>
+					Machines: <el-select value=""/>
+				</div>
 			</div>
 		</el-card>
 	</div>
@@ -52,6 +56,7 @@
 			return {
 				headerList: ['Start Position', 'SDR', 'PSC1', 'Rinse', 'Texture', 'Rinse', 'Texture', 'PSC1', 'Rinse', 'HT/HCL clean', 'HV-Dryer', 'WAD', 'WAD', 'End position'],
 				machineState: {},
+				comparisonTime: [new Date(), new Date()],
 			}
 		},
 		mounted() {
