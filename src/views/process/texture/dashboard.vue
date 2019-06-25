@@ -9,17 +9,19 @@
 			</el-table-column>
 			<el-table-column align="center" v-for="column in columns" :key="column" :prop="column" :label="column"
 			                 show-overflow-tooltip/>
-			<el-table-column align="center">
+			<el-table-column align="center" width="200">
 				<template slot-scope="scope">
-					<el-tooltip content="alarm">
-						<fr-icon icon="bell"/>
-					</el-tooltip>
-					<el-tooltip content="point check">
-						<fr-icon icon="monitor"/>
-					</el-tooltip>
-					<el-tooltip content="chemical">
-						<fr-icon icon="experiment"/>
-					</el-tooltip>
+					<div id="operator">
+						<el-tooltip content="alarm">
+							<fr-icon icon="bell"/>
+						</el-tooltip>
+						<el-tooltip content="point check">
+							<fr-icon icon="monitor"/>
+						</el-tooltip>
+						<el-tooltip content="chemical">
+							<fr-icon icon="experiment"/>
+						</el-tooltip>
+					</div>
 				</template>
 			</el-table-column>
 		</el-table>
@@ -81,12 +83,16 @@
 		}
 
 		svg {
-			margin: 0 0.5rem !important;
-
 			&:hover {
 				cursor: pointer;
 				color: #4c8cf5;
 			}
+		}
+
+		#operator{
+			display: flex;
+			flex-wrap: nowrap;
+			justify-content: space-evenly;
 		}
 	}
 </style>
