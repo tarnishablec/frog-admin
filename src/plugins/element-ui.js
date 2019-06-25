@@ -25,6 +25,7 @@ import {
 	TimePicker,
 	Select,
 	Option,
+	Dialog,
 	Scrollbar
 } from 'element-ui'
 
@@ -46,6 +47,7 @@ Vue.use(DatePicker);
 Vue.use(TimePicker);
 Vue.use(Select);
 Vue.use(Option);
+Vue.use(Dialog);
 
 
 Vue.prototype.$loading = Loading.service;
