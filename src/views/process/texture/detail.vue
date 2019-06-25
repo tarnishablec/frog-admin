@@ -1,13 +1,33 @@
 <template>
-	<table>
-		<tr id="texture-detail-header">
-			<td v-for="i in 14">
-				<span>{{i}}</span>
-				<br/>
-				<span>{{headerList[i-1]}}</span>
-			</td>
-		</tr>
-	</table>
+	<div>
+		<v-scroll>
+			<table>
+				<tr id="texture-detail-header">
+					<td v-for="i in 14">
+						<span>{{i}}</span>
+						<br/>
+						<span>{{headerList[i-1]}}</span>
+					</td>
+				</tr>
+				<tr>
+					<td class="detail-column-header"><span>Actual</span></td>
+					<td v-for="i in 13"><span>{{machineState['temperature_tank_'+(i+1)]}}</span></td>
+				</tr>
+				<tr>
+					<td class="detail-column-header"><span>Set</span></td>
+					<td v-for="i in 13"><span>{{machineState['temperature_tank_set_'+(i+1)]}}</span></td>
+				</tr>
+				<tr>
+					<td class="detail-column-header"><span>Set Time</span></td>
+					<td v-for="i in 13"></td>
+				</tr>
+				<tr>
+					<td class="detail-column-header"><span>Used Time</span></td>
+					<td v-for="i in 13"></td>
+				</tr>
+			</table>
+		</v-scroll>
+	</div>
 </template>
 
 <script>
@@ -18,14 +38,15 @@
 		data() {
 			return {
 				headerList: ['Start Position', 'SDR', 'PSC1', 'Rinse', 'Texture', 'Rinse', 'Texture', 'PSC1', 'Rinse', 'HT/HCL clean', 'HV-Dryer', 'WAD', 'WAD', 'End position'],
-				machineState: null,
+				machineState: {},
 			}
 		},
 		mounted() {
-			console.log(this.$router.currentRoute);
 			common.getMachineInfoFromCommon({
 				workCellCode: 'BT',
 				machineId: this.$routeState.process.texture.detail.machineId,
+			}).then(res => {
+				this.machineState = res.data.parameter;
 			})
 		}
 	}
@@ -33,20 +54,45 @@
 
 <style lang="scss" scoped>
 	table {
-		tr#texture-detail-header {
-			td {
-				background-color: grey;
+		padding-bottom: 1rem;
+
+		.detail-column-header {
+			background-color: #cacaca;
+		}
+
+		tr:not(#texture-detail-header) {
+			td:not(.detail-column-header) {
+				span {
+					margin: 0;
+					display: block;
+					height: 100%;
+
+					&:hover {
+						background-color: #a6a6a6;
+					}
+				}
 			}
 		}
 
-		td {
-			text-align: center;
+		tr {
+			&#texture-detail-header {
+				td {
+					background-color: grey;
 
-			span {
-				white-space: nowrap;
-				line-height: 2rem;
-				margin: 0 2rem;
-				font-weight: bold;
+					span {
+						font-weight: bold;
+						margin: 0 2rem;
+					}
+				}
+			}
+
+			td {
+				text-align: center;
+
+				span {
+					white-space: nowrap;
+					line-height: 2rem;
+				}
 			}
 		}
 	}
