@@ -11,12 +11,15 @@ import Viser from 'viser-vue'
 import '@/plugins/frog-ui'
 import VueClipboard from 'vue-clipboard2'
 import {jumpTo} from '@/utils/routerUtils'
+import VuePerfectScrollbar from 'vue-perfect-scrollbar'
 
 Vue.config.productionTip = false;
 
 Vue.use(AsyncComputed);
 Vue.use(Viser);
 Vue.use(VueClipboard);
+
+Vue.component('vScroll',VuePerfectScrollbar);
 
 Vue.prototype.$vars = store.state.style.vars;
 Vue.prototype.$themes = store.state.style.themes;
