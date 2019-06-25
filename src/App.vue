@@ -40,6 +40,7 @@
 	}
 
 	body {
+		white-space: nowrap;
 		margin: 0;
 		padding: 0;
 	}

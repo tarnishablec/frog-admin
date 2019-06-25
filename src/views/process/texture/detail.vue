@@ -40,14 +40,26 @@
 			<div>
 				<div class="comparison-header">
 					<div>
-						Time:
+						<span>Time:</span>
 						<el-date-picker v-model="comparisonTime" type="datetimerange"/>
 					</div>
 					<div>
-						Machines:
-						<el-select v-model="selectedMachine" multiple collapse-tags>
+						<span>Machines:</span>
+						<el-select v-model="selectedMachine" multiple collapse-tags :value="selectedMachine">
+							<el-option v-for="machine in machineList" :key="machine.MachineID" :label="machine.MachineName"
+							           :value="machine.MachineID"/>
 						</el-select>
 					</div>
+					<div>
+						<span>Tank Id:</span>
+						<el-select v-model="tankId" :value="tankId">
+							<el-option v-for="tank in tankList" :key="'temperature_tank_'+tank" :label="'temperature_tank_'+tank"
+							           :value="'temperature_tank_'+tank"/>
+						</el-select>
+					</div>
+				</div>
+				<div>
+
 				</div>
 			</div>
 		</el-card>
@@ -62,14 +74,18 @@
 		data() {
 			return {
 				headerList: ['Start Position', 'SDR', 'PSC1', 'Rinse', 'Texture', 'Rinse', 'Texture', 'PSC1', 'Rinse', 'HT/HCL clean', 'HV-Dryer', 'WAD', 'WAD', 'End position'],
+				tankList: [2, 3, 5, 7, 8, 11, 12, 13],
 				machineState: {},
-				selectedMachine: [],
+				selectedMachine: [10001],
+				tankId: 'temperature_tank_2',
 				comparisonTime: [new Date(), new Date()],
 			}
 		},
 		asyncComputed: {
 			async machineList() {
-				return (await common.getMachineListByCodeFromCommon('BT')).data;
+				return (await common.getMachineListByCodeFromCommon({
+					workCellCode: "BT"
+				})).data;
 			}
 		},
 		mounted() {
@@ -99,6 +115,7 @@
 					height: 100%;
 
 					&:hover {
+						cursor: pointer;
 						background-color: #a6a6a6;
 					}
 				}
@@ -132,8 +149,15 @@
 		display: flex;
 
 		* {
-			margin-right: 2rem;
+			span {
+				margin-right: 10px;
+			}
+
+			margin-right: 1rem;
 		}
 	}
 
+	.el-card{
+		margin-bottom: 1rem;
+	}
 </style>
