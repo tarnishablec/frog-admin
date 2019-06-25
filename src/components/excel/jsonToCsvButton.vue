@@ -13,7 +13,7 @@
 			data: Array,
 			size: {
 				type: String,
-				default: 'mini'
+				default: 'normal'
 			},
 			type: String,
 		},
