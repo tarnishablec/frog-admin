@@ -1,7 +1,7 @@
 <template>
 	<div>
 		<el-table :data="commentData.slice((this.currentPage - 1) * this.pageSize, this.currentPage * this.pageSize)">
-			<el-table-column v-for="column in columns" :prop="column" :label="column" show-overflow-tooltip/>
+			<el-table-column v-for="column in columns" :prop="column" :label="column" :key="column" show-overflow-tooltip/>
 		</el-table>
 		<el-pagination :total="commentData.length" @current-change="currentChange" :page-size.sync="pageSize"/>
 	</div>
