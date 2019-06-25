@@ -16,10 +16,10 @@
 							<fr-icon icon="bell" @click.native="$jumpTo('/process/texture/alarm')"/>
 						</el-tooltip>
 						<el-tooltip content="point check">
-							<fr-icon icon="monitor"/>
+							<fr-icon icon="monitor" @click.native="$jumpTo('/process/texture/pointCheck')"/>
 						</el-tooltip>
 						<el-tooltip content="chemical">
-							<fr-icon icon="experiment"/>
+							<fr-icon icon="experiment" @click.native="$jumpTo('/process/texture/chemical')"/>
 						</el-tooltip>
 					</div>
 				</template>

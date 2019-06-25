@@ -22,6 +22,18 @@ const texture = {
 			hidden: true,
 			component: () => import('@/views/process/texture/alarm')
 		},
+		{
+			path: 'pointCheck',
+			name: 'texturePointCheck',
+			hidden: true,
+			component: () => import('@/views/process/texture/pointCheck')
+		},
+		{
+			path: 'chemical',
+			name: 'textureChemical',
+			hidden: true,
+			component: () => import('@/views/process/texture/chemical')
+		},
 	]
 };
 

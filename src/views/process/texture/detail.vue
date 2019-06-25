@@ -117,7 +117,6 @@
 
 		.detail-column-header {
 			background-color: #cacaca;
-			display: inline-flex;
 		}
 
 		tr:not(#texture-detail-header) {

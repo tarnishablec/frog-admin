@@ -10,7 +10,7 @@
 					<el-date-picker v-model="alarmTime" type="datetimerange"/>
 				</div>
 				<div>
-					<json-to-csv-button data="">export</json-to-csv-button>
+					<json-to-csv-button>export</json-to-csv-button>
 				</div>
 			</div>
 
@@ -34,6 +34,8 @@
 <style lang="scss" scoped>
 	.alarm-header {
 		display: flex;
+		align-items: center;
+		justify-content: space-between;
 		span{
 			margin-right: 1rem;
 		}
