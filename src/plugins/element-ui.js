@@ -21,6 +21,8 @@ import {
 	Pagination,
 	Input,
 	Card,
+	DatePicker,
+	TimePicker,
 	Scrollbar
 } from 'element-ui'
 
@@ -38,6 +40,9 @@ Vue.use(Pagination);
 Vue.use(Scrollbar);
 Vue.use(Input);
 Vue.use(Card);
+Vue.use(DatePicker);
+Vue.use(TimePicker);
+
 
 Vue.prototype.$loading = Loading.service;
 Vue.prototype.$msgbox = MessageBox;
