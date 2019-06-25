@@ -1,32 +1,37 @@
 <template>
 	<div>
-		<v-scroll>
-			<table>
-				<tr id="texture-detail-header">
-					<td v-for="i in 14">
-						<span>{{i}}</span>
-						<br/>
-						<span>{{headerList[i-1]}}</span>
-					</td>
-				</tr>
-				<tr>
-					<td class="detail-column-header"><span>Actual</span></td>
-					<td v-for="i in 13"><span>{{machineState['temperature_tank_'+(i+1)]}}</span></td>
-				</tr>
-				<tr>
-					<td class="detail-column-header"><span>Set</span></td>
-					<td v-for="i in 13"><span>{{machineState['temperature_tank_set_'+(i+1)]}}</span></td>
-				</tr>
-				<tr>
-					<td class="detail-column-header"><span>Set Time</span></td>
-					<td v-for="i in 13"></td>
-				</tr>
-				<tr>
-					<td class="detail-column-header"><span>Used Time</span></td>
-					<td v-for="i in 13"></td>
-				</tr>
-			</table>
-		</v-scroll>
+		<el-card>
+			<div slot="header">
+				Data Detail
+			</div>
+			<v-scroll>
+				<table>
+					<tr id="texture-detail-header">
+						<td v-for="i in 14">
+							<span>{{i}}</span>
+							<br/>
+							<span>{{headerList[i-1]}}</span>
+						</td>
+					</tr>
+					<tr>
+						<td class="detail-column-header"><span>Actual</span></td>
+						<td v-for="i in 13"><span class="actual-temp" @click="">{{machineState['temperature_tank_'+(i+1)]}}</span></td>
+					</tr>
+					<tr>
+						<td class="detail-column-header"><span>Set</span></td>
+						<td v-for="i in 13"><span>{{machineState['temperature_tank_set_'+(i+1)]}}</span></td>
+					</tr>
+					<tr>
+						<td class="detail-column-header"><span>Set Time</span></td>
+						<td v-for="i in 13"></td>
+					</tr>
+					<tr>
+						<td class="detail-column-header"><span>Used Time</span></td>
+						<td v-for="i in 13"></td>
+					</tr>
+				</table>
+			</v-scroll>
+		</el-card>
 	</div>
 </template>
 
@@ -62,7 +67,7 @@
 
 		tr:not(#texture-detail-header) {
 			td:not(.detail-column-header) {
-				span {
+				span.actual-temp {
 					margin: 0;
 					display: block;
 					height: 100%;
