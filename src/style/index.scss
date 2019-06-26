@@ -28,6 +28,17 @@ a {
   flex: 1;
 }
 
+::-webkit-scrollbar {
+  width: 8px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #a1a3a9;
+  border-radius: 1rem;
+}
+
+
 
 
 
