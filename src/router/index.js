@@ -52,12 +52,16 @@ export const fullRouter = fullRoutes;
 const _router = initRoutes(fullRouter);
 
 _router.beforeEach(((to, from, next) => {
-	let pathArray = pathToArray(to.path);
-	if (!routeEureka(pathArray, fullRouter)) {
-		return next('/error/404')
-	} else if (!routeEureka(pathArray, store.state.permission.permittedRoutes)) {
-		return next('/error/403')
+	if (to.matched.length > 0) {
+		next();
 	}
-	next();
+	else {
+		let pathArray = pathToArray(to.path);
+		if (!routeEureka(pathArray, fullRouter)) {
+			next('/error/404')
+		} else if (!routeEureka(pathArray, store.state.permission.permittedRoutes)) {
+			next('/error/403')
+		}
+	}
 }));
 export default _router;
