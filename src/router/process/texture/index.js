@@ -11,8 +11,9 @@ const texture = {
 			component: () => import('@/views/process/texture/dashboard')
 		},
 		{
-			path: 'detail',
+			path: 'detail/:machineId',
 			name: 'textureDetail',
+			props: true,
 			hidden: true,
 			component: () => import('@/views/process/texture/detail')
 		},
