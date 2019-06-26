@@ -1,0 +1,22 @@
+.grid-dashboard {
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.hover-underline-text {
+  text-decoration: underline black;
+
+  &:hover {
+    cursor: pointer;
+    color: #4c8cf5;
+    text-decoration: underline #4c8cf5;
+  }
+}
+
+.hover-icon {
+  &:hover {
+    color: #4c8cf5;
+    cursor: pointer;
+  }
+}

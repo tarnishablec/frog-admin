@@ -1,4 +1,5 @@
 import texture from './texture'
+import diffuse from './diffuse'
 
 const process = {
 	path: '/process',
@@ -9,6 +10,7 @@ const process = {
 	},
 	children: [
 		texture,
+		diffuse
 	]
 };
 

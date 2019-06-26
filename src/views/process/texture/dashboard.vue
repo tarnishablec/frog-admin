@@ -1,10 +1,10 @@
 <template>
 	<div id="texture-dashboard">
-		<el-table :data.sync="textureMachineList" :columns="columns" :cell-class-name="rowStyle">
+		<el-table :data="textureMachineList" :cell-class-name="rowStyle" id="texture-dashboard-table">
 			<el-table-column type="index" align="center" width="80"/>
 			<el-table-column align="center" label="MachineName" prop="MachineName" show-overflow-tooltip>
 				<template slot-scope="scope">
-					<span id="machine-name" @click="$jumpTo('/process/texture/detail',{machineId: scope.row.MachineID})">{{scope.row.MachineName}}</span>
+					<span class="hover-underline-text" @click="$jumpTo(`/process/texture/detail/${scope.row.MachineID}`)">{{scope.row.MachineName}}</span>
 				</template>
 			</el-table-column>
 			<el-table-column align="center" v-for="column in columns" :key="column" :prop="column" :label="column"
@@ -63,17 +63,7 @@
 </script>
 
 <style lang="scss">
-	.el-table {
-		#machine-name {
-			text-decoration: underline #2a2a32;
-			cursor: pointer;
-
-			&:hover {
-				color: #4c8cf5;
-				text-decoration: underline #4c8cf5;
-			}
-		}
-
+	#texture-dashboard-table {
 		.pt {
 			border-left: 5px solid green;
 		}

@@ -1,23 +1,26 @@
 <template>
-	<div id="texture-chemical">
-		<div class="chemical-card">
+	<div id="texture-chemical" class="grid-dashboard">
+		<el-card class="chemical-card" v-for="i in 12">
+			<div slot="header">
 
-		</div>
+			</div>
+		</el-card>
 	</div>
 </template>
 
 <script>
 	export default {
-		name: "textureChemical"
+		name: "textureChemical",
+		asyncComputed:{
+
+		}
 	}
 </script>
 
 <style lang="scss" scoped>
 	#texture-chemical {
-		display: grid;
-		grid-gap: 1rem;
-		grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-		.chemical-card{
+
+		.chemical-card {
 
 		}
 	}
