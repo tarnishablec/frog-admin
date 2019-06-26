@@ -6,6 +6,7 @@
   background-color: var(--sidebar-bgc);
   width: var(--sidebar-width);
   height: 100vh;
+  position: fixed;
   z-index: 800;
   overflow-x: hidden;
 

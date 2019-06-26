@@ -28,6 +28,8 @@
 		width: var(--toolbar-height);
 		text-align: center;
 		line-height: var(--toolbar-height);
+		padding-left: calc(var(--sidebar-width) - 65px);
+		transition: padding-left 0.3s;
 
 		#activator-icon {
 			transition: transform 0.3s;

@@ -1,24 +1,18 @@
 <template>
-	<div id="app" :style="STYLE_VARIABLES">
+	<div id="app" >
 		<layout/>
 	</div>
 </template>
 
 <script>
 	import Layout from "@/layout";
-	import {mapGetters} from 'vuex'
 
 	export default {
 		name: 'app',
 		components: {
 			Layout,
 		},
-		computed: {
-			...mapGetters({
-				STYLE_VARIABLES: 'STYLE_VARIABLES',
-				role: 'role',
-			})
-		},
+
 		created() {
 			this.$store.dispatch('UPDATE_ROUTES').then();
 		},

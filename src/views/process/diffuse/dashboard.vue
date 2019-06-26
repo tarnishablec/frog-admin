@@ -5,7 +5,8 @@
 				<span class="hover-underline-text" @click="$jumpTo(`/process/diffuse/detail/${machine.MachineID}`)">{{machine.MachineName}}</span>
 			</div>
 			<div>
-				<el-table :data="machine.tubeList" class="diffuse-dashboard-table" :cell-class-name="rowStyle" row-key="MachineID">
+				<el-table :data="machine.tubeList" class="diffuse-dashboard-table" :cell-class-name="rowStyle"
+				          row-key="MachineID">
 					<el-table-column v-for="column in columns" align="center" :prop="column" :label="column" :key="column"
 					                 show-overflow-tooltip/>
 					<el-table-column prop="status" label="status" align="center" width="65">
@@ -66,22 +67,25 @@
 </script>
 
 <style lang="scss">
+
+	@import "../../../style/variables";
+
 	#diffuse-dashboard {
 		grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)) !important;
 
-		.el-card__body,.el-card__header {
+		.el-card__body, .el-card__header {
 			padding: 0.8rem 1rem;
 		}
 
 		.diffuse-dashboard-table {
 			.pt {
 				color: #fff;
-				background-color: green;
+				background-color: $pt-color;
 			}
 
 			.st {
 				color: #fff;
-				background-color: red;
+				background-color: $st-color;
 			}
 		}
 	}

@@ -63,19 +63,21 @@
 </script>
 
 <style lang="scss">
+	@import "../../../style/variables";
+
 	#texture-dashboard-table {
 		.pt {
-			border-left: 5px solid green;
+			border-left: 5px solid $pt-color;
 		}
 
 		.st {
-			border-left: 5px solid red;
+			border-left: 5px solid $st-color;
 		}
 
 		svg {
 			&:hover {
 				cursor: pointer;
-				color: #4c8cf5;
+				color: $hover-color;
 			}
 		}
 

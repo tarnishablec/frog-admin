@@ -1,5 +1,5 @@
 <template>
-	<div id="toolbar">
+	<div id="toolbar" :style="STYLE_VARIABLES">
 		<sidebar-activator/>
 		<div class="spacer"></div>
 		<el-button type="success" @click="login">login</el-button>
@@ -9,10 +9,16 @@
 
 <script>
 	import SidebarActivator from "@/layout/outside/toolbar/sidebarActivator";
+	import {mapGetters} from 'vuex'
 
 	export default {
 		name: "toolbar",
 		components: {SidebarActivator},
+		computed: {
+			...mapGetters({
+				STYLE_VARIABLES: 'STYLE_VARIABLES',
+			})
+		},
 		methods: {
 			login() {
 				this.$store.commit('switchRole', 'root');

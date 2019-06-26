@@ -15,10 +15,6 @@ export default {
 			toolbar: {
 				height: 55,
 			},
-			tipbar: {
-				width: 300,
-				bgc: '#a2a2a3',
-			}
 		}
 	},
 	getters: {
@@ -27,9 +23,6 @@ export default {
 				'--sidebar-bgc': state.vars.sidebar.bgc,
 				'--sidebar-width': (rootGetters.sidebarOpen ? state.vars.sidebar.openWidth : 64) + 'px',
 				'--toolbar-height': state.vars.toolbar.height + 'px',
-
-				'--tipbar-width': state.vars.tipbar.width + 'px',
-				'--tipbar-bgc': state.vars.tipbar.bgc,
 			}
 		}
 	}

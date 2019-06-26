@@ -1,3 +1,5 @@
+@import "variables";
+
 .grid-dashboard {
   display: grid;
   grid-gap: 1rem;
@@ -9,14 +11,14 @@
 
   &:hover {
     cursor: pointer;
-    color: #4c8cf5;
-    text-decoration: underline #4c8cf5;
+    color: $hover-color;
+    text-decoration: underline $hover-color;
   }
 }
 
 .hover-icon {
   &:hover {
-    color: #4c8cf5;
+    color: $hover-color;
     cursor: pointer;
   }
 }

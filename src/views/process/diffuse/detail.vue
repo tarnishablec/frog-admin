@@ -30,18 +30,21 @@
 				let map = new Map();
 				const reg = /^(Tube\d)_?/;
 				tubeList.forEach(tube => {
+					let name = `Tube${tube.tubeId}`;
+					let status = tube.status.TubeStatus;
 					let param = tube.parameter;
+					param['status'] = status;
 					for (let prop in param) {
-						if (param.hasOwnProperty(prop)) {
+						if (param.hasOwnProperty(prop) && prop !== ('_id') && prop !== ('MessageType')) {
 							let key = prop.replace(reg, '');
 							let val = {};
 							if (map.has(key)) {
 								val = map.get(key);
 							}
 							if (reg.test(prop)) {
-								val[prop.match(reg)[1]] = param[prop];
+								val[name] = param[prop];
 							} else {
-								val[prop] = param[prop];
+								val[name] = param[prop];
 							}
 							map.set(key, val);
 						}
