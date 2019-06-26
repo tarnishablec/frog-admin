@@ -13,6 +13,49 @@ const fullRoutes = [
 			icon: 'home'
 		}
 	},
+	{
+		path: '/about',
+		name: 'about',
+		components: {
+			default: () => import('@/views/common/About/index'),
+			tip: () => import('@/views/common/About/tip')
+		},
+		meta: {
+			icon: 'info-circle',
+			role: 'root',
+		},
+		children: [
+			{
+				path: 'a',
+				name: 'a',
+				component: () => import('@/views/common/About/a'),
+				children: [
+					{
+						path: 'b',
+						name: 'b',
+						component: () => import('@/views/common/About/b')
+					},
+					{
+						path: 'c',
+						name: 'c',
+						component: () => import('@/views/common/About/c')
+					},
+				]
+			}
+		]
+	},
+	{
+		path: '/playground',
+		name: 'playground',
+		components: {
+			default: () => import('@/views/common/Playground/index'),
+			tip: () => import('@/views/common/Playground/tip')
+		},
+		meta: {
+			icon: 'earth',
+			sideName: 'play'
+		}
+	},
 	...dynamicRoutes,
 	{
 		path: '/icons',
