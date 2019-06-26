@@ -18,19 +18,19 @@ const texture = {
 			component: () => import('@/views/process/texture/detail')
 		},
 		{
-			path: 'alarm',
+			path: 'alarm/:machineId',
 			name: 'textureAlarm',
 			hidden: true,
 			component: () => import('@/views/process/texture/alarm')
 		},
 		{
-			path: 'pointCheck',
+			path: 'pointCheck/:machineId',
 			name: 'texturePointCheck',
 			hidden: true,
 			component: () => import('@/views/process/texture/pointCheck')
 		},
 		{
-			path: 'chemical',
+			path: 'chemical/:machineId',
 			name: 'textureChemical',
 			hidden: true,
 			component: () => import('@/views/process/texture/chemical')

@@ -1,8 +1,7 @@
 <template>
 	<div id="texture-chemical" class="grid-dashboard">
-		<el-card class="chemical-card" v-for="i in 12">
+		<el-card class="chemical-card" v-for="i in 12" :key="i">
 			<div slot="header">
-
 			</div>
 		</el-card>
 	</div>
@@ -12,7 +11,6 @@
 	export default {
 		name: "textureChemical",
 		asyncComputed:{
-
 		}
 	}
 </script>

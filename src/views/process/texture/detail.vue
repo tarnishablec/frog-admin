@@ -4,7 +4,7 @@
 			<div slot="header">
 				Data Detail
 			</div>
-			<v-scroll>
+			<div style="overflow-x: scroll">
 				<table>
 					<tr id="texture-detail-header">
 						<td v-for="i in 14">
@@ -31,7 +31,7 @@
 						<td v-for="i in 13" :key="i"></td>
 					</tr>
 				</table>
-			</v-scroll>
+			</div>
 		</el-card>
 		<el-card>
 			<div slot="header">
@@ -98,7 +98,7 @@
 		mounted() {
 			common.getMachineInfoFromCommon({
 				workCellCode: 'BT',
-				machineId: this.$routeState.process.texture.detail.machineId,
+				machineId: this.$route.params.machineId,
 			}).then(res => {
 				this.machineState = res.data.parameter;
 			})
@@ -113,8 +113,6 @@
 
 <style lang="scss" scoped>
 	table {
-		padding-bottom: 1rem;
-
 		.detail-column-header {
 			background-color: #cacaca;
 		}

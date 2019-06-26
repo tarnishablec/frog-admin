@@ -13,13 +13,13 @@
 				<template slot-scope="scope">
 					<div id="operator">
 						<el-tooltip content="alarm">
-							<fr-icon icon="bell" @click.native="$jumpTo('/process/texture/alarm')"/>
+							<fr-icon icon="bell" @click.native="$jumpTo(`/process/texture/alarm/${scope.row.MachineID}`)"/>
 						</el-tooltip>
 						<el-tooltip content="point check">
-							<fr-icon icon="monitor" @click.native="$jumpTo('/process/texture/pointCheck')"/>
+							<fr-icon icon="monitor" @click.native="$jumpTo(`/process/texture/pointCheck/${scope.row.MachineID}`)"/>
 						</el-tooltip>
 						<el-tooltip content="chemical">
-							<fr-icon icon="experiment" @click.native="$jumpTo('/process/texture/chemical')"/>
+							<fr-icon icon="experiment" @click.native="$jumpTo(`/process/texture/chemical/${scope.row.MachineID}`)"/>
 						</el-tooltip>
 					</div>
 				</template>
