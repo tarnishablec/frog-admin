@@ -34,8 +34,10 @@ export function pathToArray(path) {
 export function jumpTo(path, data) {
 	let arr = pathToArray(path);
 	const rs = store.state.routeState;
-	setPropRecur(rs, arr, data);
-	store.commit('SYNC');
+	if (data){
+		setPropRecur(rs, arr, data);
+		store.commit('SYNC');
+	}
 	router.push({
 		path: path,
 	});
