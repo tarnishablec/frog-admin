@@ -21,7 +21,7 @@ export default {
 		STYLE_VARIABLES: (state, getters, rootState, rootGetters) => {
 			return {
 				'--sidebar-bgc': state.vars.sidebar.bgc,
-				'--sidebar-width': (rootGetters.sidebarOpen ? state.vars.sidebar.openWidth : 64) + 'px',
+				'--sidebar-width': (rootGetters.sidebarOpen ? state.vars.sidebar.openWidth : 65) + 'px',
 				'--toolbar-height': state.vars.toolbar.height + 'px',
 			}
 		}

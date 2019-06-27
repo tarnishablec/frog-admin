@@ -10,7 +10,7 @@ module.exports = {
 	},
 
 	devServer: {
-		port: 10086,
+		port: 9999,
 		proxy: {
 			'/process': {
 				target: 'http://172.16.10.20:8008',
