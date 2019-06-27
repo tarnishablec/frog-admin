@@ -19,7 +19,7 @@
 
 <style lang="scss" scoped>
 	.outside {
-		flex: 1;
+		width: calc(100vw - 65px);
 		display: flex;
 		flex-direction: column;
 		background-color: #f0f0f1;

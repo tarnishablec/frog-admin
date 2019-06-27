@@ -33,6 +33,7 @@
 	#tipbar {
 		width: $tipbar-width;
 		background-color: #dddddd;
+		white-space: normal;
 		position: fixed;
 		height: 100vh;
 		right: 0;

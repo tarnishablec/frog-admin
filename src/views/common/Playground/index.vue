@@ -1,14 +1,9 @@
 <template>
 	<section id="playground">
 		<h1>Playground</h1>
-		<table>
-			<tr v-for="(name,index) in list">
-				<td>{{name}}</td>
-				<td>
-					<button @click="deleteByIndex(index)">delete</button>
-				</td>
-			</tr>
-		</table>
+		<canvas ref="canvas">
+
+		</canvas>
 	</section>
 </template>
 
@@ -16,20 +11,25 @@
 	export default {
 		name: "playground",
 		data() {
-			return {
-				list: ['盖伦', '提莫', '祈求者'],
-			}
+			return {}
 		},
 		methods: {
-			deleteByIndex(index) {
-				this.$confirm('sure?').then(() => {
-					this.list.splice(index, 1)
-				}).catch(() => {
-				})
+			canvasInit() {
+				let canvas = this.$refs.canvas;
+				canvas.width = window.innerWidth;
+				canvas.height = window.innerHeight;
+				let c = canvas.getContext('2d');
+				c.fillRect(100,100,100,100);
 			}
-		}
+		},
+		mounted() {
+			this.canvasInit();
+		},
 	}
 </script>
 
 <style lang="scss" scoped>
+	canvas {
+		border: 1px solid black;
+	}
 </style>
