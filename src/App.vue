@@ -1,16 +1,23 @@
 <template>
-	<div id="app" >
+	<div id="app" :style="STYLE_VARIABLES">
 		<layout/>
 	</div>
 </template>
 
 <script>
 	import Layout from "@/layout";
+	import {mapGetters} from 'vuex';
 
 	export default {
 		name: 'app',
 		components: {
 			Layout,
+		},
+		computed: {
+			...mapGetters({
+				STYLE_VARIABLES: 'STYLE_VARIABLES',
+				role: 'role'
+			})
 		},
 
 		created() {
