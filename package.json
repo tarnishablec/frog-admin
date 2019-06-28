@@ -1,5 +1,5 @@
 {
-  "name": "frog-admin",
+  "name": "vsky-admin",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -10,7 +10,7 @@
     "@antv/data-set": "^0.10.2",
     "axios": "^0.19.0",
     "core-js": "^2.6.5",
-    "element-ui": "^2.9.2",
+    "element-ui": "^2.10.0",
     "file-saver": "^2.0.2",
     "viser-vue": "^2.4.6",
     "vue": "^2.6.10",
