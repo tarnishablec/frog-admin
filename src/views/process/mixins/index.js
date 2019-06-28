@@ -66,6 +66,9 @@ export const codeToPath = {
 				case 'PT':
 					name = 'print';
 					break;
+				case 'FF':
+					name = 'sintering';
+					break;
 				default:
 					name = 'none'
 			}

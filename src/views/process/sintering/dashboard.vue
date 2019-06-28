@@ -1,5 +1,5 @@
 <template>
-	<common-dashboard :data="etchMachineList" work-cell-code="HF" :columns="['recipeData','recipeName','recipeValue']" :span-method="spanMethod"/>
+	<common-dashboard work-cell-code="FF" :data="sinteringMachineList" :columns="['recipeData','Lane','recipe']" :links="['Alarm','Check']"/>
 </template>
 
 <script>
@@ -7,12 +7,12 @@
 	import CommonDashboard from "@/views/process/components/commonDashboard";
 
 	export default {
-		name: "etchDashboard",
+		name: "sinteringDashboard",
 		components: {CommonDashboard},
 		asyncComputed: {
-			async etchMachineList() {
+			async sinteringMachineList() {
 				let temp = (await common.getMachineListByCodeFromCommon({
-					workCellCode: 'HF',
+					workCellCode: 'FF',
 				})).data;
 				temp.forEach(t => {
 					t.recipeData.forEach(r => {
@@ -21,17 +21,6 @@
 				});
 				return temp;
 			}
-		},
-		methods: {
-			spanMethod({column, rowIndex}) {
-				if (column.label === 'status') {
-					if (rowIndex % 4 === 0) {
-						return [4, 1];
-					} else {
-						return [0, 0];
-					}
-				}
-			},
 		},
 	}
 </script>

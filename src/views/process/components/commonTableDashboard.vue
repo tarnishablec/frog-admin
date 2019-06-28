@@ -4,7 +4,7 @@
 			<el-table-column type="index" align="center" width="80"/>
 			<el-table-column align="center" label="MachineName" prop="MachineName" show-overflow-tooltip>
 				<template slot-scope="scope">
-					<span class="hover-underline-text" @click="$jumpTo(`/process/texture/detail/${scope.row.MachineID}`)">{{scope.row.MachineName}}</span>
+					<span class="hover-underline-text" @click="$jumpTo(`${path}/detail/${scope.row.MachineID}`)">{{scope.row.MachineName}}</span>
 				</template>
 			</el-table-column>
 			<el-table-column align="center" v-for="column in columns" :key="column" :prop="column" :label="column"

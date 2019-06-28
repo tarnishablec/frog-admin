@@ -5,6 +5,7 @@ import anneal from './anneal'
 import perc from './perc'
 import pecvd from './pecvd'
 import print from './print'
+import sintering from './sintering'
 
 const process = {
 	path: '/process',
@@ -21,6 +22,7 @@ const process = {
 		perc,
 		pecvd,
 		print,
+		sintering,
 	]
 };
 
