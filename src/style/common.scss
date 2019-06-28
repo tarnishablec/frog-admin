@@ -1,0 +1,24 @@
+@import "variables";
+
+.grid-dashboard {
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.hover-underline-text {
+  text-decoration: underline black;
+
+  &:hover {
+    cursor: pointer;
+    color: $hover-color;
+    text-decoration: underline $hover-color;
+  }
+}
+
+.hover-icon {
+  &:hover {
+    color: $hover-color;
+    cursor: pointer;
+  }
+}
