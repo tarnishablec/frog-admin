@@ -7,7 +7,6 @@ export default {
 		tipbar: {
 			open: false,
 		},
-		mainScroll: true,
 		sync: true,
 	},
 	mutations: {
