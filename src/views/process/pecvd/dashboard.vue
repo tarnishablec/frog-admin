@@ -3,7 +3,7 @@
 </template>
 
 <script>
-	import CommonDashboard from "@/views/process/components/commonDashboard";
+	import CommonDashboard from "@/views/process/commonComponents/commonDashboard";
 	export default {
 		name: "pevcdDashboard",
 		components: {CommonDashboard}

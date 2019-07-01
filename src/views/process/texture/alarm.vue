@@ -8,7 +8,7 @@
 
 <script>
 
-	import CommonAlarm from "@/views/process/components/commonAlarm";
+	import CommonAlarm from "@/views/process/commonComponents/commonAlarm";
 
 	export default {
 		name: "textureAlarm",

@@ -4,7 +4,7 @@
 
 <script>
 	import * as common from '@/api/process/common'
-	import CommonDashboard from "@/views/process/components/commonDashboard";
+	import CommonDashboard from "@/views/process/commonComponents/commonDashboard";
 
 	export default {
 		name: "etchDashboard",

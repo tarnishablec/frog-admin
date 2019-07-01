@@ -4,7 +4,7 @@
 </template>
 
 <script>
-	import CommonTableDashboard from "@/views/process/components/commonTableDashboard";
+	import CommonTableDashboard from "@/views/process/commonComponents/commonTableDashboard";
 
 	export default {
 		name: "dashboard",

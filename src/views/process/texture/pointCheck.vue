@@ -3,7 +3,7 @@
 </template>
 
 <script>
-	import CommonPointCheck from "@/views/process/components/commonPointCheck";
+	import CommonPointCheck from "@/views/process/commonComponents/commonPointCheck";
 	export default {
 		name: "texturePointCheck",
 		components: {CommonPointCheck}

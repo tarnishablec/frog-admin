@@ -3,7 +3,7 @@
 </template>
 
 <script>
-	import CommonChemical from "@/views/process/components/commonChemical";
+	import CommonChemical from "@/views/process/commonComponents/commonChemical";
 	export default {
 		name: "textureChemical",
 		components: {CommonChemical},

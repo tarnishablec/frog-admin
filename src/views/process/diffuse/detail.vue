@@ -4,7 +4,7 @@
 <script>
 
 
-	import CommonTubeDetail from "@/views/process/components/commonTubeDetail";
+	import CommonTubeDetail from "@/views/process/commonComponents/commonTubeDetail";
 
 	export default {
 		name: "diffuseDetail",
