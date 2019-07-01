@@ -1,6 +1,6 @@
 <template>
 	<div class="common-table-dashboard">
-		<el-table :data="textureMachineList" :cell-class-name="cellClass" :height="tableHeight">
+		<el-table :data="textureMachineList" :cell-class-name="cellClass" :height="height">
 			<el-table-column type="index" align="center" width="80"/>
 			<el-table-column align="center" label="MachineName" prop="MachineName" show-overflow-tooltip>
 				<template slot-scope="scope">
@@ -36,15 +36,14 @@
 		name: "commonTableDashboard",
 		mixins: [tableStyleByStatus, codeToPath],
 		data() {
-			return {
-				tableHeight: 0,
-			}
+			return {}
 		},
 		props: {
 			workCellCode: {
 				type: String,
 				required: true,
 			},
+			height: {},
 			columns: {
 				type: Array,
 				default: () => {
@@ -66,7 +65,6 @@
 			}
 		},
 		mounted() {
-			this.tableHeight = window.innerHeight - 100;
 		}
 	}
 </script>
