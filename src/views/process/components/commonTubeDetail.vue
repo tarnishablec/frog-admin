@@ -44,7 +44,7 @@
 		},
 		methods: {
 			showDialog(row, column) {
-				if (column.property !== 'prop') {
+				if (column.property !== 'prop' && row.prop !== 'ID' && row[column.property].canClick) {
 					this.param = row[column.property].raw;
 					this.dialog = true;
 				}
@@ -95,6 +95,7 @@
 							val[name] = {
 								raw: prop,
 								value: param[prop],
+								canClick: reg.test(prop),
 							};
 							map.set(key, val);
 						}
