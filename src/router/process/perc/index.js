@@ -10,13 +10,13 @@ const perc = {
 			hidden: true,
 			component: () => import('@/views/process/perc/dashboard')
 		},
-		// {
-		// 	path: 'detail/:machineId',
-		// 	name: 'percDetail',
-		// 	props: true,
-		// 	hidden: true,
-		// 	component: () => import('@/views/process/perc/detail')
-		// },
+		{
+			path: 'detail/:machineId',
+			name: 'percDetail',
+			props: true,
+			hidden: true,
+			component: () => import('@/views/process/perc/detail')
+		},
 		// {
 		// 	path: 'alarm/:machineId',
 		// 	name: 'percAlarm',

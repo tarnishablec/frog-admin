@@ -3,10 +3,10 @@
 		<el-table :data="machineTubeList" ref="table" :height="tableHeight" @cell-click="showDialog"
 		          :cell-class-name="hoverCell">
 			<el-table-column label="Param" prop="prop" align="center" show-overflow-tooltip/>
-			<el-table-column v-for="column in columns" :key="column" :prop="column" :label="column" align="center"
+			<el-table-column v-for="tube in tubes" :key="tube" :prop="tube" :label="tube" align="center"
 			                 show-overflow-tooltip>
 				<template slot-scope="scope">
-					{{scope.row[column].value}}
+					{{scope.row[tube].value}}
 				</template>
 			</el-table-column>
 		</el-table>
@@ -32,10 +32,15 @@
 				type: String,
 				required: true,
 			},
+			tubes: {
+				type: Array,
+				default: () => {
+					return ['Tube1', 'Tube2', 'Tube3', 'Tube4', 'Tube5'];
+				}
+			}
 		},
 		data() {
 			return {
-				columns: ['Tube1', 'Tube2', 'Tube3', 'Tube4', 'Tube5'],
 				tableHeight: window.innerHeight - 100,
 				dialog: false,
 				dialogData: [],
