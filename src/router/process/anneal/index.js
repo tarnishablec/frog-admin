@@ -10,13 +10,13 @@ const anneal = {
 			hidden: true,
 			component: () => import('@/views/process/anneal/dashboard')
 		},
-		// {
-		// 	path: 'detail/:machineId',
-		// 	name: 'annealDetail',
-		// 	props: true,
-		// 	hidden: true,
-		// 	component: () => import('@/views/process/anneal/detail')
-		// },
+		{
+			path: 'detail/:machineId',
+			name: 'annealDetail',
+			props: true,
+			hidden: true,
+			component: () => import('@/views/process/anneal/detail')
+		},
 		// {
 		// 	path: 'alarm/:machineId',
 		// 	name: 'annealAlarm',

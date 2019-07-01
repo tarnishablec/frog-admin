@@ -37,7 +37,11 @@
 				default: () => {
 					return ['Tube1', 'Tube2', 'Tube3', 'Tube4', 'Tube5'];
 				}
-			}
+			},
+			type: {
+				type: String,
+				default: 'split',
+			},
 		},
 		data() {
 			return {
@@ -49,7 +53,7 @@
 		},
 		methods: {
 			showDialog(row, column) {
-				if (column.property !== 'prop' && row.prop !== 'ID' && row[column.property].canClick) {
+				if (column.property !== 'prop' && row[column.property].canClick) {
 					this.param = row[column.property].raw;
 					this.dialog = true;
 				}
@@ -79,33 +83,58 @@
 		},
 		asyncComputed: {
 			async machineTubeList() {
-				let tubeList = (await common.getMachineInfoFromCommon({
+				let data = (await common.getMachineInfoFromCommon({
 					workCellCode: this.workCellCode,
 					machineId: this.$route.params.machineId,
-				})).data.tubeList;
+				})).data;
 				let map = new Map();
 				const reg = /^(Tube\d)_?/;
-				tubeList.forEach(tube => {
-					let name = `Tube${tube.tubeId}`;
-					let status = tube.status.TubeStatus;
-					let param = tube.parameter;
-					param['status'] = status;
-					for (let prop in param) {
-						if (param.hasOwnProperty(prop) && prop !== ('_id') && prop !== ('MessageType') && prop !== ('Machineid')) {
-							let key = prop.replace(reg, '');
-							let val = {};
-							if (map.has(key)) {
-								val = map.get(key);
+				if (this.type === 'split') {
+					data.tubeList.forEach(tube => {
+						let name = `Tube${tube.tubeId}`;
+						let status = tube.status.TubeStatus;
+						let param = tube.parameter;
+						param['status'] = status;
+						for (let prop in param) {
+							if (param.hasOwnProperty(prop) && prop !== ('_id') && prop !== ('MessageType') && prop !== ('Machineid')) {
+								let key = prop.replace(reg, '');
+								let val = {};
+								if (map.has(key)) {
+									val = map.get(key);
+								}
+								val[name] = {
+									raw: prop,
+									value: param[prop],
+									canClick: /^(Tube\d)_/.test(prop),
+								};
+								map.set(key, val);
 							}
-							val[name] = {
-								raw: prop,
-								value: param[prop],
-								canClick: reg.test(prop),
-							};
-							map.set(key, val);
+						}
+					});
+				} else if (this.type === 'noSplit') {
+					let param = data.parameter;
+					for (let i = 0; i < data.tubeList.length; i++) {
+						param[`Tube${i + 1}_status`] = data.tubeList[i].status.TubeStatus;
+					}
+					for (let p in param) {
+						if (param.hasOwnProperty(p)) {
+							if (reg.test(p)) {
+								let key = p.replace(reg, '');
+								let val = {};
+								let name = p.match(reg)[1];
+								if (map.has(key)) {
+									val = map.get(key);
+								}
+								val[name] = {
+									raw: p,
+									value: param[p],
+									canClick: /^(Tube\d)_/.test(p),
+								};
+								map.set(key, val);
+							}
 						}
 					}
-				});
+				}
 				let res = [];
 				for (let k of map.keys()) {
 					let data = map.get(k);
