@@ -7,6 +7,6 @@ export default {
 			let temp = [...this];
 			temp.shift();
 			return temp;
-		}
+		};
 	}
 }

@@ -10,13 +10,13 @@ const print = {
 			hidden: true,
 			component: () => import('@/views/process/print/dashboard')
 		},
-		// {
-		// 	path: 'detail/:machineId',
-		// 	name: 'printDetail',
-		// 	props: true,
-		// 	hidden: true,
-		// 	component: () => import('@/views/process/print/detail')
-		// },
+		{
+			path: 'detail/:machineId',
+			name: 'printDetail',
+			props: true,
+			hidden: true,
+			component: () => import('@/views/process/print/detail')
+		},
 		// {
 		// 	path: 'alarm/:machineId',
 		// 	name: 'printAlarm',
