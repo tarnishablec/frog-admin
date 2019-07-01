@@ -8,7 +8,7 @@
 				</el-menu-item>
 			</router-link>
 		</template>
-		<el-submenu v-else :index="fullPath">
+		<el-submenu v-else :index="fullPath" popper-append-to-body>
 			<template slot="title">
 				<fr-icon class="side-menu-icon" v-if="hasIcon(route)" :icon="route.meta.icon"/>
 				<span>{{hasSideName(route)?route.meta.sideName:route.name}}</span>
