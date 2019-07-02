@@ -22,7 +22,7 @@
 					<tr>
 						<td><span>Actual</span></td>
 						<td v-for="i in 13" class="actual-temp">
-							<span @click="showHistory">
+							<span @click="showHistory(i+1)">
 								{{machineState.parameter['temperature_tank_'+(i+1)]}}
 							</span>
 						</td>
@@ -74,9 +74,13 @@
 			</div>
 		</el-card>
 		<el-dialog :visible.sync="historyDialogVisible" width="80%"
-		           :modal-append-to-body='false'>
-			<div slot="title"><span>History Data</span>
+		           :modal-append-to-body='false' @closed="cleanData">
+			<div slot="title">
+				<span>History Data</span>
 				<hr/>
+			</div>
+			<div>
+
 			</div>
 		</el-dialog>
 	</div>
@@ -85,9 +89,11 @@
 <script>
 	import {machineStateFilter} from '@/views/process/commonFilters/machineStateFilter'
 	import * as common from '@/api/process/common'
+	import FrLineChart from "@/components/frog-ui/chart/line";
 
 	export default {
 		name: "textureMachineDetail",
+		components: {FrLineChart},
 		data() {
 			return {
 				headerList: ['Start Position', 'SDR', 'PSC1', 'Rinse', 'Texture', 'Rinse', 'Texture', 'PSC1', 'Rinse', 'HT/HCL clean', 'HV-Dryer', 'WAD', 'WAD', 'End position'],
@@ -96,6 +102,10 @@
 				tankId: 'temperature_tank_2',
 				comparisonTime: [new Date(), new Date()],
 				historyDialogVisible: false,
+
+				dialog: {
+					tankId: 2,
+				}
 			}
 		},
 		asyncComputed: {
@@ -109,15 +119,25 @@
 					workCellCode: 'BT',
 					machineId: this.$route.params.machineId,
 				})).data;
+			},
+			async machineHisData() {
+				return (await common.postMachineParameterHisDataFromCommon({
+					endTime: "2019-04-01 04:00:00",
+					machineId: this.$route.params.machineId,
+					paramId: `temperature_tank_${this.dialog.tankId}`,
+					startTime: "2019-04-01 00:00:00",
+					workCellCode: "BT",
+				})).data.machineParameterDataList;
 			}
 		},
 		filters: {
 			machineStateFilter,
 		},
 		methods: {
-			showHistory() {
+			showHistory(index) {
+				this.dialog.tankId = index;
 				this.historyDialogVisible = true;
-			}
+			},
 		}
 	}
 </script>
