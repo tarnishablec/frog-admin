@@ -1,51 +1,68 @@
 <template>
 	<div>
-		<h1 style="text-align: center">
-			<span style="vertical-align: middle;margin:0 30px;cursor: pointer;text-decoration: underline" @click="goViser">Viser Chart</span>
-			<fr-icon icon="link"/>
-		</h1>
-		<div id="chart-page">
-			<line-tem/>
-			<pie-tem/>
-			<area-tem/>
-			<bar-tem/>
-		</div>
+		<v-chart :options="options"/>
 	</div>
 </template>
 
 <script>
-	import LineTem from "@/views/common/Test/Chart/line";
-	import PieTem from "@/views/common/Test/Chart/pie";
-	import AreaTem from "@/views/common/Test/Chart/area";
-	import BarTem from "@/views/common/Test/Chart/bar";
-
 	export default {
-		name: "Chart",
-		components: {BarTem, AreaTem, PieTem, LineTem},
-		methods: {
-			goViser() {
-				window.open('https://viserjs.github.io/');
+		name: "index",
+		data() {
+			return {
+				options: {
+					title: {
+						text: 'Step Line'
+					},
+					tooltip: {
+						trigger: 'axis'
+					},
+					legend: {
+						data: ['Step Start', 'Step Middle', 'Step End']
+					},
+					grid: {
+						left: '3%',
+						right: '4%',
+						bottom: '3%',
+						containLabel: true
+					},
+					toolbox: {
+						feature: {
+							saveAsImage: {}
+						}
+					},
+					xAxis: {
+						type: 'category',
+						data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+					},
+					yAxis: {
+						type: 'value'
+					},
+					series: [
+						{
+							name: 'Step Start',
+							type: 'line',
+							step: 'start',
+							data: [120, 132, 101, 134, 90, 230, 210]
+						},
+						{
+							name: 'Step Middle',
+							type: 'line',
+							step: 'middle',
+							data: [220, 282, 201, 234, 290, 430, 410]
+						},
+						{
+							name: 'Step End',
+							type: 'line',
+							step: 'end',
+							data: [450, 432, 401, 454, 590, 530, 510]
+						}
+					]
+				}
 			}
 		}
 	}
 </script>
 
-<style lang="scss" scoped>
-	h1{
-		margin-top: 0;
-	}
-	#chart-page {
-		display: flex;
-		flex-wrap: wrap;
-		justify-content: space-around;
+<style>
 
-		& > div {
-			border: 1px dashed #2a2a32;
-			margin: 10px 5px;
-			width: 40%;
-			min-width: 250px;
-			flex-shrink: 0;
-			flex-grow: 0;
-		}
-	}
 </style>
