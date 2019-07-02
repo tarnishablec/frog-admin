@@ -1,5 +1,8 @@
+@import "variables";
+
 table.common-detail-grid {
   margin: auto;
+
   thead > tr {
     td {
       background-color: grey;
@@ -9,8 +12,13 @@ table.common-detail-grid {
   }
 
   tbody > tr {
-    td:first-child {
-      background-color: #cacaca;
+    td {
+      &:first-child {
+        background-color: #cacaca;
+      }
+      span{
+        display: block;
+      }
     }
   }
 
@@ -19,7 +27,41 @@ table.common-detail-grid {
       text-align: center;
       white-space: nowrap;
       line-height: 2.2rem;
-      padding: 0 1rem;
+      span{
+        padding: 0 1rem;
+      }
+    }
+  }
+}
+
+
+.process-detail {
+  .el-card__header {
+    padding: 0.8rem 20px;
+  }
+
+  .detail-status-header {
+    .status-text {
+      display: inline-block;
+      padding: 0 2rem;
+      line-height: 1.5rem;
+
+      &.PT {
+        background-color: $pt-color;
+      }
+
+      &.ST {
+        background-color: $st-color;
+      }
+
+      &.UD {
+        background-color: $ud-color;
+      }
+
+      &.NC {
+        background-color: $nc-color;
+      }
+
     }
   }
 }

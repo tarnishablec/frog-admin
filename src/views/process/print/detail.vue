@@ -9,30 +9,34 @@
 					<thead>
 					<tr>
 						<td></td>
-						<td colspan="5">perc_set_point</td>
-						<td colspan="5">temp</td>
-						<td>D_temp_set_point</td>
-						<td>D_temp</td>
-						<td>Exhausting_gas_temp</td>
-						<td>Fan_In</td>
-						<td>Fan_out</td>
+						<td colspan="5"><span>perc_set_point</span></td>
+						<td colspan="5"><span>temp</span></td>
+						<td><span>D_temp_set_point</span></td>
+						<td><span>D_temp</span></td>
+						<td><span>Exhausting_gas_temp</span></td>
+						<td><span>Fan_In</span></td>
+						<td><span>Fan_out</span></td>
 					</tr>
 					<tr>
 						<td></td>
-						<td v-for="i in 5">A{{i}}</td>
-						<td v-for="i in 5">A{{i}}</td>
+						<td v-for="i in 5"><span>A{{i}}</span></td>
+						<td v-for="i in 5"><span>A{{i}}</span></td>
 					</tr>
 					</thead>
 					<tbody>
 					<tr v-for="row in rows">
-						<td>Oven1_SideA</td>
-						<td v-for="i in 5">{{printDetail[`Oven${row.oven}`][`Side${row.side}`][`Zone_A${i}_perc_set_point`]}}</td>
-						<td v-for="i in 5">{{printDetail[`Oven${row.oven}`][`Side${row.side}`][`Zone_A${i}_temp`]}}</td>
-						<td>{{printDetail[`Oven${row.oven}`][`Side${row.side}`]['Exhausting_gas_temp']}}</td>
-						<td>{{printDetail[`Oven${row.oven}`][`Side${row.side}`]['Zone_D_temp']}}</td>
-						<td>{{printDetail[`Oven${row.oven}`][`Side${row.side}`]['Zone_D_temp_set_point']}}</td>
-						<td>{{printDetail[`Oven${row.oven}`][`Side${row.side}`]['Fan_In']}}</td>
-						<td>{{printDetail[`Oven${row.oven}`][`Side${row.side}`]['Fan_out']}}</td>
+						<td><span>{{`Oven${row.oven}_Side${row.side}`}}</span></td>
+						<td v-for="i in 5">
+							<span>{{printDetail[`Oven${row.oven}`][`Side${row.side}`][`Zone_A${i}_perc_set_point`]}}</span>
+						</td>
+						<td v-for="i in 5">
+							<span>{{printDetail[`Oven${row.oven}`][`Side${row.side}`][`Zone_A${i}_temp`]}}</span>
+						</td>
+						<td><span>{{printDetail[`Oven${row.oven}`][`Side${row.side}`]['Exhausting_gas_temp']}}</span></td>
+						<td><span>{{printDetail[`Oven${row.oven}`][`Side${row.side}`]['Zone_D_temp']}}</span></td>
+						<td><span>{{printDetail[`Oven${row.oven}`][`Side${row.side}`]['Zone_D_temp_set_point']}}</span></td>
+						<td><span>{{printDetail[`Oven${row.oven}`][`Side${row.side}`]['Fan_In']}}</span></td>
+						<td><span>{{printDetail[`Oven${row.oven}`][`Side${row.side}`]['Fan_out']}}</span></td>
 					</tr>
 					</tbody>
 				</table>

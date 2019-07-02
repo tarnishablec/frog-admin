@@ -1,9 +1,11 @@
 <template>
-	<div>
-		<el-card>
-			<div slot="header">
+	<div class="process-detail">
+		<el-card v-if="machineState">
+			<div slot="header" class="detail-status-header">
 				<span>Machine Status: </span>
-				<span>{{machineState.status.MachineStatus}}</span>
+				<div class="status-text" :class="machineState.status.MachineStatus | machineStateFilter">
+					{{machineState.status.MachineStatus}}
+				</div>
 			</div>
 			<div style="overflow-x: scroll">
 				<table class="common-detail-grid">
@@ -18,20 +20,23 @@
 					</thead>
 					<tbody>
 					<tr>
-						<td>Actual</td>
-						<td v-for="i in 13" class="actual-temp" @click="showHistory">{{machineState.parameter['temperature_tank_'+(i+1)]}}
+						<td><span>Actual</span></td>
+						<td v-for="i in 13" class="actual-temp">
+							<span @click="showHistory">
+								{{machineState.parameter['temperature_tank_'+(i+1)]}}
+							</span>
 						</td>
 					</tr>
 					<tr>
-						<td>Set</td>
-						<td v-for="i in 13">{{machineState.parameter['temperature_tank_set_'+(i+1)]}}</td>
+						<td><span>Set</span></td>
+						<td v-for="i in 13"><span>{{machineState.parameter['temperature_tank_set_'+(i+1)]}}</span></td>
 					</tr>
 					<tr>
-						<td>Set Time</td>
+						<td><span>Time</span></td>
 						<td v-for="i in 13" :key="i"></td>
 					</tr>
 					<tr>
-						<td>Used Time</td>
+						<td><span>Used Time</span></td>
 						<td v-for="i in 13" :key="i"></td>
 					</tr>
 					</tbody>
@@ -78,6 +83,7 @@
 </template>
 
 <script>
+	import {machineStateFilter} from '@/views/process/commonFilters/machineStateFilter'
 	import * as common from '@/api/process/common'
 
 	export default {
@@ -86,7 +92,6 @@
 			return {
 				headerList: ['Start Position', 'SDR', 'PSC1', 'Rinse', 'Texture', 'Rinse', 'Texture', 'PSC1', 'Rinse', 'HT/HCL clean', 'HV-Dryer', 'WAD', 'WAD', 'End position'],
 				tankList: [2, 3, 5, 7, 8, 11, 12, 13],
-				machineState: {},
 				selectedMachine: [10001],
 				tankId: 'temperature_tank_2',
 				comparisonTime: [new Date(), new Date()],
@@ -98,15 +103,16 @@
 				return (await common.getMachineListByCodeFromCommon({
 					workCellCode: "BT"
 				})).data;
+			},
+			async machineState() {
+				return (await common.getMachineInfoFromCommon({
+					workCellCode: 'BT',
+					machineId: this.$route.params.machineId,
+				})).data;
 			}
 		},
-		mounted() {
-			common.getMachineInfoFromCommon({
-				workCellCode: 'BT',
-				machineId: this.$route.params.machineId,
-			}).then(res => {
-				this.machineState = res.data;
-			})
+		filters: {
+			machineStateFilter,
 		},
 		methods: {
 			showHistory() {
@@ -123,9 +129,11 @@
 				margin: 0;
 				height: 100%;
 
-				&:hover {
-					cursor: pointer;
-					background-color: #a6a6a6;
+				span {
+					&:hover {
+						cursor: pointer;
+						background-color: #a6a6a6;
+					}
 				}
 			}
 		}

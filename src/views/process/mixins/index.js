@@ -3,16 +3,16 @@ export const tableStyleByStatus = {
 		cellClass({row, column}) {
 			if (column.type === 'index') {
 				if (row.status === 'Productive Time') {
-					return 'pt'
+					return 'PT'
 				}
 				if (row.status === 'Standby Time') {
-					return 'st'
+					return 'ST'
 				}
 				if (row.status === 'Unscheduled Downtime') {
-					return 'ud'
+					return 'UD'
 				}
 				if (row.status === 'No Communication') {
-					return 'nc'
+					return 'NC'
 				}
 			}
 		}
@@ -24,16 +24,16 @@ export const gridStyleByStatus = {
 		cellClass({row, column}) {
 			if (column.property === 'status') {
 				if (row.status === 'Productive Time') {
-					return 'pt'
+					return 'PT'
 				}
 				if (row.status === 'Standby Time') {
-					return 'st'
+					return 'ST'
 				}
 				if (row.status === 'Unscheduled Downtime') {
-					return 'ud'
+					return 'UD'
 				}
 				if (row.status === 'No Communication') {
-					return 'nc'
+					return 'NC'
 				}
 			}
 		}

@@ -47,7 +47,7 @@
 
 <script>
 	import * as common from '@/api/process/common'
-	import {machineStateFilter} from '@/utils/process/processUtils'
+	import {machineStateFilter} from '@/views/process/commonFilters/machineStateFilter'
 	import {gridStyleByStatus, codeToPath} from '@/views/process/mixins'
 
 	export default {

@@ -1,26 +1,27 @@
 @import "variables";
+@import "../variables";
 
 .common-dashboard {
   grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)) !important;
 
-  .pt {
+  .PT {
     color: #fff;
-    background-color: $pt-color !important;
+    background-color: $pt-color;
   }
 
-  .st {
+  .ST {
     color: #fff;
-    background-color: $st-color !important;
+    background-color: $st-color;
   }
 
-  .ud {
+  .UD {
     color: #fff;
-    background-color: $ud-color !important;
+    background-color: $ud-color;
   }
 
-  .nc {
+  .NC {
     color: #fff;
-    background-color: $nc-color !important;
+    background-color: $nc-color;
   }
 
   .el-card__body, .el-card__header {
@@ -29,19 +30,19 @@
 }
 
 .common-table-dashboard {
-  .pt {
+  .PT {
     border-left: 5px solid $pt-color;
   }
 
-  .st {
+  .ST {
     border-left: 5px solid $st-color;
   }
 
-  .ud {
+  .UD {
     border-left: 5px solid $ud-color;
   }
 
-  .nc {
+  .NC {
     border-left: 5px solid $nc-color;
   }
 
