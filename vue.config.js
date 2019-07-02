@@ -1,6 +1,10 @@
 const resolve = dir => require('path').join(__dirname, dir);
 
 module.exports = {
+	transpileDependencies: [
+		'vue-echarts',
+		'resize-detector'
+	],
 	publicPath: process.env.NODE_ENV === 'production'
 		? '/frog-admin/'
 		: '/',
