@@ -6,22 +6,22 @@
 
   .PT {
     color: #fff;
-    background-color: $pt-color;
+    background-color: $pt-color !important;
   }
 
   .ST {
     color: #fff;
-    background-color: $st-color;
+    background-color: $st-color !important;
   }
 
   .UD {
     color: #fff;
-    background-color: $ud-color;
+    background-color: $ud-color !important;
   }
 
   .NC {
     color: #fff;
-    background-color: $nc-color;
+    background-color: $nc-color !important;
   }
 
   .el-card__body, .el-card__header {
