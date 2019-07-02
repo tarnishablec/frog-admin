@@ -1,0 +1,27 @@
+table.common-detail-grid {
+  margin: auto;
+  thead > tr {
+    td {
+      background-color: grey;
+      font-weight: bold;
+      margin: 0 1.5rem;
+    }
+  }
+
+  tbody > tr {
+    td:first-child {
+      background-color: #cacaca;
+    }
+  }
+
+  tr {
+    td {
+      text-align: center;
+      white-space: nowrap;
+      line-height: 2.2rem;
+      padding: 0 1rem;
+    }
+  }
+}
+
+

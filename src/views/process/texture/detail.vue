@@ -2,10 +2,12 @@
 	<div>
 		<el-card>
 			<div slot="header">
-				Data Detail
+				<span>Machine Status: </span>
+				<span>{{machineState.status.MachineStatus}}</span>
 			</div>
 			<div style="overflow-x: scroll">
-				<table>
+				<table class="common-detail-grid">
+					<thead>
 					<tr id="texture-detail-header">
 						<td v-for="i in 14">
 							<span>{{i}}</span>
@@ -13,23 +15,26 @@
 							<span>{{headerList[i-1]}}</span>
 						</td>
 					</tr>
+					</thead>
+					<tbody>
 					<tr>
-						<td class="detail-column-header"><span>Actual</span></td>
-						<td v-for="i in 13"><span class="actual-temp" @click="showHistory">{{machineState['temperature_tank_'+(i+1)]}}</span>
+						<td>Actual</td>
+						<td v-for="i in 13" class="actual-temp" @click="showHistory">{{machineState.parameter['temperature_tank_'+(i+1)]}}
 						</td>
 					</tr>
 					<tr>
-						<td class="detail-column-header"><span>Set</span></td>
-						<td v-for="i in 13"><span>{{machineState['temperature_tank_set_'+(i+1)]}}</span></td>
+						<td>Set</td>
+						<td v-for="i in 13">{{machineState.parameter['temperature_tank_set_'+(i+1)]}}</td>
 					</tr>
 					<tr>
-						<td class="detail-column-header"><span>Set Time</span></td>
+						<td>Set Time</td>
 						<td v-for="i in 13" :key="i"></td>
 					</tr>
 					<tr>
-						<td class="detail-column-header"><span>Used Time</span></td>
+						<td>Used Time</td>
 						<td v-for="i in 13" :key="i"></td>
 					</tr>
+					</tbody>
 				</table>
 			</div>
 		</el-card>
@@ -100,7 +105,7 @@
 				workCellCode: 'BT',
 				machineId: this.$route.params.machineId,
 			}).then(res => {
-				this.machineState = res.data.parameter;
+				this.machineState = res.data;
 			})
 		},
 		methods: {
@@ -113,43 +118,14 @@
 
 <style lang="scss" scoped>
 	table {
-		.detail-column-header {
-			background-color: #cacaca;
-		}
-
 		tr:not(#texture-detail-header) {
-			td:not(.detail-column-header) {
-				span.actual-temp {
-					margin: 0;
-					display: block;
-					height: 100%;
+			td.actual-temp:not(.detail-column-header) {
+				margin: 0;
+				height: 100%;
 
-					&:hover {
-						cursor: pointer;
-						background-color: #a6a6a6;
-					}
-				}
-			}
-		}
-
-		tr {
-			&#texture-detail-header {
-				td {
-					background-color: grey;
-
-					span {
-						font-weight: bold;
-						margin: 0 2rem;
-					}
-				}
-			}
-
-			td {
-				text-align: center;
-
-				span {
-					white-space: nowrap;
-					line-height: 2rem;
+				&:hover {
+					cursor: pointer;
+					background-color: #a6a6a6;
 				}
 			}
 		}

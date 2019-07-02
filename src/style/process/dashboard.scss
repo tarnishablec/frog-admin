@@ -1,0 +1,61 @@
+@import "variables";
+
+.common-dashboard {
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)) !important;
+
+  .pt {
+    color: #fff;
+    background-color: $pt-color !important;
+  }
+
+  .st {
+    color: #fff;
+    background-color: $st-color !important;
+  }
+
+  .ud {
+    color: #fff;
+    background-color: $ud-color !important;
+  }
+
+  .nc {
+    color: #fff;
+    background-color: $nc-color !important;
+  }
+
+  .el-card__body, .el-card__header {
+    padding: 0.8rem 1rem;
+  }
+}
+
+.common-table-dashboard {
+  .pt {
+    border-left: 5px solid $pt-color;
+  }
+
+  .st {
+    border-left: 5px solid $st-color;
+  }
+
+  .ud {
+    border-left: 5px solid $ud-color;
+  }
+
+  .nc {
+    border-left: 5px solid $nc-color;
+  }
+
+  svg {
+    &:hover {
+      cursor: pointer;
+      color: $hover-color;
+    }
+  }
+
+  #operator {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+  }
+}
+

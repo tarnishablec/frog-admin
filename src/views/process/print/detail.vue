@@ -2,16 +2,16 @@
 	<div id="print-detail">
 		<el-card>
 			<div slot="header">
-				Data Detail
+				Data Status
 			</div>
 			<div style="overflow-x: scroll">
-				<table v-if="printDetail">
+				<table v-if="printDetail" class="common-detail-grid">
 					<thead>
 					<tr>
 						<td></td>
 						<td colspan="5">perc_set_point</td>
-						<td>D_temp_set_point</td>
 						<td colspan="5">temp</td>
+						<td>D_temp_set_point</td>
 						<td>D_temp</td>
 						<td>Exhausting_gas_temp</td>
 						<td>Fan_In</td>
@@ -20,7 +20,6 @@
 					<tr>
 						<td></td>
 						<td v-for="i in 5">A{{i}}</td>
-						<td></td>
 						<td v-for="i in 5">A{{i}}</td>
 					</tr>
 					</thead>
@@ -28,10 +27,10 @@
 					<tr v-for="row in rows">
 						<td>Oven1_SideA</td>
 						<td v-for="i in 5">{{printDetail[`Oven${row.oven}`][`Side${row.side}`][`Zone_A${i}_perc_set_point`]}}</td>
-						<td></td>
 						<td v-for="i in 5">{{printDetail[`Oven${row.oven}`][`Side${row.side}`][`Zone_A${i}_temp`]}}</td>
-						<td></td>
 						<td>{{printDetail[`Oven${row.oven}`][`Side${row.side}`]['Exhausting_gas_temp']}}</td>
+						<td>{{printDetail[`Oven${row.oven}`][`Side${row.side}`]['Zone_D_temp']}}</td>
+						<td>{{printDetail[`Oven${row.oven}`][`Side${row.side}`]['Zone_D_temp_set_point']}}</td>
 						<td>{{printDetail[`Oven${row.oven}`][`Side${row.side}`]['Fan_In']}}</td>
 						<td>{{printDetail[`Oven${row.oven}`][`Side${row.side}`]['Fan_out']}}</td>
 					</tr>
@@ -89,14 +88,4 @@
 </script>
 
 <style lang="scss" scoped>
-	#print-detail {
-		table {
-			text-align: center;
-
-			td {
-				padding: 0 1rem;
-				line-height: 2rem;
-			}
-		}
-	}
 </style>
