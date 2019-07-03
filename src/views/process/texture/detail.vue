@@ -22,7 +22,7 @@
 					<tr>
 						<td><span>Actual</span></td>
 						<td v-for="i in 13" class="actual-temp">
-							<span @click="showHistory(i+1)">
+							<span @click="awakeDialog(i+1)">
 								{{machineState.parameter['temperature_tank_'+(i+1)]}}
 							</span>
 						</td>
@@ -73,15 +73,11 @@
 				</div>
 			</div>
 		</el-card>
-		<el-dialog :visible.sync="historyDialogVisible" width="80%"
-		           :modal-append-to-body='false'>
-			<div slot="title">
-				<span>History Data</span>
+		<el-dialog width="85%" :visible.sync="historyDialogVisible" append-to-body>
+			<div slot="title">History Data
 				<hr/>
 			</div>
-			<div>
-				<v-chart v-loading="chartLoading" :options="options" autoresize/>
-			</div>
+			<common-history-chart :params="dialogParams" :visible.sync="historyDialogVisible" :fields="['time',dialogParams.tankName]"/>
 		</el-dialog>
 	</div>
 </template>
@@ -89,11 +85,11 @@
 <script>
 	import {machineStateFilter} from '@/views/process/commonFilters/machineStateFilter'
 	import * as common from '@/api/process/common'
-	import FrLineChart from "@/components/frog-ui/chart/line";
+	import CommonHistoryChart from "@/views/process/commonComponents/commonHistoryChart";
 
 	export default {
 		name: "textureMachineDetail",
-		components: {FrLineChart},
+		components: {CommonHistoryChart},
 		data() {
 			return {
 				headerList: ['Start Position', 'SDR', 'PSC1', 'Rinse', 'Texture', 'Rinse', 'Texture', 'PSC1', 'Rinse', 'HT/HCL clean', 'HV-Dryer', 'WAD', 'WAD', 'End position'],
@@ -102,14 +98,19 @@
 				tankId: 'temperature_tank_2',
 				comparisonTime: [new Date(), new Date()],
 				historyDialogVisible: false,
-
 				machineHisData: [],
 
-				dialog: {
-					tankName: '',
+				dialogParams: {
+					machineId: this.$route.params.machineId,
+					workCellCode: 'BT',
+					tankName: ''
 				},
-
-				chartLoading: false,
+			}
+		},
+		methods: {
+			awakeDialog(index) {
+				this.dialogParams.tankName = `temperature_tank_${index}`;
+				this.historyDialogVisible = true;
 			}
 		},
 
@@ -129,63 +130,6 @@
 		filters: {
 			machineStateFilter,
 		},
-		computed: {
-			options() {
-				return {
-					legend: {
-						data: [this.dialog.tankName]
-					},
-					title: {
-						text: this.dialog.tankName
-					},
-					tooltip: {
-						trigger: 'axis',
-					},
-					dataset: {
-						source: this.machineHisData,
-					},
-					toolbox: {
-						right: 20,
-						itemSize: 20,
-						feature: {
-							saveAsImage: {},
-						}
-					},
-					xAxis: {type: 'time'},
-					yAxis: {
-						min: 'dataMin',
-						max: 'dataMax',
-					},
-					series: [
-						{
-							name: this.dialog.tankName,
-							type: 'line',
-						},
-					],
-				}
-			}
-		},
-		methods: {
-			async showHistory(index) {
-				this.chartLoading = true;
-				this.dialog.tankName = `temperature_tank_${index}`;
-				this.historyDialogVisible = true;
-				let data = (await common.postMachineParameterHisDataFromCommon({
-					endTime: "2019-04-01 01:00:00",
-					machineId: this.$route.params.machineId,
-					paramId: this.dialog.tankName,
-					startTime: "2019-04-01 00:00:00",
-					workCellCode: "BT",
-				})).data['machineParameterDataList'];
-				data.map(d => {
-					d.time = new Date(Number(d.time));
-					// d.temperature = d[`temperature_tank_${this.dialog.tankId}`];
-					// delete d[`temperature_tank_${this.dialog.tankId}`];
-				});
-				this.machineHisData = data;
-				this.chartLoading = false;
-			},
-		}
 	}
 </script>
 
@@ -222,8 +166,5 @@
 		margin-bottom: 1rem;
 	}
 
-	.echarts {
-		width: 100%;
-		height: 500px;
-	}
+
 </style>
