@@ -74,13 +74,13 @@
 			</div>
 		</el-card>
 		<el-dialog :visible.sync="historyDialogVisible" width="80%"
-		           :modal-append-to-body='false' @closed="cleanData">
+		           :modal-append-to-body='false'>
 			<div slot="title">
 				<span>History Data</span>
 				<hr/>
 			</div>
 			<div>
-
+				<v-chart v-loading="chartLoading" :options="options" autoresize/>
 			</div>
 		</el-dialog>
 	</div>
@@ -103,11 +103,16 @@
 				comparisonTime: [new Date(), new Date()],
 				historyDialogVisible: false,
 
+				machineHisData: [],
+
 				dialog: {
-					tankId: 2,
-				}
+					tankName: '',
+				},
+
+				chartLoading: false,
 			}
 		},
+
 		asyncComputed: {
 			async machineList() {
 				return (await common.getMachineListByCodeFromCommon({
@@ -120,23 +125,65 @@
 					machineId: this.$route.params.machineId,
 				})).data;
 			},
-			async machineHisData() {
-				return (await common.postMachineParameterHisDataFromCommon({
-					endTime: "2019-04-01 04:00:00",
-					machineId: this.$route.params.machineId,
-					paramId: `temperature_tank_${this.dialog.tankId}`,
-					startTime: "2019-04-01 00:00:00",
-					workCellCode: "BT",
-				})).data.machineParameterDataList;
-			}
 		},
 		filters: {
 			machineStateFilter,
 		},
+		computed: {
+			options() {
+				return {
+					legend: {
+						data: [this.dialog.tankName]
+					},
+					title: {
+						text: this.dialog.tankName
+					},
+					tooltip: {
+						trigger: 'axis',
+					},
+					dataset: {
+						source: this.machineHisData,
+					},
+					toolbox: {
+						right: 20,
+						itemSize: 20,
+						feature: {
+							saveAsImage: {},
+						}
+					},
+					xAxis: {type: 'time'},
+					yAxis: {
+						min: 'dataMin',
+						max: 'dataMax',
+					},
+					series: [
+						{
+							name: this.dialog.tankName,
+							type: 'line',
+						},
+					],
+				}
+			}
+		},
 		methods: {
-			showHistory(index) {
-				this.dialog.tankId = index;
+			async showHistory(index) {
+				this.chartLoading = true;
+				this.dialog.tankName = `temperature_tank_${index}`;
 				this.historyDialogVisible = true;
+				let data = (await common.postMachineParameterHisDataFromCommon({
+					endTime: "2019-04-01 01:00:00",
+					machineId: this.$route.params.machineId,
+					paramId: this.dialog.tankName,
+					startTime: "2019-04-01 00:00:00",
+					workCellCode: "BT",
+				})).data['machineParameterDataList'];
+				data.map(d => {
+					d.time = new Date(Number(d.time));
+					// d.temperature = d[`temperature_tank_${this.dialog.tankId}`];
+					// delete d[`temperature_tank_${this.dialog.tankId}`];
+				});
+				this.machineHisData = data;
+				this.chartLoading = false;
 			},
 		}
 	}
@@ -173,5 +220,10 @@
 
 	.el-card {
 		margin-bottom: 1rem;
+	}
+
+	.echarts {
+		width: 100%;
+		height: 500px;
 	}
 </style>
