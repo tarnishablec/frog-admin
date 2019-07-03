@@ -6,7 +6,7 @@ Use:
 
     element-ui 🛠 
     
-    viser 🌈
+    eCharts 🌈
 
 ## Project setup
 ```
