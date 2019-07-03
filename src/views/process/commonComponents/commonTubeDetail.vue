@@ -12,7 +12,7 @@
 		</el-table>
 		<el-dialog title="History Data" :visible.sync="dialog" :modal-append-to-body='false' width="90%">
 			<div style="display: flex;justify-content: space-between">
-				<date-time-picker ref="datePicker"/>
+				<fr-date-time-picker ref="datePicker"/>
 				<el-button @click="searchData">SEARCH</el-button>
 			</div>
 		</el-dialog>
@@ -21,12 +21,12 @@
 
 <script>
 	import * as common from '@/api/process/common'
-	import DateTimePicker from "@/components/common/dateTimePicker";
+	import frDateTimePicker from "@/components/frog-ui/dateTimePicker/dateTimePicker";
 	import {dateToString} from '@/utils/dateUtils'
 
 	export default {
 		name: "commonTubeDetail",
-		components: {DateTimePicker},
+		components: {frDateTimePicker},
 		props: {
 			workCellCode: {
 				type: String,

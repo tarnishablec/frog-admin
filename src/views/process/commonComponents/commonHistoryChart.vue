@@ -3,7 +3,7 @@
 		<div style="display:flex;margin-bottom: 0.8rem;padding: 0 5px;align-items: center;justify-content: space-between">
 			<div>
 				<span style="margin-right: 2rem">Time:</span>
-				<el-date-picker type="datetimerange" size="small" v-model="date"/>
+				<fr-date-time-picker type="datetimerange" size="small" v-model="date"/>
 			</div>
 		</div>
 		<v-chart :options="options" v-loading="chartLoading" autoresize/>
@@ -13,9 +13,11 @@
 <script>
 	import * as common from '@/api/process/common'
 	import {dateToString} from '@/utils/dateUtils'
+	import frDateTimePicker from "@/components/frog-ui/dateTimePicker/dateTimePicker";
 
 	export default {
 		name: "commonHistoryChart",
+		components: {frDateTimePicker},
 		props: {
 			visible: Boolean,
 			params: {
@@ -67,7 +69,9 @@
 						right: 20,
 						itemSize: 20,
 						feature: {
-							saveAsImage: {},
+							saveAsImage: {
+								title: ' '
+							},
 						}
 					},
 					xAxis: {type: 'time'},

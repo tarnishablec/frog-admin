@@ -1,18 +1,18 @@
 <template>
-	<el-date-picker v-model="date" type="datetimerange" :picker-options="pickerOptions"/>
+	<el-date-picker v-model="tDates" type="datetimerange" :picker-options="pickerOptions" @change="$emit('change',tDates)"/>
 </template>
 
 <script>
 	export default {
-		name: "dateTimePicker",
-		methods: {
-			dateChange() {
-				this.$emit('dateChange', this.date);
-			}
+		name: "frDateTimePicker",
+		model: {
+			prop: 'dates',
+			event: 'change',
 		},
+		props: ['dates'],
 		data() {
 			return {
-				date: [new Date() - 3600 * 1000 * 8, new Date().getTime()],
+				tDates: this.dates,
 				pickerOptions: {
 					shortcuts: [{
 						text: 'Last 8 Hours',

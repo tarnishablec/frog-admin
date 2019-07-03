@@ -8,7 +8,7 @@
 				<div class="alarm-header">
 					<div>
 						<span>Time:</span>
-						<date-time-picker ref="datePicker"/>
+						<fr-date-time-picker ref="datePicker"/>
 					</div>
 					<div>
 						<el-button @click="search">Search</el-button>
@@ -23,7 +23,7 @@
 
 <script>
 	import JsonToCsvButton from "@/components/excel/jsonToCsvButton";
-	import DateTimePicker from "@/components/common/dateTimePicker";
+	import frDateTimePicker from "@/components/frog-ui/dateTimePicker/dateTimePicker";
 
 	export default {
 		name: "commonAlarm",
@@ -33,7 +33,7 @@
 				default: 'Alarm',
 			}
 		},
-		components: {DateTimePicker, JsonToCsvButton},
+		components: {frDateTimePicker, JsonToCsvButton},
 		data() {
 			return {
 				alarmTime: [new Date(), new Date()]
