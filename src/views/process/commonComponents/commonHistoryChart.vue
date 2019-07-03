@@ -19,7 +19,6 @@
 		name: "commonHistoryChart",
 		components: {frDateTimePicker},
 		props: {
-			visible: Boolean,
 			params: {
 				required: true,
 			},
@@ -37,10 +36,10 @@
 			async sourceData() {
 				this.chartLoading = true;
 				let data = (await common.postMachineParameterHisDataFromCommon({
+					startTime: dateToString(this.date[0]),
 					endTime: dateToString(this.date[1]),
 					machineId: this.params.machineId,
-					paramId: this.params.tankName,
-					startTime: dateToString(this.date[0]),
+					paramId: this.params.paramId,
 					workCellCode: this.params.workCellCode,
 				})).data['machineParameterDataList'];
 				data.map(d => {
@@ -54,7 +53,7 @@
 			options() {
 				return {
 					legend: {
-						data: this.field,
+						data: this.fields.removeFirst(),
 					},
 					title: {
 						text: this.title,

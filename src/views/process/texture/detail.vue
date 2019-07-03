@@ -1,14 +1,14 @@
 <template>
 	<div class="process-detail">
-		<el-card v-if="machineState">
+		<el-card>
 			<div slot="header" class="detail-status-header">
 				<span>Machine Status: </span>
-				<div class="status-text" :class="machineState.status.MachineStatus | machineStateFilter">
-					{{machineState.status.MachineStatus}}
+				<div v-if="machineState" class="status-text" :class="machineState.status['MachineStatus'] | machineStateFilter">
+					{{machineState.status['MachineStatus']}}
 				</div>
 			</div>
 			<div style="overflow-x: scroll">
-				<table class="common-detail-grid">
+				<table v-if="machineState" class="common-detail-grid">
 					<thead>
 					<tr id="texture-detail-header">
 						<td v-for="i in 14">
@@ -56,8 +56,8 @@
 					<div>
 						<span>Machines:</span>
 						<el-select v-model="selectedMachine" multiple collapse-tags :value="selectedMachine">
-							<el-option v-for="machine in machineList" :key="machine.MachineID" :label="machine.MachineName"
-							           :value="machine.MachineID"/>
+							<el-option v-for="machine in machineList" :key="machine['MachineID']" :label="machine['MachineName']"
+							           :value="machine['MachineID']"/>
 						</el-select>
 					</div>
 					<div>
@@ -77,7 +77,7 @@
 			<div slot="title">History Data
 				<hr/>
 			</div>
-			<common-history-chart :params="dialogParams" :visible.sync="historyDialogVisible" :fields="['time',dialogParams.tankName]"/>
+			<common-history-chart :params="dialogParams" :fields="['time',dialogParams.tankName]"/>
 		</el-dialog>
 	</div>
 </template>
@@ -103,13 +103,13 @@
 				dialogParams: {
 					machineId: this.$route.params.machineId,
 					workCellCode: 'BT',
-					tankName: ''
+					paramId: ''
 				},
 			}
 		},
 		methods: {
 			awakeDialog(index) {
-				this.dialogParams.tankName = `temperature_tank_${index}`;
+				this.dialogParams.paramId = `temperature_tank_${index}`;
 				this.historyDialogVisible = true;
 			}
 		},

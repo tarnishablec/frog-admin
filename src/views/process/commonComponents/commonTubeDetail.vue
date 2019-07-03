@@ -10,23 +10,23 @@
 				</template>
 			</el-table-column>
 		</el-table>
-		<el-dialog title="History Data" :visible.sync="dialog" :modal-append-to-body='false' width="90%">
-			<div style="display: flex;justify-content: space-between">
-				<fr-date-time-picker ref="datePicker"/>
-				<el-button @click="searchData">SEARCH</el-button>
+		<el-dialog :visible.sync="dialog" :modal-append-to-body='false' width="90%">
+			<div slot="title">
+				History Data
+				<hr/>
 			</div>
+			<common-history-chart :params="hisParam" :fields="['time','value']"/>
 		</el-dialog>
 	</div>
 </template>
 
 <script>
 	import * as common from '@/api/process/common'
-	import frDateTimePicker from "@/components/frog-ui/dateTimePicker/dateTimePicker";
-	import {dateToString} from '@/utils/dateUtils'
+	import CommonHistoryChart from "@/views/process/commonComponents/commonHistoryChart";
 
 	export default {
 		name: "commonTubeDetail",
-		components: {frDateTimePicker},
+		components: {CommonHistoryChart},
 		props: {
 			workCellCode: {
 				type: String,
@@ -48,28 +48,19 @@
 				tableHeight: window.innerHeight - 100,
 				dialog: false,
 				dialogData: [],
-				param: '',
+				hisParam: {},
 			}
 		},
 		methods: {
 			showDialog(row, column) {
 				if (column.property !== 'prop' && row[column.property].canClick) {
-					this.param = row[column.property].raw;
+					this.hisParam = {
+						paramId: row[column.property].raw,
+						workCellCode: this.workCellCode,
+						machineId: this.$route.params.machineId,
+					};
 					this.dialog = true;
 				}
-			},
-			searchData() {
-				let date = this.$refs.datePicker.date;
-				common.postMachineParameterHisDataFromCommon({
-					endTime: dateToString(date[1]),
-					machineId: this.$route.params.machineId,
-					paramId: this.param,
-					startTime: dateToString(date[0]),
-					workCellCode: this.workCellCode,
-				}).then(res => {
-					this.dialogData = res.data;
-					console.log(this.dialogData);
-				})
 			},
 			hoverCell({column}) {
 				if (column.property !== 'prop') {
@@ -78,8 +69,6 @@
 					return 'row-header';
 				}
 			}
-		},
-		mounted() {
 		},
 		asyncComputed: {
 			async machineTubeList() {
@@ -141,7 +130,6 @@
 					data.prop = k;
 					res.push(data);
 				}
-				console.log(res);
 				return res;
 			}
 		}

@@ -41,7 +41,6 @@
 		},
 		methods: {
 			search() {
-				console.log(this.$refs.datePicker.date);
 			}
 		}
 	}
