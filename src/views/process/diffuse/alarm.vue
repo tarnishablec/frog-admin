@@ -1,9 +1,5 @@
 <template>
-	<common-alarm title="Diffuse Alarm">
-		<el-table :data="[]">
-
-		</el-table>
-	</common-alarm>
+	<common-alarm work-cell-code="DF"/>
 </template>
 
 <script>
