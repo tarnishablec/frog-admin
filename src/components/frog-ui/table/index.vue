@@ -2,7 +2,7 @@
 	<div class="fr-table">
 		<el-table :data="showData" v-bind="$attrs">
 			<el-table-column v-if="index" type="index" align="center"/>
-			<el-table-column v-for="column in columns" :prop="column" :label="column" :key="column"
+			<el-table-column v-for="column in columns" :prop="column" :label="column" :key="column" :show-overflow-tooltip="$attrs.showOverflowTooltip"
 			                 align="center"/>
 			<slot/>
 		</el-table>
