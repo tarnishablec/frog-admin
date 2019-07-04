@@ -37,7 +37,7 @@
 		},
 		computed: {
 			showData() {
-				return data ? data.slice((this.currentPage - 1) * this.pageSize, this.currentPage * this.pageSize) : [];
+				return this.data ? this.data.slice((this.currentPage - 1) * this.pageSize, this.currentPage * this.pageSize) : [];
 			}
 		},
 		methods: {
