@@ -6,7 +6,7 @@
 			                 align="center"/>
 			<slot/>
 		</el-table>
-		<el-pagination :total="data.length" @current-change="currentChange" :page-size.sync="pageSize"
+		<el-pagination :total="data?data.length:0" @current-change="currentChange" :page-size.sync="pageSize"
 		               layout="prev,pager,next,jumper,total"/>
 	</div>
 </template>
