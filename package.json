@@ -16,7 +16,6 @@
     "vue-async-computed": "^3.7.0",
     "vue-clipboard2": "^0.3.0",
     "vue-echarts": "^4.0.3",
-    "vue-perfect-scrollbar": "^0.1.0",
     "vue-router": "^3.0.7",
     "vuex": "^3.0.1",
     "vuex-persistedstate": "^2.5.4",

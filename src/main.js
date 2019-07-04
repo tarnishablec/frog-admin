@@ -11,7 +11,6 @@ import '@/plugins/vue-echarts'
 import '@/plugins/frog-ui'
 import VueClipboard from 'vue-clipboard2'
 import {jumpTo} from '@/utils/routerUtils'
-import VuePerfectScrollbar from 'vue-perfect-scrollbar'
 import commonPlugin from '@/plugins/common'
 
 Vue.config.productionTip = false;
@@ -19,8 +18,6 @@ Vue.config.productionTip = false;
 Vue.use(commonPlugin);
 Vue.use(AsyncComputed);
 Vue.use(VueClipboard);
-
-Vue.component('vScroll', VuePerfectScrollbar);
 
 Vue.prototype.$vars = store.state.style.vars;
 Vue.prototype.$themes = store.state.style.themes;
