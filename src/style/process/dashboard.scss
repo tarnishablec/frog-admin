@@ -1,0 +1,62 @@
+@import "variables";
+@import "../variables";
+
+.common-dashboard {
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)) !important;
+
+  .PT {
+    color: #fff;
+    background-color: $pt-color !important;
+  }
+
+  .ST {
+    color: #fff;
+    background-color: $st-color !important;
+  }
+
+  .UD {
+    color: #fff;
+    background-color: $ud-color !important;
+  }
+
+  .NC {
+    color: #fff;
+    background-color: $nc-color !important;
+  }
+
+  .el-card__body, .el-card__header {
+    padding: 0.8rem 1rem;
+  }
+}
+
+.common-table-dashboard {
+  .PT {
+    border-left: 5px solid $pt-color;
+  }
+
+  .ST {
+    border-left: 5px solid $st-color;
+  }
+
+  .UD {
+    border-left: 5px solid $ud-color;
+  }
+
+  .NC {
+    border-left: 5px solid $nc-color;
+  }
+
+  svg {
+    &:hover {
+      cursor: pointer;
+      color: $hover-color;
+    }
+  }
+
+  #operator {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-evenly;
+  }
+}
+

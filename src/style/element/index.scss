@@ -4,9 +4,6 @@
   display: none;
 }
 
-
-
-
 .el-scrollbar__wrap {
   overflow-x: hidden;
 }
@@ -20,4 +17,8 @@
   span {
     vertical-align: middle;
   }
+}
+
+.el-dialog__body {
+  padding: 0 20px 20px 20px;
 }

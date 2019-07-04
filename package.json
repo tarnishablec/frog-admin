@@ -1,5 +1,5 @@
 {
-  "name": "frog-admin",
+  "name": "vsky-admin",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -22,8 +22,8 @@
     "xlsx": "^0.14.3"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^3.8.0",
-    "@vue/cli-service": "^3.8.0",
+    "@vue/cli-plugin-babel": "^3.9.0",
+    "@vue/cli-service": "^3.9.0",
     "babel-plugin-component": "^1.1.1",
     "node-sass": "^4.9.0",
     "sass-loader": "^7.1.0",
