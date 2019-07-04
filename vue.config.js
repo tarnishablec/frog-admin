@@ -6,7 +6,7 @@ module.exports = {
 		'resize-detector'
 	],
 	publicPath: process.env.NODE_ENV === 'production'
-		? '/frog-admin/'
+		? '/vsky-admin/'
 		: '/',
 	chainWebpack: (config) => {
 		config.resolve.alias
@@ -14,7 +14,7 @@ module.exports = {
 	},
 
 	devServer: {
-		port: 9999,
+		port: 10086,
 		proxy: {
 			'/process': {
 				target: 'http://172.16.10.20:8008',

@@ -7,11 +7,14 @@
   tr {
     th {
       background-color: #dddddd;
-    }
-  }
 
-  .cell {
-    white-space: nowrap;
+      .cell {
+        font-weight: normal;
+        padding: 0 5px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+      }
+    }
   }
 }
 
