@@ -1,9 +1,5 @@
 <template>
-	<common-alarm title="Texture Alarm">
-		<el-table :data="[]">
-
-		</el-table>
-	</common-alarm>
+	<common-alarm work-cell-code="BT"/>
 </template>
 
 <script>

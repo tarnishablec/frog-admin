@@ -9,6 +9,10 @@
 			sourceData: Array,
 			fields: Array,
 			title: String,
+			xType: {
+				type: String,
+				default: 'time'
+			}
 		},
 		computed: {
 			options() {
@@ -34,7 +38,7 @@
 							},
 						}
 					},
-					xAxis: {type: 'time'},
+					xAxis: {type: this.xType},
 					yAxis: {
 						min: 'dataMin',
 						max: 'dataMax',
@@ -56,5 +60,8 @@
 </script>
 
 <style scoped>
+	.echarts {
+		height: 400px !important;
+	}
 
 </style>

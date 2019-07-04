@@ -63,5 +63,10 @@
 </script>
 
 <style scoped>
+	.echarts {
+		width: 100% !important;
+		height: 400px !important;
+		margin: auto;
+	}
 
 </style>
