@@ -17,7 +17,7 @@
     "vue-clipboard2": "^0.3.0",
     "vue-echarts": "^4.0.3",
     "vue-perfect-scrollbar": "^0.1.0",
-    "vue-router": "^3.0.3",
+    "vue-router": "^3.0.7",
     "vuex": "^3.0.1",
     "vuex-persistedstate": "^2.5.4",
     "xlsx": "^0.14.3"

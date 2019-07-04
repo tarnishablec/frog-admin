@@ -77,7 +77,7 @@
 			<div slot="title">History Data
 				<hr/>
 			</div>
-			<common-history-chart :params="dialogParams" :fields="['time',dialogParams.tankName]"/>
+			<common-history-chart :params="dialogParams" :fields="['time',dialogParams.paramId]"/>
 		</el-dialog>
 	</div>
 </template>
