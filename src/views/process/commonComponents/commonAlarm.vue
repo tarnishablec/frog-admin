@@ -4,19 +4,17 @@
 			<div slot="header">
 				{{title}}
 			</div>
-			<div>
-				<div class="alarm-header">
-					<div>
-						<span>Time:</span>
-						<fr-date-time-picker ref="datePicker"/>
-					</div>
-					<div>
-						<el-button @click="search">Search</el-button>
-						<json-to-csv-button>Export</json-to-csv-button>
-					</div>
+			<div class="alarm-header">
+				<div>
+					<span>Time:</span>
+					<fr-date-time-picker ref="datePicker"/>
 				</div>
-				<slot/>
+				<div>
+					<el-button @click="search">Search</el-button>
+					<json-to-csv-button>Export</json-to-csv-button>
+				</div>
 			</div>
+
 		</el-card>
 	</div>
 </template>

@@ -1,8 +1,9 @@
 <template>
 	<el-dialog :visible.sync="visible" :title="title" width="85%" append-to-body @close="$emit('update:show',false)">
-		<div style="display:flex;margin-bottom: 0.8rem;padding: 0 5px;align-items: center;justify-content: space-between">
+		<div
+				style="display:flex;margin-bottom: 0.8rem;padding: 0 5px;align-items: center;justify-content: space-between;overflow: hidden">
 			<div>
-				<span style="margin-right: 2rem">Time:</span>
+				<span style="margin-right: 2rem;padding-left: 1rem">Time:</span>
 				<fr-date-time-picker size="small" v-model="date"/>
 			</div>
 		</div>
@@ -29,7 +30,7 @@
 			params: Object,
 		},
 		watch: {
-			show () {
+			show() {
 				this.visible = this.show;
 			}
 		},
@@ -42,7 +43,7 @@
 		},
 		asyncComputed: {
 			async historyData() {
-				if (this.show){
+				if (this.show) {
 					this.chartLoading = true;
 					let data = (await common.postMachineParameterHisDataFromCommon(
 						Object.assign({
