@@ -69,27 +69,21 @@
 					</div>
 				</div>
 				<div>
-
 				</div>
 			</div>
 		</el-card>
-		<el-dialog width="85%" :visible.sync="historyDialogVisible" append-to-body>
-			<div slot="title">History Data
-				<hr/>
-			</div>
-			<common-history-chart :params="dialogParams" :fields="['time',dialogParams.paramId]"/>
-		</el-dialog>
+		<common-history-dialog :show.sync="historyDialogVisible" :params="dialogParams" :fields="['time',this.dialogParams.paramId]"/>
 	</div>
 </template>
 
 <script>
 	import {machineStateFilter} from '@/views/process/commonFilters/machineStateFilter'
 	import * as common from '@/api/process/common'
-	import CommonHistoryChart from "@/views/process/commonComponents/commonHistoryChart";
+	import commonHistoryDialog from "@/views/process/commonComponents/commonHistoryDialog";
 
 	export default {
 		name: "textureMachineDetail",
-		components: {CommonHistoryChart},
+		components: {commonHistoryDialog},
 		data() {
 			return {
 				headerList: ['Start Position', 'SDR', 'PSC1', 'Rinse', 'Texture', 'Rinse', 'Texture', 'PSC1', 'Rinse', 'HT/HCL clean', 'HV-Dryer', 'WAD', 'WAD', 'End position'],
@@ -101,7 +95,6 @@
 				machineHisData: [],
 
 				dialogParams: {
-					machineId: this.$route.params.machineId,
 					workCellCode: 'BT',
 					paramId: ''
 				},

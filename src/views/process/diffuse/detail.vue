@@ -1,14 +1,14 @@
 <template>
-	<common-tube-detail work-cell-code="DF"/>
+	<common-machine-detail work-cell-code="DF"/>
 </template>
 <script>
 
 
-	import CommonTubeDetail from "@/views/process/commonComponents/commonTubeDetail";
+	import commonMachineDetail from "@/views/process/commonComponents/commonMachineDetail";
 
 	export default {
 		name: "diffuseDetail",
-		components: {CommonTubeDetail},
+		components: {commonMachineDetail},
 	}
 </script>
 

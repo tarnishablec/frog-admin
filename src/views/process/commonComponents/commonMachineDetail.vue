@@ -10,23 +10,17 @@
 				</template>
 			</el-table-column>
 		</el-table>
-		<el-dialog :visible.sync="dialog" :modal-append-to-body='false' width="90%">
-			<div slot="title">
-				History Data
-				<hr/>
-			</div>
-			<common-history-chart :params="hisParam" :fields="['time','value']"/>
-		</el-dialog>
+		<common-history-dialog :show.sync="dialog" :params="hisParam" :fields="['time','value']"/>
 	</div>
 </template>
 
 <script>
 	import * as common from '@/api/process/common'
-	import CommonHistoryChart from "@/views/process/commonComponents/commonHistoryChart";
+	import CommonHistoryDialog from "@/views/process/commonComponents/commonHistoryDialog";
 
 	export default {
-		name: "commonTubeDetail",
-		components: {CommonHistoryChart},
+		name: "commonMachineDetail",
+		components: {CommonHistoryDialog},
 		props: {
 			workCellCode: {
 				type: String,
@@ -47,7 +41,6 @@
 			return {
 				tableHeight: window.innerHeight - 100,
 				dialog: false,
-				dialogData: [],
 				hisParam: {},
 			}
 		},

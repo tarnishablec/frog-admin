@@ -3,7 +3,7 @@
 </template>
 
 <script>
-	import CommonTubeDetail from "@/views/process/commonComponents/commonTubeDetail";
+	import CommonTubeDetail from "@/views/process/commonComponents/commonMachineDetail";
 
 	export default {
 		name: "detail",
