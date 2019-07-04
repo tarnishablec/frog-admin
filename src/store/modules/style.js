@@ -13,7 +13,7 @@ export default {
 				bgc: '#393942',
 			},
 			toolbar: {
-				height: 55,
+				height: 50,
 			},
 		}
 	},

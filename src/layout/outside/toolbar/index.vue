@@ -28,7 +28,7 @@
 	@import "../../../style/variables";
 
 	#toolbar {
-		height: $toolbar-height;
+		height: var(--toolbar-height);
 		display: inline-flex;
 		flex-wrap: nowrap;
 	}
