@@ -1,8 +1,9 @@
 <template>
 	<div class="fr-table">
 		<el-table :data="showData" v-bind="$attrs">
-			<el-table-column v-if="index" type="index" align="center"/>
-			<el-table-column v-for="column in columns" :prop="column" :label="column" :key="column" :show-overflow-tooltip="$attrs.showOverflowTooltip"
+			<el-table-column v-if="index" type="index" align="center" :index="indexMethod"/>
+			<el-table-column v-for="column in columns" :prop="column" :label="column" :key="column"
+			                 :show-overflow-tooltip="$attrs.showOverflowTooltip"
 			                 align="center"/>
 			<slot/>
 		</el-table>
@@ -43,6 +44,9 @@
 		methods: {
 			currentChange(currentPage) {
 				this.currentPage = currentPage;
+			},
+			indexMethod(index) {
+				return index + (this.currentPage - 1) * this.pageSize;
 			}
 		}
 	}
