@@ -3,8 +3,8 @@
 		<el-table :data="showData" v-bind="$attrs">
 			<el-table-column v-if="index" type="index" align="center" :index="indexMethod"/>
 			<el-table-column v-for="column in columns" :prop="column" :label="column" :key="column"
-			                 :show-overflow-tooltip="$attrs.showOverflowTooltip"
-			                 align="center"/>
+			                 :show-overflow-tooltip="$attrs['show-overflow-tooltip']"
+			                 :align="$attrs.alignment"/>
 			<slot/>
 		</el-table>
 		<el-pagination :total="data?data.length:0" @current-change="currentChange" :page-size.sync="pageSize"
@@ -46,7 +46,7 @@
 				this.currentPage = currentPage;
 			},
 			indexMethod(index) {
-				return index + (this.currentPage - 1) * this.pageSize;
+				return index + 1 + (this.currentPage - 1) * this.pageSize;
 			}
 		}
 	}
