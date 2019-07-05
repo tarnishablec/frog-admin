@@ -15,9 +15,7 @@ module.exports = {
 
 	devServer: {
 		port: 9999,
-		proxy: {
 
-		}
 	},
 	runtimeCompiler: true
 };
