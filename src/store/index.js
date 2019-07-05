@@ -18,7 +18,7 @@ const _store = new Vuex.Store({
   modules,
   getters,
   plugins: [createPersistedState({
-    key: 'vsky-admin'
+    key: 'frog-admin'
   })]
 });
 
