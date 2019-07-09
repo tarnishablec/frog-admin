@@ -1,5 +1,6 @@
 <template>
-	<el-date-picker v-model="tDates" :size="size" type="datetimerange" :picker-options="pickerOptions" @change="$emit('change',tDates)"/>
+	<el-date-picker v-bind="$attrs" v-model="tDates" :size="size" type="datetimerange" :picker-options="pickerOptions"
+	                @change="$emit('change',tDates)"/>
 </template>
 
 <script>
@@ -9,7 +10,7 @@
 			prop: 'dates',
 			event: 'change',
 		},
-		props: ['dates','size'],
+		props: ['dates'],
 		data() {
 			return {
 				tDates: this.dates,
