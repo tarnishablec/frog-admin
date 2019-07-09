@@ -1,5 +1,5 @@
 <template>
-	<el-date-picker v-bind="$attrs" v-model="tDates" :size="size" type="datetimerange" :picker-options="pickerOptions"
+	<el-date-picker v-bind="$attrs" v-model="tDates" type="datetimerange" :picker-options="pickerOptions"
 	                @change="$emit('change',tDates)"/>
 </template>
 
