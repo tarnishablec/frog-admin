@@ -22,7 +22,8 @@
 <style lang="scss" scoped>
 	#app-main {
 		flex: 1;
-		overflow: scroll;
+		overflow-y: scroll;
+		overflow-x: auto;
 
 		#dark {
 			position: absolute;
