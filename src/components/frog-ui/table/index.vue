@@ -3,7 +3,7 @@
 		<el-table :data="showData" v-bind="$attrs">
 			<el-table-column v-if="index" type="index" align="center" :index="indexMethod"/>
 			<el-table-column v-for="column in columns" :prop="getColumnProp(column)" :label="getColumnName(column)"
-			                 :key="column"
+			                 :key="getColumnName(column)"
 			                 :width="column.width"
 			                 :show-overflow-tooltip="$attrs['show-overflow-tooltip']"
 			                 :align="$attrs.alignment"/>
