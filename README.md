@@ -7,10 +7,12 @@ Use:
     element-ui 🛠 
     
     eCharts 🌈
+    
+    VueRx 
 
 ## Project setup
 ```
-npm install
+npm install🎮
 ```
 
 ### Compiles and hot-reloads for development

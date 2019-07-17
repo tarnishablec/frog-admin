@@ -5,6 +5,7 @@
 			<el-button type="info" @click="goRepo">Github Repo</el-button>
 			<el-button type="success" @click="goEcharts">ECharts</el-button>
 			<el-button type="primary" @click="goEle">Element Ui</el-button>
+			<el-button type="primary" @click="goRx">VueRx</el-button>
 		</div>
 		<HelloWorld msg="Welcome to Your Vue.js App"/>
 	</div>
@@ -28,6 +29,10 @@
 			},
 			goEcharts(){
 				window.open('https://echarts.baidu.com/examples/');
+			},
+			goRx(){
+				window.open('https://github.com/vuejs/vue-rx');
+
 			}
 		}
 	}
