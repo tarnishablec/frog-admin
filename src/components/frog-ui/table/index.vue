@@ -2,7 +2,9 @@
 	<div class="fr-table">
 		<el-table :data="showData" v-bind="$attrs">
 			<el-table-column v-if="index" type="index" align="center" :index="indexMethod"/>
-			<el-table-column v-for="column in columns" :prop="column" :label="column" :key="column"
+			<el-table-column v-for="column in columns" :prop="getColumnProp(column)" :label="getColumnName(column)"
+			                 :key="column"
+			                 :width="column.width"
 			                 :show-overflow-tooltip="$attrs['show-overflow-tooltip']"
 			                 :align="$attrs.alignment"/>
 			<slot/>
@@ -47,6 +49,19 @@
 			},
 			indexMethod(index) {
 				return index + 1 + (this.currentPage - 1) * this.pageSize;
+			},
+			getColumnName(column) {
+				return (typeof column === 'string' || column instanceof String) ? column : column.name;
+			},
+			getColumnProp(column) {
+				if (typeof column === 'string' || column instanceof String) {
+					return column
+				} else if (column.prop) {
+					return column.prop;
+				} else if (column.name) {
+					return column.name;
+				}
+				return '';
 			}
 		}
 	}
