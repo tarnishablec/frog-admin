@@ -9,7 +9,8 @@
 			                 :align="$attrs.alignment"/>
 			<slot/>
 		</el-table>
-		<el-pagination :total="data?data.length:0" @current-change="currentChange" :page-size.sync="pageSize"
+		<el-pagination v-if="pagination" :total="data?data.length:0" @current-change="currentChange"
+		               :page-size.sync="pageSize"
 		               layout="prev,pager,next,jumper,total"/>
 	</div>
 </template>
@@ -32,6 +33,7 @@
 				type: Number,
 				default: 20,
 			},
+			pagination: Boolean,
 			tableEllipsisHeader: Boolean,
 		},
 		data() {
@@ -41,7 +43,7 @@
 		},
 		computed: {
 			showData() {
-				return this.data ? this.data.slice((this.currentPage - 1) * this.pageSize, this.currentPage * this.pageSize) : [];
+				return this.pagination ? (this.data ? this.data.slice((this.currentPage - 1) * this.pageSize, this.currentPage * this.pageSize) : []) : this.data;
 			}
 		},
 		methods: {
