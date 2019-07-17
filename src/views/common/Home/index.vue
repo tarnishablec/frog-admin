@@ -3,7 +3,7 @@
 		<img alt="Vue logo" src="../../../assets/logo.svg" width="200" height="200">
 		<div>
 			<el-button type="info" @click="goRepo">Github Repo</el-button>
-			<el-button type="success" @click="goViser">Viser Chart</el-button>
+			<el-button type="success" @click="goEcharts">ECharts</el-button>
 			<el-button type="primary" @click="goEle">Element Ui</el-button>
 		</div>
 		<HelloWorld msg="Welcome to Your Vue.js App"/>
@@ -26,8 +26,8 @@
 			goEle(){
 				window.open('https://element.eleme.cn/#/en-US');
 			},
-			goViser(){
-				window.open('https://viserjs.github.io/');
+			goEcharts(){
+				window.open('https://echarts.baidu.com/examples/');
 			}
 		}
 	}
