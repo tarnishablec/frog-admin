@@ -4,15 +4,15 @@
 
 Use:
 
-    element-ui 🛠 
+    Element-ui 🛠 
     
-    eCharts 🌈
+    ECharts 🌈
     
-    VueRx 
+    VueRx 🎮
 
 ## Project setup
 ```
-npm install🎮
+npm install
 ```
 
 ### Compiles and hot-reloads for development

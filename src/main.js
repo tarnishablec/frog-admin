@@ -12,12 +12,15 @@ import '@/plugins/frog-ui'
 import VueClipboard from 'vue-clipboard2'
 import {jumpTo} from '@/utils/routerUtils'
 import commonPlugin from '@/plugins/common'
+import VueRx from 'vue-rx'
+
 
 Vue.config.productionTip = false;
 
 Vue.use(commonPlugin);
 Vue.use(AsyncComputed);
 Vue.use(VueClipboard);
+Vue.use(VueRx);
 
 Vue.prototype.$vars = store.state.style.vars;
 Vue.prototype.$themes = store.state.style.themes;
