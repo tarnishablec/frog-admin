@@ -12,6 +12,7 @@
     "echarts": "^4.2.1",
     "element-ui": "^2.10.1",
     "file-saver": "^2.0.2",
+    "lodash": "^4.17.14",
     "rxjs": "^6.5.2",
     "vue": "^2.6.10",
     "vue-async-computed": "^3.7.0",

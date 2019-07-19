@@ -13,6 +13,7 @@ import VueClipboard from 'vue-clipboard2'
 import {jumpTo} from '@/utils/routerUtils'
 import commonPlugin from '@/plugins/common'
 import VueRx from 'vue-rx'
+import _ from 'lodash'
 
 
 Vue.config.productionTip = false;
@@ -27,6 +28,7 @@ Vue.prototype.$themes = store.state.style.themes;
 Vue.prototype.$apps = store.state.apps;
 Vue.prototype.$jumpTo = jumpTo;
 Vue.prototype.$routeState = store.state.routeState;
+Vue.prototype.$loda = _;
 
 Vue.prototype.$axios = axios;
 
