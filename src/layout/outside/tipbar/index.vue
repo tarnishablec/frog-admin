@@ -51,7 +51,7 @@
 			width: 50px;
 			position: absolute;
 			right: 100%;
-			top: 250px;
+			bottom: 100px;
 			border-radius: 6px 0 0 6px;
 			color: white;
 			text-align: center;

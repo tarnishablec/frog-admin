@@ -4,13 +4,16 @@
 		<div style="border: 1px solid grey;padding: 10px;border-radius: 5px">
 			<div style="margin-bottom: 20px">
 				<div>Debounce Input</div>
-				<fx-debounce-input :debounce-time="300" v-model="input"/>
+				<fx-debounce-input :debounce-time="300" v-model="input" title="Input:"/>
 				<br>
 				v-model: {{input}}
 			</div>
 			<div>
 				<div>Normal Input</div>
-				<el-input v-model="eli"/>
+				<div>
+					Input:&nbsp&nbsp&nbsp
+					<el-input v-model="eli"/>
+				</div>
 				<br>
 				v-model: {{eli}}
 			</div>
