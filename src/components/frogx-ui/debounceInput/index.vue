@@ -48,9 +48,10 @@
 		position: relative;
 		display: inline-flex;
 		align-items: center;
+		vertical-align: middle;
 
 		span {
-			margin-right: 1rem;
+			margin-right: 0.8rem;
 		}
 
 		input {
