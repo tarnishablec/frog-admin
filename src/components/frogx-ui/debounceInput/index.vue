@@ -1,9 +1,9 @@
 <template>
 	<label class="fx-debounce-input">
-		<span v-if="title">{{title}}</span>
+		<span v-if="title" :style="`margin-right:${titleMargin}`">{{title}}</span>
 		<input v-bind="$attrs" :value="value" v-stream:input="input$"
 		       @focus="isFocus = true" @blur="isFocus = false"
-		       :class="{'is-focus':isFocus}"/>
+		       :class="{'is-focus':isFocus}" :style="`max-width:${width}`" style="margin-right: auto"/>
 	</label>
 </template>
 
@@ -19,6 +19,8 @@
 			},
 			value: null,
 			title: null,
+			width: null,
+			titleMargin: null
 		},
 		data() {
 			return {
