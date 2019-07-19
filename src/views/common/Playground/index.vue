@@ -1,10 +1,19 @@
 <template>
 	<section id="playground">
 		<h1>Playground</h1>
-		<div>
-			<fx-debounce-input :debounce-time="1000" v-model="input"/>
-			<br>
-			{{input}}
+		<div style="border: 1px solid grey;padding: 10px;border-radius: 5px">
+			<div style="margin-bottom: 20px">
+				<div>Debounce Input</div>
+				<fx-debounce-input :debounce-time="300" v-model="input"/>
+				<br>
+				v-model: {{input}}
+			</div>
+			<div>
+				<div>Normal Input</div>
+				<el-input v-model="eli"/>
+				<br>
+				v-model: {{eli}}
+			</div>
 		</div>
 	</section>
 </template>
