@@ -1,5 +1,6 @@
 <template>
-	<fr-table :data="commentData" :columns="columns" alignment="center" show-overflow-tooltip index/>
+	<fr-table v-loading="$asyncComputed.commentData.updating" :data="commentData" :columns="columns" alignment="center"
+	          show-overflow-tooltip index pagination/>
 </template>
 
 <script>
