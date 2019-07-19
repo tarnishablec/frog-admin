@@ -25,7 +25,7 @@
 				isFocus: false,
 			}
 		},
-		domStreams: ['input$', 'focus$', 'blur$'],
+		domStreams: ['input$'],
 		subscriptions() {
 			return {
 				state$: this.input$.pipe(
