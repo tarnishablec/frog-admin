@@ -2,7 +2,7 @@
 	<section id="playground">
 		<h1>Playground</h1>
 		<div>
-			<fx-search-input :debounce-time="1000" v-model="input"/>
+			<fx-debounce-input :debounce-time="1000" v-model="input"/>
 			<br>
 			{{input}}
 		</div>
@@ -11,11 +11,11 @@
 
 <script>
 
-	import FxSearchInput from "@/components/frogx-ui/debounceInput/index";
+	import fxDebounceInput from "@/components/frogx-ui/debounceInput/index";
 
 	export default {
 		name: "playground",
-		components: {FxSearchInput},
+		components: {fxDebounceInput},
 		data() {
 			return {
 				input: 'cyh',
