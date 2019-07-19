@@ -14,7 +14,7 @@
 		props: {
 			debounceTime: {
 				type: Number,
-				default: 0,
+				default: 300,
 			},
 			value: null,
 		},
