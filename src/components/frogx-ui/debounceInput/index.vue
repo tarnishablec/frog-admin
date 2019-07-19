@@ -8,7 +8,7 @@
 	import {pluck, debounceTime, map, distinctUntilChanged} from 'rxjs/operators'
 
 	export default {
-		name: "fxSearchInput",
+		name: "debounceInput",
 		props: {
 			debounceTime: {
 				type: Number,

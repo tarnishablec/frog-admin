@@ -11,7 +11,7 @@
 
 <script>
 
-	import FxSearchInput from "@/components/frogx-ui/searchInput/index";
+	import FxSearchInput from "@/components/frogx-ui/debounceInput/index";
 
 	export default {
 		name: "playground",
