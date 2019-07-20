@@ -8,7 +8,7 @@
 </template>
 
 <script>
-	import {pluck, debounceTime, map, distinctUntilChanged} from 'rxjs/operators'
+	import {pluck, debounceTime, distinctUntilChanged} from 'rxjs/operators'
 
 	export default {
 		name: "fxDebounceInput",
@@ -35,7 +35,6 @@
 					debounceTime(Number(this.debounceTime)),
 					distinctUntilChanged(),
 				),
-
 			}
 		},
 		mounted() {
