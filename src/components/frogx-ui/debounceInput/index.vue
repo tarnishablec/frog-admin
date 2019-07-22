@@ -2,13 +2,13 @@
 	<label class="fx-debounce-input">
 		<span v-if="title" :style="`margin-right:${titleMargin}`">{{title}}</span>
 		<input v-bind="$attrs" :value="value" v-stream:input="input$"
-					 @focus="isFocus = true" @blur="isFocus = false"
-					 :class="{'is-focus':isFocus}" :style="`max-width:${width}`" style="margin-right: auto"/>
+		       @focus="isFocus = true" @blur="isFocus = false"
+		       :class="{'is-focus':isFocus}" :style="`max-width:${width}`" style="margin-right: auto"/>
 	</label>
 </template>
 
 <script>
-	import {pluck, debounceTime, distinctUntilChanged} from 'rxjs/operators'
+	import {pluck, debounceTime, distinctUntilChanged, tap} from 'rxjs/operators'
 
 	export default {
 		name: "fxDebounceInput",
@@ -34,12 +34,10 @@
 					pluck('event', 'target', 'value'),
 					debounceTime(Number(this.debounceTime)),
 					distinctUntilChanged(),
+					tap(v => this.$emit('input', v))
 				),
 			}
 		},
-		mounted() {
-			this.$observables.state$.subscribe(v => this.$emit('input', v));
-		}
 	}
 </script>
 
