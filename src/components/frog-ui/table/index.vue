@@ -7,7 +7,7 @@
 			                 :key="getColumnName(column)"
 			                 :width="column.width"
 			                 :show-overflow-tooltip="showOverflowTooltip"
-			                 :align="align"/>
+			                 :align="alignment"/>
 			<slot name="back"/>
 		</el-table>
 		<el-pagination v-if="pagination" :total="data?data.length:0" @current-change="currentChange"
@@ -30,7 +30,7 @@
 					return [];
 				}
 			},
-			align: {
+			alignment: {
 				type: String,
 				default: 'center',
 			},
