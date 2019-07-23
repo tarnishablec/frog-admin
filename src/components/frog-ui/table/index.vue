@@ -3,6 +3,7 @@
 		<el-table :data="showData" v-bind="$attrs" v-on="$listeners">
 			<slot name="front"/>
 			<el-table-column v-if="index" type="index" align="center" :index="indexMethod"/>
+			<slot/>
 			<el-table-column v-for="column in columns" :prop="getColumnProp(column)" :label="getColumnName(column)"
 			                 :key="getColumnName(column)"
 			                 :width="column.width"
