@@ -1,13 +1,14 @@
 <template>
 	<div class="fr-table" :class="{'table-ellipsis-header':tableEllipsisHeader}">
 		<el-table :data="showData" v-bind="$attrs" v-on="$listeners">
+			<slot name="front"/>
 			<el-table-column v-if="index" type="index" align="center" :index="indexMethod"/>
 			<el-table-column v-for="column in columns" :prop="getColumnProp(column)" :label="getColumnName(column)"
 			                 :key="getColumnName(column)"
 			                 :width="column.width"
 			                 :show-overflow-tooltip="$attrs['show-overflow-tooltip']"
 			                 :align="$attrs.alignment"/>
-			<slot/>
+			<slot name="back"/>
 		</el-table>
 		<el-pagination v-if="pagination" :total="data?data.length:0" @current-change="currentChange"
 		               :page-size.sync="pageSize"
