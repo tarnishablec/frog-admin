@@ -6,8 +6,8 @@
 			<el-table-column v-for="column in columns" :prop="getColumnProp(column)" :label="getColumnName(column)"
 			                 :key="getColumnName(column)"
 			                 :width="column.width"
-			                 :show-overflow-tooltip="$attrs['show-overflow-tooltip']"
-			                 :align="$attrs.alignment"/>
+			                 :show-overflow-tooltip="showOverflowTooltip"
+			                 :align="align"/>
 			<slot name="back"/>
 		</el-table>
 		<el-pagination v-if="pagination" :total="data?data.length:0" @current-change="currentChange"
@@ -30,10 +30,15 @@
 					return [];
 				}
 			},
+			align: {
+				type: String,
+				default: 'center',
+			},
 			pageSize: {
 				type: Number,
 				default: 20,
 			},
+			showOverflowTooltip: Boolean,
 			pagination: Boolean,
 			tableEllipsisHeader: Boolean,
 		},
