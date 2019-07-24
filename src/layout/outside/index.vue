@@ -1,5 +1,6 @@
 <template>
 	<div class="outside">
+		<modal/>
 		<toolbar/>
 		<app-main/>
 		<tipbar/>
@@ -10,10 +11,11 @@
 	import Toolbar from "@/layout/outside/toolbar/index";
 	import AppMain from "@/layout/outside/appMain/index";
 	import tipbar from "@/layout/outside/tipbar/index";
+	import Modal from "@/layout/outside/modal";
 
 	export default {
 		name: "outside",
-		components: {tipbar, AppMain, Toolbar}
+		components: {Modal, tipbar, AppMain, Toolbar}
 	}
 </script>
 
