@@ -52,10 +52,10 @@ export const fullRouter = fullRoutes;
 const _router = initRoutes(fullRouter);
 
 _router.beforeEach(((to, from, next) => {
+	console.log(to);
 	if (to.matched.length > 0) {
 		next();
-	}
-	else {
+	} else {
 		let pathArray = pathToArray(to.path);
 		if (!routeEureka(pathArray, fullRouter)) {
 			next('/error/404')
