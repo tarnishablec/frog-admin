@@ -6,7 +6,7 @@ module.exports = {
 		'resize-detector'
 	],
 	publicPath: process.env.NODE_ENV === 'production'
-		? '/frog-admin/'
+		? './'
 		: '/',
 	chainWebpack: (config) => {
 		config.resolve.alias

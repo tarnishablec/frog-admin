@@ -1,0 +1,8 @@
+version: '3.1'
+services:
+  frog-admin:
+    build: .
+    container_name: "frog-admin"
+    ports:
+      - 24601:9632
+    restart: always
